@@ -17,6 +17,8 @@
 
 body {
   background-image: url("../Ressources/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1 {
