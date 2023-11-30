@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "baloo-regular";
+  src: url("../font/BalooBhaijaan-Regular.ttf");
+}
+@font-face {
+  font-family: "roboto-medium";
+  src: url("../font/Roboto-Medium.ttf");
+}
+@font-face {
+  font-family: "roboto-mono medium";
+  src: url("../font/RobotoMono-Medium.ttf");
+}
+@font-face {
+  font-family: "roboto-mono regular";
+  src: url("../font/RobotoMono-Regular.ttf");
+}
