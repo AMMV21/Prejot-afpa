@@ -14,3 +14,13 @@
   font-family: "roboto-mono regular";
   src: url("../font/RobotoMono-Regular.ttf");
 }
+
+body {
+  background-image: url("../Ressources/background.jpg");
+}
+
+h1 {
+  font-family: "baloo-regular";
+  font-size: 2.188rem;
+  color: #AD033A;
+}
