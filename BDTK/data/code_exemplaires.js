@@ -27,7 +27,6 @@
      * @returns un tableau
      */
     function remplirNewTab() {
-        let tNewAlbums = [];
         for (let i = 0; i <= 29; i++) {
             tNewAlbums.push(tAlbums[i]);
         }   return tNewAlbums;

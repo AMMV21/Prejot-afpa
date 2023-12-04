@@ -11,13 +11,13 @@ btnRechercher.addEventListener("click",function(){
 
 
 function rechercheEx(){
-   let codeSaisi= codeEx.value; 
+   let codeSaisi = codeEx.value; 
    for (let key of Exemplaire.keys()){
-        if (codeSaisi === Exemplaire.get(key).codeExemplaire ){
+        if (codeSaisi.toUpperCase() === Exemplaire.get(key).codeExemplaire ){
         idRef1.innerText = "Code exemplaire = " + Exemplaire.get(key).codeExemplaire + " Titre = " + Exemplaire.get(key).titre + " Auteur = " + Exemplaire.get(key).Auteur; 
         break;
     } else {
-        idRef1.innerText = "Le Code exemplaire n'est pas correct";
+        idRef1.innerText = "Le Code exemplaire ne correspond à aucune référence";
     }
- }  return idRef1.innerText
+ }  
 }
