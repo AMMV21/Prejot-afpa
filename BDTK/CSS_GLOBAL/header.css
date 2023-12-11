@@ -1,0 +1,24 @@
+/*TopBar*/
+#topBar
+{
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    background-color: #AD033A;
+    font-family: 'roboto-regular','sans-serif';
+    font-size: 0.8em;
+}
+
+/*Navigation*/
+#navigation>ul
+{
+    display: flex;
+    height: 10%;
+    border: 2px solid black;
+}
+
+#navLogo
+{
+    width: 20%;
+    height: 100%;
+}
