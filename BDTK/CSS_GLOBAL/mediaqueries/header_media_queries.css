@@ -1,0 +1,70 @@
+@media  screen and (max-width : 1000px) {
+    #topBar
+    {
+        font-size: 0.7em;
+    }
+    #logoLink
+    {
+        width: 8%;
+    }
+
+    #navList
+    {
+        width: 60%;
+    }
+    
+    #navigationList>li>a
+    {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 800px){
+
+    #logoLink
+    {
+        width: 9%;
+    }
+
+    #navList
+    {
+        width: 70%;
+    }
+
+    #navigationList>li>a
+    {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width : 700px) {
+    .mobileHidden
+    {
+        display: none;
+    }
+    #logoLink
+    {
+        width: 11%;
+    }
+}
+
+@media screen and (max-width : 500px)
+{
+    #topBar>p:not(#login)
+    {
+        display: none;
+    }
+    #logoLink
+    {
+        display: none;
+    }
+
+    #navList
+    {
+        width: 100%;
+        font-size: 0.8em;
+        padding: 0;
+    }
+
+
+}
