@@ -4,35 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS_GLOBAL/css_global.css">
+    <link rel="stylesheet" href="./CSS_GLOBAL/header.css">
+    <link rel="stylesheet" href="./CSS_GLOBAL/mediaqueries/header_media_queries.css">
     <link rel="stylesheet" href="./BD/CSS/recherch_pret.css">
     <title>Rechercher un prêt</title>
 </head>
 <body>
-    <div class="container_Rech_Ex">
-        <h1>Enregistrer un prêt</h1>
-        <form action="">
-            <div class="infosEx_Ad">
-                <label for="codeEx"> Entrez le code exemplaire :</label>
-                <input type="text" name="codeEx" id="codeEx" minlength="4" maxlength="4" required="required" placeholder="Ex: A000">
-            </div>
-           <div class="infosEx_Ad">
-                <label for="nomAdherant"> Saisissez le numéro adhérent :</label>
-                <input type="text" name="nomAdherant" id="nomAdherant" required="required">
-            </div>  
-            <button id="btnRechercher">Rechercher</button>
-        </form>
-    </div>
-
-    <!-- Test de la recherche des références pas-->
-    <div class="container_Rech_Ex">
-          <span id="idRef1">Resultat</span>
-    </div>
+    <header>
+        <div id="topBar">
+            <p><span class="mobileHidden">Votre bédéthéque vous accueil</span> Du lundi au samedi de 9h à 19h</p>
+            <p>20 place du théatre 59056 Marmusote</p>
+            <p id="login">Se Connecter</p>
+        </div>
+        <nav id="navigation">
+            <a href="./index.html" id="logoLink"><img id="navLogo" src="./Ressources/icone-BDTK.png" alt="logo"></a>
+            <ul id="navList">
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a href="">Emprunts</a></li>
+                <li><a href="">Adhérants</a></li>
+                <li><a href="">Ajouter BD</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container_Rech_Ex">
+            <h1>Enregistrer un prêt</h1>
+            <form action="">
+                <div class="infosEx_Ad">
+                    <label for="codeEx"> Entrez le code exemplaire :</label>
+                    <input type="text" name="codeEx" id="codeEx" minlength="4" maxlength="4" required="required" placeholder="Ex: A000">
+                    <span id="zoneErrCodeEx" ></span>
+                </div>
+                <div class="infosEx_Ad">
+                    <label for="numAdherant"> Saisissez le numéro adhérent :</label>
+                    <input type="text" name="nomAdherant" id="numAdherant" minlength="1" maxlength="2" required="required" placeholder="Ex: 00">
+                    <span id="zoneErrNumAdh" ></span>
+                </div>  
+                <button type="button" id="btnRechercher">Rechercher</button>
+            </form>
+        </div>
+        <!-- Test de la recherche des références pas-->
+        <div class="container_Rech_Ex">
+            <span id="idRef1"></span>
+            <span id="idRef2"></span>
+        </div>
+    </main>
 
     <script src="./data/albums.js"></script>
     <script src="./data/series.js"></script>
     <script src="./data/auteurs.js"></script>
    <!-- <script src="/js/modeleBD.js"></script> -->
     <script src="./data/code_exemplaires.js"></script>
+    <script src="./data/adherents.js"></script>
     <script src="./BD/JS/recherche_exemplaire.js"></script>
+
 </body>
 </html>
