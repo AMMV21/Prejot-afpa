@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS_GLOBAL/css_global.css">
+    <link rel="stylesheet" href="/BD/CSS/recherch_pret.css">
+    <title>Rechercher un prêt</title>
+</head>
+    <div class="container_Rech_Ex">
+        <h1>Enregistrer un prêt</h1>
+        <form action="">
+            <div class="infosEx_Ad">
+                <label for="codeEx"> Entrez le code exemplaire :</label>
+                <input type="text" name="codeEx" id="codeEx" minlength="4" maxlength="4" required="required" placeholder="Ex: A000">
+            </div>
+           <div class="infosEx_Ad">
+                <label for="nomAdherant"> Saisissez le numéro adhérent :</label>
+                <input type="text" name="nomAdherant" id="nomAdherant" required="required">
+            </div>  
+            <button id="btnRechercher">Rechercher</button>
+        </form>
+    </div>
+
+    <!-- Test de la recherche des références pas-->
+    <div class="container_Rech_Ex">
+          <span id="idRef1">Resultat</span>
+    </div>
+
+<body>
+    <script src="/data/albums.js"></script>
+    <script src="/data/series.js"></script>
+    <script src="/data/auteurs.js"></script>
+   <!-- <script src="/js/modeleBD.js"></script> -->
+    <script src="/data/code_exemplaires.js"></script>
+    <script src="/BD/JS/recherche_exemplaire.js"></script>
+</body>
+</html>
