@@ -16,19 +16,31 @@ let conditionSaisiCodeEx = /^[A-Za-z]\d{3}$/ ; // Ma regexp demande une lettre s
 let conditionSaisiNumAdh = /^\d+$/ ; // Ma regexp demande uniquement 1 ou plusieurs chiffres; 
 
 // Abbonements 
-btnRechercher.addEventListener("click",function(){
+btnRechercher.addEventListener("click",function(event){
+    event.preventDefault();
+
     idRef1.innerText = "";
     idRef2.innerText = "";
     zoneErrCodeEx.innerText= "";  // Utile pour réinitialiser à zéro les spans erreur.
     zoneErrNumAdh.innerText= "";  // Utile pour réinitialiser à zéro les spans erreur.
-    if(conditionSaisiCodeEx.test(codeEx.value) && conditionSaisiNumAdh.test(numAdh.value)){
-        rechercheEx(codeTrouvee);
-        rechercheAdh(numTrouvee);
+    
 
+    if(conditionSaisiCodeEx.test(codeEx.value) && conditionSaisiNumAdh.test(numAdh.value)){
+        codeTrouvee = rechercheEx(codeTrouvee);
+        numTrouvee = rechercheAdh(numTrouvee);
+
+            if(codeTrouvee == true && numTrouvee == true){
+                Submit(this);
+            }
     } else {
-       if(!conditionSaisiCodeEx.test(codeEx.value)){ zoneErrCodeEx.innerText = "Commence par une lettre et suivi 3 chiffres"};
-       if(!conditionSaisiNumAdh.test(numAdh.value)){zoneErrNumAdh.innerText= "Uniquement des chiffres !" }
-    }
+        if(!conditionSaisiCodeEx.test(codeEx.value)){ 
+            zoneErrCodeEx.innerText = "Commence par une lettre et suivi 3 chiffres";
+            }
+        if(!conditionSaisiNumAdh.test(numAdh.value)){
+            zoneErrNumAdh.innerText= "Uniquement des chiffres !" 
+            } 
+            event.preventDefault();
+       }
 });
 
 /**
@@ -40,11 +52,11 @@ function rechercheEx(val){
    for (let key of Exemplaire.keys()){
             if (codeSaisi.toUpperCase() === Exemplaire.get(key).codeExemplaire){
             idRef1.innerText = "Code exemplaire = " + Exemplaire.get(key).codeExemplaire + " Titre = " + Exemplaire.get(key).titre + " Auteur = " + Exemplaire.get(key).Auteur + " Série = " + Exemplaire.get(key).Serie; 
-            val = true ;
+            val = true
             break;
         } else {
             idRef1.innerText = "Le Code exemplaire ne correspond à aucune référence";
-            codeTrouvee = false
+            val = false;
         } 
     }  
 }
@@ -63,7 +75,7 @@ function rechercheAdh(val){
             break;
         } else {
             idRef2.innerText = "Le numéro adhérent ne correspond à aucun adhérent";
-            val = false ;
+            val = false;
         } 
     }  
 } 
