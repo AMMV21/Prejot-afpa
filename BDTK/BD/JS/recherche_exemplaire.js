@@ -39,7 +39,7 @@ function rechercheEx(val){
    let codeSaisi = codeEx.value; 
    for (let key of Exemplaire.keys()){
             if (codeSaisi.toUpperCase() === Exemplaire.get(key).codeExemplaire){
-            idRef1.innerText = "Code exemplaire = " + Exemplaire.get(key).codeExemplaire + " Titre = " + Exemplaire.get(key).titre + " Auteur = " + Exemplaire.get(key).Auteur; 
+            idRef1.innerText = "Code exemplaire = " + Exemplaire.get(key).codeExemplaire + " Titre = " + Exemplaire.get(key).titre + " Auteur = " + Exemplaire.get(key).Auteur + " Série = " + Exemplaire.get(key).Serie; 
             val = true ;
             break;
         } else {
@@ -67,5 +67,3 @@ function rechercheAdh(val){
         } 
     }  
 } 
-
-

@@ -48,10 +48,10 @@
        // Création d'un exemplaire avec l'attribution de son code
        exemplaireBd = Exemplaire.set(valeurCle,{codeExemplaire: codeExemplaire , titre: albums.get(valeurCle).titre, Auteur: auteurs.get(valAuteur).nom, Serie: series.get(valSerie).nom});
 
-    } return exemplaireBd;
+    }  return exemplaireBd;
    }
 
- console.log(Exemplaire);
+console.log(Exemplaire.get("1").Serie);
 console.log(Exemplaire.get("1").codeExemplaire) // Je controle est affiche un code exemplaire
 // console.log(Exemplaire.get("1").titre) // Je controle est affiche le nom
 // console.log(Exemplaire.get("1").Auteur) // Je controle est affiche l'auteur
