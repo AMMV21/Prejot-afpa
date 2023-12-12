@@ -1,0 +1,9 @@
+function addSerieFilter()
+{
+
+}
+
+function addWriterFilter()
+{
+    
+}
