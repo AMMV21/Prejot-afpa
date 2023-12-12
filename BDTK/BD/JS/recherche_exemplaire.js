@@ -44,7 +44,7 @@ function rechercheEx(val){
         } else {
             idRef1.innerText = "Le Code exemplaire ne correspond à aucune référence";
             codeTrouvee = false
-        } z
+        } 
     }  
 }
 
