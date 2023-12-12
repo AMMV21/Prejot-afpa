@@ -17,7 +17,8 @@ let conditionSaisiNumAdh = /^\d+$/ ; // Ma regexp demande uniquement 1 ou plusie
 
 // Abbonements 
 btnRechercher.addEventListener("click",function(){
-
+    idRef1.innerText = "";
+    idRef2.innerText = "";
     zoneErrCodeEx.innerText= "";  // Utile pour réinitialiser à zéro les spans erreur.
     zoneErrNumAdh.innerText= "";  // Utile pour réinitialiser à zéro les spans erreur.
     if(conditionSaisiCodeEx.test(codeEx.value) && conditionSaisiNumAdh.test(numAdh.value)){
