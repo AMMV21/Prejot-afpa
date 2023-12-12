@@ -1,6 +1,6 @@
 let gallery = document.getElementById('bdGallery');
 
-window.onload(showBD(gallery));
+window.addEventListener('load',(()=>{showBD(gallery)}));
 
 
 function showBD(div)
@@ -33,6 +33,7 @@ function createBD(div,indice)
     let newTitle = document.createElement('h1');
     let newTab= remplirNewTab();
 
+    newDiv.setAttribute('class','bdDiv');
     //valeurs pour la source de l'image
     let titleVolume = newTab[indice][1].titre;
     let numeroVolume = newTab[indice][1].numero;
@@ -41,13 +42,13 @@ function createBD(div,indice)
 
 
     //initialisation image
-    newImg.src='./Ressources/albumsMini/' +titleSerie+'-'+numeroVolume+'-'+titleVolume+'.jpg';
+    newImg.src='./Ressources/albums/' +titleSerie+'-'+numeroVolume+'-'+titleVolume+'.jpg';
 
 
    //on change le nom de la balise titre
     newTitle.textContent = titleVolume;
 
     div.appendChild(newDiv);
-    newDiv.appendChild(newImg);
     newDiv.appendChild(newTitle);
+    newDiv.appendChild(newImg);
 } 
