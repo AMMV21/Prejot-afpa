@@ -11,7 +11,7 @@ window.addEventListener('load',()=>{addWriterFilter(writerForm)});
 function addSerieFilter(div)
 {
 
-    for(let i = 0; i<30;i++)
+    for(let i = 0; i<tliste_bd.length;i++)
     {
         createSerieFilter(div,i);
     }
@@ -21,7 +21,7 @@ function addSerieFilter(div)
 function addWriterFilter(div)
 {
 
-    for(let i = 0; i<30;i++)
+    for(let i = 0; i<tliste_bd.length;i++)
     {
         createWriterFilter(div,i);
     }
@@ -33,7 +33,7 @@ function createSerieFilter(div,indice)
         newDiv.setAttribute('class','divSerieItem');
         let checkItem = document.createElement('input');
         let labelItem = document.createElement('label');
-        let valSerie = newTab[indice][1].idSerie;
+        let valSerie = tliste_bd[indice][1].idSerie;
         let serieTitle = series.get(valSerie).nom;
 
         //on verifie si la série est déjà présente
@@ -62,7 +62,7 @@ function createWriterFilter(div,indice)
         newDiv.setAttribute('class','divSerieItem');
         let checkItem = document.createElement('input');
         let labelItem = document.createElement('label');
-        let valWriter = newTab[indice][1].idAuteur;
+        let valWriter = tliste_bd[indice][1].idAuteur;
         let writerName = auteurs.get(valWriter).nom;
 
         //on verifie si la série est déjà présente
@@ -79,10 +79,11 @@ function createWriterFilter(div,indice)
             newDiv.appendChild(checkItem);
             newDiv.appendChild(labelItem);
 
-            checkItem.addEventListener('click', (e)=>{addEventCheckWriter(e)})
+            checkItem.addEventListener('click', (e)=>{addEventCheckWriter(e)});
+            labelItem.textContent = labelItem.textContent.replaceAll(',',' ');
         }
 
-        labelItem.textContent = labelItem.textContent.replaceAll(',',' ');
+        
     
 
 }
@@ -96,11 +97,16 @@ function addEventCheckSerie(event)
     if(item.checked)
     {
         tSerieChecked.push(item.value);
+        removeAllChild(gallery);
+        showBD(gallery);
     }
     else
     {
         i = tSerieChecked.indexOf(item.value);
-        delete tSerieChecked[i];
+        tSerieChecked = arrayRemove(tSerieChecked, item.value);
+        
+        removeAllChild(gallery);
+        showBD(gallery);
     }
 }
 
@@ -112,13 +118,22 @@ function addEventCheckWriter(event)
     if(item.checked)
     {
         tWriterChecked.push(item.value);
+        removeAllChild(gallery);
         showBD(gallery);
     }
     else
     {
-        i = tWriterChecked.indexOf(item);
-        delete tWriterChecked[i];
+        i = tWriterChecked.indexOf(item.value);
+        tWriterChecked = arrayRemove(tWriterChecked, item.value);
         
+        removeAllChild(gallery);
         showBD(gallery);
     }
+}
+
+function arrayRemove(arr, value) { 
+    
+    return arr.filter(function(ele){ 
+        return ele != value; 
+    });
 }

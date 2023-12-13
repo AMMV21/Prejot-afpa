@@ -1,9 +1,7 @@
 //ajout de la div receptrice de la création
 let gallery = document.getElementById('bdGallery');
 
-//on utilise la fonction se trouvant: ./data/code_exemplaires.js ligne 20
-let newTab= remplirNewTab(); //fonction permettant de créer un tableau et stocker des elements map qui nous seront utile plus tard
-//rename le tableau
+
 //on effectue l'action au chargement de la page
 window.addEventListener('load',(()=>{showBD(gallery)}));
 
@@ -11,11 +9,11 @@ window.addEventListener('load',(()=>{showBD(gallery)}));
  * la fonction permet d'afficher la liste des BD
  * @param {div}  la div dans laquelle ajouter les nouvelle balises 
  */
-function showBD(div)
+function showBD(div,)
 {
 
     //on créer autant de div qu'on a de BD (30 pour le projet)
-    for(let i = 0; i<30; i++)
+    for(let i = 0; i<tliste_bd.length; i++)
     {
         createBD(div,i)   
     }
@@ -43,24 +41,40 @@ function createBD(div,indice)
     //initialisation des div à créer
     let newDiv = document.createElement('div');
     let newImg = document.createElement('img');
-    let newTitle = document.createElement('h1');
+    let newSerieTitle = document.createElement('h1');
+    let newTitle = document.createElement('h2');
 
     newDiv.setAttribute('class','bdDiv');
-    //valeurs pour la source de l'image
-    let titleVolume = newTab[indice][1].titre;
-    let numeroVolume = newTab[indice][1].numero;
-    let valSerie = newTab[indice][1].idSerie;
+    
+    //scenario nominale
+    let titleVolume = tliste_bd[indice][1].titre;
+    let numeroVolume = tliste_bd[indice][1].numero;
+    let valSerie = tliste_bd[indice][1].idSerie;
     let titleSerie = series.get(valSerie).nom;
+    let valAuthor = tliste_bd[indice][1].idAuteur;
+    let nameAuthor = auteurs.get(valAuthor).nom;
 
+    console.log(titleSerie);
+    console.log(nameAuthor);
 
-    //initialisation image
-    newImg.src='./Ressources/albums/' +titleSerie+'-'+numeroVolume+'-'+titleVolume+'.jpg';
+    if(tSerieChecked.length === 0 || tSerieChecked.includes(titleSerie))
+    {
+    
+        if(tWriterChecked.length === 0 || tWriterChecked.includes(nameAuthor))
+        {
+            //initialisation image
+            newImg.src='./Ressources/albums/' +titleSerie+'-'+numeroVolume+'-'+titleVolume+'.jpg';
+            
+            //on change le nom de la balise titre
+            newTitle.textContent = titleVolume;
+            newSerieTitle.textContent = titleSerie;
 
+            div.appendChild(newDiv);
+            newDiv.appendChild(newSerieTitle);
+            newDiv.appendChild(newTitle);
+            newDiv.appendChild(newImg);
+        }
+    }
 
-   //on change le nom de la balise titre
-    newTitle.textContent = titleVolume;
-
-    div.appendChild(newDiv);
-    newDiv.appendChild(newTitle);
-    newDiv.appendChild(newImg);
+    
 } 

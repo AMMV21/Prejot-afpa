@@ -13,5 +13,6 @@ console.log(typeof(tliste_bd));
     function remplirNewTab() {
         for (let i = 0; i <= 29; i++) {
             tNewAlbums.push(tAlbums[i]);
-        }   return tNewAlbums;
+        }  
+        return tNewAlbums;
     }
