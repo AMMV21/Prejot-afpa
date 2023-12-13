@@ -16,6 +16,7 @@
     justify-content: space-between;
     border-bottom: 1px solid #31AFA0 ;
     background-color: white;
+    height: 80px;
 }
 #navList
 {
@@ -29,7 +30,7 @@
 /*on regle la taille de l'image/link*/
 #logoLink
 {
-    width: 7%; 
+    width: 80px; 
     margin-left: 5%;
 }
 #navLogo

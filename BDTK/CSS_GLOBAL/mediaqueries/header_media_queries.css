@@ -3,10 +3,6 @@
     {
         font-size: 0.7em;
     }
-    #logoLink
-    {
-        width: 8%;
-    }
 
     #navList
     {
@@ -20,11 +16,6 @@
 }
 
 @media screen and (max-width: 800px){
-
-    #logoLink
-    {
-        width: 9%;
-    }
 
     #navList
     {
@@ -41,10 +32,6 @@
     .mobileHidden
     {
         display: none;
-    }
-    #logoLink
-    {
-        width: 11%;
     }
 }
 

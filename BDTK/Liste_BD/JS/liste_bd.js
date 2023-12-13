@@ -9,13 +9,21 @@ window.addEventListener('load',(()=>{showBD(gallery)}));
  * la fonction permet d'afficher la liste des BD
  * @param {div}  la div dans laquelle ajouter les nouvelle balises 
  */
-function showBD(div,)
+function showBD(div)
 {
 
     //on créer autant de div qu'on a de BD (30 pour le projet)
     for(let i = 0; i<tliste_bd.length; i++)
     {
         createBD(div,i)   
+    }
+    //a la fin de la boucle, si aucune div n'a était créer, on informe du manque de BD
+    if(!div.hasChildNodes())
+    {
+        let noneBd = document.createElement('span');
+        div.appendChild(noneBd);
+        noneBd.textContent = "Aucune BD n'a était trouvée";
+        noneBd.setAttribute('class','error');
     }
 }
 
@@ -46,7 +54,7 @@ function createBD(div,indice)
 
     newDiv.setAttribute('class','bdDiv');
     
-    //scenario nominale
+    //on récupere les infos des BD
     let titleVolume = tliste_bd[indice][1].titre;
     let numeroVolume = tliste_bd[indice][1].numero;
     let valSerie = tliste_bd[indice][1].idSerie;
@@ -54,14 +62,13 @@ function createBD(div,indice)
     let valAuthor = tliste_bd[indice][1].idAuteur;
     let nameAuthor = auteurs.get(valAuthor).nom;
 
-    console.log(titleSerie);
-    console.log(nameAuthor);
-
     if(tSerieChecked.length === 0 || tSerieChecked.includes(titleSerie))
     {
-    
+        //si aucun filtre série OU si la série actuelle coresspond au filtre
         if(tWriterChecked.length === 0 || tWriterChecked.includes(nameAuthor))
         {
+            //si aucun filtre auteur OU si l'auteur actuil correspond au filtre
+
             //initialisation image
             newImg.src='./Ressources/albums/' +titleSerie+'-'+numeroVolume+'-'+titleVolume+'.jpg';
             
@@ -74,6 +81,7 @@ function createBD(div,indice)
             newDiv.appendChild(newTitle);
             newDiv.appendChild(newImg);
         }
+        
     }
 
     
