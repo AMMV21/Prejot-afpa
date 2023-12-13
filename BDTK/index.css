@@ -13,6 +13,10 @@ p
     display: block;
     font-family: 'roboto-regular','sans-serif';
 }
+label:hover
+{
+    font-weight: bold;
+}
 
 /*--------sRecherche--------------*/
 #searchNavigation

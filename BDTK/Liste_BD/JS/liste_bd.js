@@ -3,7 +3,7 @@ let gallery = document.getElementById('bdGallery');
 
 //on utilise la fonction se trouvant: ./data/code_exemplaires.js ligne 20
 let newTab= remplirNewTab(); //fonction permettant de créer un tableau et stocker des elements map qui nous seront utile plus tard
-
+//rename le tableau
 //on effectue l'action au chargement de la page
 window.addEventListener('load',(()=>{showBD(gallery)}));
 
@@ -13,7 +13,6 @@ window.addEventListener('load',(()=>{showBD(gallery)}));
  */
 function showBD(div)
 {
-    removeAllChild(div); //on reinitialise la div
 
     //on créer autant de div qu'on a de BD (30 pour le projet)
     for(let i = 0; i<30; i++)
