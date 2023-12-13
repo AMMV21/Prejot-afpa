@@ -5,50 +5,29 @@
         var  valAuteur = "";
         var  valSerie = "";
         var exemplaireBd = "";
-        let tNewAlbums = [];
 
-    // ******* PROGRAMME PRINCIPAL ******* 
-
-    // Remplir un tableau avec le contenu de la Map Album
-    let tAlbums = Array.from(albums);
-console.log(tAlbums);
-
-    // Créer un nouveau tableau qui contient uniquement les 30 premiers Albums
-    // Appel de la fonction
-    let tliste_bd = remplirNewTab();
-console.log(tliste_bd); // Contrôle de l'état du tableau
     let MapExemplaire = creerMapExemplaires();
 
     // *********** MES FONCTIONS **************
-    
-    /**
-     * La fonction rempli un nouveau tableau uniquement avec 30 références
-     * @returns un tableau
-     */
-    function remplirNewTab() {
-        for (let i = 0; i <= 29; i++) {
-            tNewAlbums.push(tAlbums[i]);
-        }   return tNewAlbums;
-    }
-
+ 
     /**
      * Le programme me permet de créer un code exemplaire à chaque boucle et ainsi de créer et récuperer le titre, nom, série
-     * @returns 
+     * @returns chaine de caractères
      */
     function creerMapExemplaires(){   
        for (let i=0 ; i<=29 ;i++){
-       valeurCle = tliste_bd[i][0]; // NUMERO DE LA CLE ( reste à ajouter le titre)
-       valAuteur = tliste_bd[i][1].idAuteur; // ID DE L'AUTEUR (reste à ajouter le nom)
-       valSerie = tliste_bd[i][1].idSerie; // ID DE LA SERIE (reste à ajouter le nom)
+            valeurCle = tliste_bd[i][0]; // NUMERO DE LA CLE ( reste à ajouter le titre)
+            valAuteur = tliste_bd[i][1].idAuteur; // ID DE L'AUTEUR (reste à ajouter le nom)
+            valSerie = tliste_bd[i][1].idSerie; // ID DE LA SERIE (reste à ajouter le nom)
 
-       let codeExemplaire = 0;
-       codeExemplaire = (i < 10) ? "A00" + i : "A0" + i;
+            let codeExemplaire = 0;
+            codeExemplaire = (i < 10) ? "A00" + i : "A0" + i;
 
-       // Création d'un exemplaire avec l'attribution de son code
-       exemplaireBd = Exemplaire.set(valeurCle,{codeExemplaire: codeExemplaire , titre: albums.get(valeurCle).titre, Auteur: auteurs.get(valAuteur).nom, Serie: series.get(valSerie).nom});
+            // Création d'un exemplaire avec l'attribution de son code
+            exemplaireBd = Exemplaire.set(valeurCle,{codeExemplaire: codeExemplaire , titre: albums.get(valeurCle).titre, Auteur: auteurs.get(valAuteur).nom, Serie: series.get(valSerie).nom});
 
-    }  return exemplaireBd;
-   }
+        }  return exemplaireBd;
+    }
 
 //console.log(Exemplaire.get("1").Serie);
 //console.log(Exemplaire.get("1").codeExemplaire) // Je controle est affiche un code exemplaire
