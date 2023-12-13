@@ -15,6 +15,7 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #31AFA0 ;
+    background-color: white;
 }
 #navList
 {
