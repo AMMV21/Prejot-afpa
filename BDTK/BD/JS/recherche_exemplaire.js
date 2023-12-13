@@ -1,11 +1,20 @@
 // Recuperation des elements HTML 
-let idRef1 = document.getElementById("idRef1");
-let idRef2 = document.getElementById("idRef2");
 let btnRechercher = document.getElementById("btnRechercher");
 let codeEx = document.getElementById("codeEx");
 let numAdh = document.getElementById("numAdherant");
 let zoneErrCodeEx = document.getElementById('zoneErrCodeEx');
-let zoneErrNumAdh = document.getElementById('zoneErrNumAdh');
+let zoneErrNumAdh = document.getElementById('zoneErrNumAdh'); 
+
+let zoneCodeExemplaire = document.getElementById('zoneCodeExemplaire');
+let zoneTitre = document.getElementById('zoneTitre');
+let zoneAuteur = document.getElementById('zoneAuteur');
+let zoneSerie = document.getElementById('zoneSerie');
+
+let zoneNom = document.getElementById('zoneNom');
+let zonePrenom = document.getElementById('zonePrenom');
+
+let validerPret = document.getElementById('validerPret');
+let rechercheInfos = document.getElementById('rechercheInfos');
 
 // Initialisation des variables 
 let codeTrouvee = false ;   
@@ -16,10 +25,13 @@ let conditionSaisiCodeEx = /^[A-Za-z]\d{3}$/ ; // Ma regexp demande une lettre s
 let conditionSaisiNumAdh = /^\d+$/ ; // Ma regexp demande uniquement 1 ou plusieurs chiffres; 
 
 // Abbonements 
-btnRechercher.addEventListener("click",function(){
+btnRechercher.addEventListener("click",function(){ 
+    
+    zoneCodeExemplaire.innerText = "";
+    zoneTitre.innerText = "";
+    zoneAuteur.innerText = "";
+    zoneSerie.innerText = "";
 
-    idRef1.innerText = "";
-    idRef2.innerText = "";
     zoneErrCodeEx.innerText= "";  // Utile pour réinitialiser à zéro les spans erreur.
     zoneErrNumAdh.innerText= "";  // Utile pour réinitialiser à zéro les spans erreur.
 
@@ -29,7 +41,6 @@ if(conditionSaisiCodeEx.test(codeEx.value) && conditionSaisiNumAdh.test(numAdh.v
  
 
             if(codeTrouvee == true && numTrouvee == true){
-              console.log("infosOK");
             }
             } else {
                 if(!conditionSaisiCodeEx.test(codeEx.value)){ 
@@ -50,12 +61,19 @@ function rechercheEx() {
     let codeSaisi = codeEx.value;
     for (let key of Exemplaire.keys()) {
         if (codeSaisi.toUpperCase() === Exemplaire.get(key).codeExemplaire) {
-            idRef1.innerText = "Code exemplaire = " + Exemplaire.get(key).codeExemplaire + " Titre = " + Exemplaire.get(key).titre + " Auteur = " + Exemplaire.get(key).Auteur + " Série = " + Exemplaire.get(key).Serie;
+            zoneCodeExemplaire.innerText = Exemplaire.get(key).codeExemplaire ;
+            zoneTitre.innerText = Exemplaire.get(key).titre ;
+            zoneAuteur.innerText= Exemplaire.get(key).Auteur ;
+            zoneSerie.innerText = Exemplaire.get(key).Serie;
             return true; // Déplacez cette ligne ici pour sortir de la fonction après avoir trouvé une correspondance
         }
     }
     // Si la boucle se termine sans trouver de correspondance
-    idRef1.innerText = "Le Code exemplaire ne correspond à aucune référence";
+    Swal.fire({
+        icon: "error",
+        title: "Code exemplaire introuvable !",
+        text: "Veuillez saisir le code à nouveau",
+      });
     return false;
 }
 
@@ -70,12 +88,33 @@ function rechercheAdh() {
     
     for (let key of adherent.keys()) {
         if (numAdhSaisi === adherent.get(key).numeroAdherent) {
-            idRef2.innerText = "Nom = " + adherent.get(key).nom + " Prénom = " + adherent.get(key).prenom;
-            return true ;
+           // idRef2.innerText = "Numéro adhérent = " + adherent.get(key).numeroAdherent  + " Nom = " + adherent.get(key).nom + " Prénom = " + adherent.get(key).prenom + " Cotisation = " + adherent.get(key).cotisation;
+            zoneNom.innerText = adherent.get(key).nom;
+            zonePrenom.innerText = adherent.get(key).prenom;
+            
+            if (adherent.get(key).cotisation === "A jour" || adherent.get(key).emprunt >= 3){
+                validerPret.classList.remove("invisible");
+            if (adherent.get(key).cotisation === "A jour" && adherent.get(key).emprunt  <=3){
+                rechercheInfos.classList.add('invisible');
+            }
+             
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Prêt impossible !",
+                    text: "Consulter le profil adhérant pour régulariser la situation",
+                    footer: '<a href="./profilAdherents.html">Consulter le profil</a>'
+                  });
+            }
+            return true
         } 
     }
     // Si la boucle se termine sans trouver de correspondance
-    idRef2.innerText = "Le numéro adhérent ne correspond à aucun adhérent";
+    Swal.fire({
+        icon: "error",
+        title: "Ce numéro d'adhérent est introuvable !",
+        text: "Veuillez saisir le code à nouveau",
+      });
     return false
         
 

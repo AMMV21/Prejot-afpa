@@ -10,7 +10,7 @@
     <title>Rechercher un prêt</title>
 </head>
 <body>
-    <header>
+    <header style="top: 0px;right: 0px;left: 0px;">
         <div id="topBar">
             <p><span class="mobileHidden">Votre bédéthéque vous accueil</span> Du lundi au samedi de 9h à 19h</p>
             <p>20 place du théatre 59056 Marmusote</p>
@@ -27,7 +27,7 @@
         </nav>
     </header>
     <main>
-        <div class="container_Rech_Ex">
+        <div id="rechercheInfos" class="container_Rech_Ex">
             <h1>Enregistrer un prêt</h1>
             <form  action="./recherche_pret.html" method="get">
                 <div class="infosEx_Ad">
@@ -44,19 +44,26 @@
             </form>
         </div>
         <!-- Test de la recherche des références pas-->
-        <div class="container_Rech_Ex">
-            <h2>Bd trouvée :</h2>
-            <span id="idRef1"></span>
-            <h2>Adhérent trouvé :</h2>
-            <span id="idRef2"></span>
+        <div id="validerPret" class="container_Rech_Ex invisible">
+            <strong><h2>Informations sur la BD recherché :</h2></strong>
+            <div class="affichageRecherche">
+                <strong><span>Code Exemplaire :</span></strong><span id="zoneCodeExemplaire"></span><strong><span>Titre :</span></strong><span id="zoneTitre"></span><strong><span>Auteur :</span></strong><span id="zoneAuteur"></span><strong><span>Série :</span></strong><span id="zoneSerie"></span>
+            </div>
+            <strong><h2>Resultat de recherche par numéro d'adhérent :</h2></strong>
+            <div class="affichageRecherche">
+                <strong><span>Nom :</span></strong><span id="zoneNom"></span><strong><span>Prénom :</span></strong><span id="zonePrenom"></span>
+            </div>
+            <button >Prêter</button>
+        </div>
+            
         </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./data/albums.js"></script>
     <script src="./data/series.js"></script>
     <script src="./data/auteurs.js"></script>
-   <!-- <script src="/js/modeleBD.js"></script> -->
-   <script src="./Liste_BD/JS/tliste_bd.js"></script>
+    <script src="./Liste_BD/JS/tliste_bd.js"></script>
     <script src="./data/code_exemplaires.js"></script>
     <script src="./data/adherents.js"></script>
     <script src="./BD/JS/recherche_exemplaire.js"></script>
