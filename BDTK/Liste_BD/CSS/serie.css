@@ -31,10 +31,19 @@
 }
 
 
-#serieSearch>p
+#serieHeader
 {
     background-color: #31AFA0;
     color: white;
     padding: 3%;
     margin: 0;
+}
+#serieHeader:hover
+{
+    cursor: pointer;
+}
+
+.hidden
+{
+    display: none;
 }
