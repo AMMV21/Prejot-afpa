@@ -42,10 +42,7 @@
     padding: 3%;
     margin: 0;
 }
-.divSerieItem:hover
-{
-    border: 2px dotted black;
-}
+
 
 #serieHeader:hover
 {

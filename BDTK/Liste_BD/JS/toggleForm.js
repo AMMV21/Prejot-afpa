@@ -32,9 +32,9 @@ function toggleForm(event,form)
         //on cache tout les "enfants" du formulaire
         form.children[i].classList.toggle('hidden');
 
-        if(form.style.height != '300px')
+        if(form.style.height != '350px')
         {
-            form.style.height = '300px';
+            form.style.height = '350px';
         }
         else
         {
