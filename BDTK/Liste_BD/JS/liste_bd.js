@@ -49,8 +49,9 @@ function createBD(div,indice,title,exact)
     //initialisation des div à créer
     let newDiv = document.createElement('div');
     let newImg = document.createElement('img');
-    let newSerieTitle = document.createElement('h2');
-    let newTitle = document.createElement('h3');
+    let newSerieTitle = document.createElement('h3');
+    let newTitle = document.createElement('h2');
+    let newWriter = document.createElement('h4');
 
     newDiv.setAttribute('class','bdDiv');
     
@@ -77,10 +78,12 @@ function createBD(div,indice,title,exact)
                     //on change le nom de la balise titre
                     newTitle.textContent = titleVolume;
                     newSerieTitle.textContent = titleSerie;
+                    newWriter.textContent = nameAuthor;
 
                     div.appendChild(newDiv);
-                    newDiv.appendChild(newSerieTitle);
                     newDiv.appendChild(newTitle);
+                    newDiv.appendChild(newSerieTitle);
+                    newDiv.appendChild(newWriter);
                     newDiv.appendChild(newImg); 
 
                 }
@@ -94,10 +97,13 @@ function createBD(div,indice,title,exact)
                 //on change le nom de la balise titre
                 newTitle.textContent = titleVolume;
                 newSerieTitle.textContent = titleSerie;
+                newWriter.textContent = nameAuthor;
 
                 div.appendChild(newDiv);
-                newDiv.appendChild(newSerieTitle);
+                
                 newDiv.appendChild(newTitle);
+                newDiv.appendChild(newSerieTitle);
+                newDiv.appendChild(newWriter);
                 newDiv.appendChild(newImg); 
             } 
         }
