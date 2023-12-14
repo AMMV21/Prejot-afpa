@@ -9,9 +9,15 @@
     font-size: 0.8em;
 }
 
+header {
+    position: fixed;
+    padding-top: 0px;
+    
+}
+
 /*Navigation*/
 #navigation
-{
+{   
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #31AFA0 ;

@@ -1,6 +1,6 @@
 var adherent = new Map();
 adherent.set("1",{numeroAdherent:"01", nom: "Petit", prenom:"Alice", mail: "Apetit1995@hotmail.fr", codePostal: "59155 Faches-Thumesnil",adresse: "38 Rue des Coings", emprunt: "", cotisation:"A jour", amende:"0"})
-adherent.set("2",{numeroAdherent:"02", nom: "Lefevre", prenom:"Léo", mail: "LefevreL1987@outlook.fr", codePostal: "59410 Anzin",adresse: "27 Rue des Losanges", emprunt: "", cotisation:"A Jour", amende:"5"})
+adherent.set("2",{numeroAdherent:"02", nom: "Lefevre", prenom:"Léo", mail: "LefevreL1987@outlook.fr", codePostal: "59410 Anzin",adresse: "27 Rue des Losanges", emprunt: "", cotisation:"A jour", amende:"5"})
 adherent.set("3",{numeroAdherent:"03", nom: "Lemaire", prenom:"Léna", mail: "LemaireL@yahoo.com", codePostal: "59460 Jeumont",adresse: "51 Rue des Vignes", emprunt: "", cotisation:"Non à jour", amende:"0"})
 adherent.set("4",{numeroAdherent:"04", nom: "Dupuy", prenom:"Chloé", mail: "ChloéD2002@orange.fr", codePostal: "59115 Leers",adresse: "29 Rue d'Enbas", emprunt: "", cotisation:"Non à jour", amende:"13"})
 adherent.set("5",{numeroAdherent:"05", nom: "Prevost", prenom:"Florian", mail: "Floflodu59@gmail.com", codePostal: "59146 Pecquencourt",adresse: "31 Rue de l'Angle", emprunt: "", cotisation:"A jour", amende:"0"})

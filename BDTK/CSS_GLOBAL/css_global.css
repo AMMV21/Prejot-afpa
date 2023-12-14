@@ -21,6 +21,7 @@
 }
 
 body {
+  background-attachment: fixed;
   background-image: url("../Ressources/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -32,6 +33,12 @@ h1 {
   font-family: "baloo-regular";
   font-size: 2.188rem;
   color: #AD033A;
+} 
+
+h2 {
+  font-family: 'roboto-regular';
+  color: #AD033A;
+  font-size: 1.2rem;
 }
 
 button {
@@ -51,6 +58,7 @@ button:hover{
   background-color:  #31AFA0;
   transform: scale(1.05);
   transition: transform 0.5s ease;
+  cursor: pointer;
 }
 
 input{
