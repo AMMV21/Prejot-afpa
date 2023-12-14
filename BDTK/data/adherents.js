@@ -6,7 +6,7 @@ adherent.set("4",{numeroAdherent:"04", nom: "Dupuy", prenom:"Chloé", mail: "Chl
 adherent.set("5",{numeroAdherent:"05", nom: "Prevost", prenom:"Florian", mail: "Floflodu59@gmail.com", codePostal: "59146 Pecquencourt",adresse: "31 Rue de l'Angle", emprunt: "", cotisation:"A jour", amende:"0"})
 adherent.set("6",{numeroAdherent:"06", nom: "Millet", prenom:"Alexandre", mail: "Alex05@hotmail.fr", codePostal: "59221 Bauvin",adresse: "7 Rue de la Mer", emprunt: "", cotisation:"Non a jour", amende:"0"})
 adherent.set("7",{numeroAdherent:"07", nom: "Pelletier", prenom:"Julie", mail: "Thebestemail@gmail.com", codePostal: "59133 Phalempin",adresse: "17 Rue des Oiseaux", emprunt: "", cotisation:"A jour", amende:"0"})
-adherent.set("8",{numeroAdherent:"08", nom: "Dubois", prenom:"Baptiste", mail: "DuboisB1974@hotmail.fr", codePostal: "59195 Hérin",adresse: "29 Rue Charlemagne", emprunt: "", cotisation:"A Jour", amende:"0"})
+adherent.set("8",{numeroAdherent:"08", nom: "Dubois", prenom:"Baptiste", mail: "DuboisB1974@hotmail.fr", codePostal: "59195 Hérin",adresse: "29 Rue Charlemagne", emprunt: "", cotisation:"A jour", amende:"0"})
 adherent.set("9",{numeroAdherent:"09", nom: "Leroy", prenom:"Nathan", mail: "LeroyDu59@orange.fr", codePostal: "59460 Jeumont",adresse: "17 Rue GrandPres", emprunt: "", cotisation:"A jour", amende:"10"})
 adherent.set("10",{numeroAdherent:"10", nom: "Moreau", prenom:"Jeremy", mail: "Moreau-Jeremy@yahoo.com", codePostal: "59410 Anzin",adresse: "35 Rue de la Libérté", emprunt: "", cotisation:"A jour", amende:"2"})
 adherent.set("11",{numeroAdherent:"11", nom: "Bernard", prenom:"Juliette", mail: "Juju1996@outlook.fr", codePostal: "59133 Phalempin",adresse: "27 Rue du Baton", emprunt: "", cotisation:"Non à jour", amende:"0"})
