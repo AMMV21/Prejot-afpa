@@ -9,13 +9,13 @@ window.addEventListener('load',(()=>{showBD(gallery)}));
  * la fonction permet d'afficher la liste des BD
  * @param {div}  la div dans laquelle ajouter les nouvelle balises 
  */
-function showBD(div)
+function showBD(div,title='',exact)
 {
 
     //on créer autant de div qu'on a de BD (30 pour le projet)
     for(let i = 0; i<tliste_bd.length; i++)
     {
-        createBD(div,i)   
+        createBD(div,i,title,exact)   
     }
     //a la fin de la boucle, si aucune div n'a était créer, on informe du manque de BD
     if(!div.hasChildNodes())
@@ -44,13 +44,13 @@ function removeAllChild(div)
  * @param {div} la div receptrice des nouvelles div 
  * @param {Int} l'indice actuelle 
  */
-function createBD(div,indice)
+function createBD(div,indice,title,exact)
 {
     //initialisation des div à créer
     let newDiv = document.createElement('div');
     let newImg = document.createElement('img');
-    let newSerieTitle = document.createElement('h1');
-    let newTitle = document.createElement('h2');
+    let newSerieTitle = document.createElement('h2');
+    let newTitle = document.createElement('h3');
 
     newDiv.setAttribute('class','bdDiv');
     
@@ -62,24 +62,44 @@ function createBD(div,indice)
     let valAuthor = tliste_bd[indice][1].idAuteur;
     let nameAuthor = auteurs.get(valAuthor).nom;
 
-    if(tSerieChecked.length === 0 || tSerieChecked.includes(titleSerie))
+    if(checkSerieFilter(titleSerie))
     {
-        //si aucun filtre série OU si la série actuelle coresspond au filtre
-        if(tWriterChecked.length === 0 || tWriterChecked.includes(nameAuthor))
+        if(checkWriterFilter(nameAuthor))
         {
-            //si aucun filtre auteur OU si l'auteur actuil correspond au filtre
+            if(exact)
+            {
+                //si il y au moin un livre avec l'appellation exact
+                if(checkExactTitleFilter(titleVolume,title))
+                {
+                    //initialisation image
+                    newImg.src='./Ressources/albums/' +titleSerie+'-'+numeroVolume+'-'+titleVolume+'.jpg';
+                    
+                    //on change le nom de la balise titre
+                    newTitle.textContent = titleVolume;
+                    newSerieTitle.textContent = titleSerie;
 
-            //initialisation image
-            newImg.src='./Ressources/albums/' +titleSerie+'-'+numeroVolume+'-'+titleVolume+'.jpg';
+                    div.appendChild(newDiv);
+                    newDiv.appendChild(newSerieTitle);
+                    newDiv.appendChild(newTitle);
+                    newDiv.appendChild(newImg); 
+
+                }
+            }
             
-            //on change le nom de la balise titre
-            newTitle.textContent = titleVolume;
-            newSerieTitle.textContent = titleSerie;
+            else if(checkTitleFilter(div,titleVolume,title))
+            {
+                //initialisation image
+                newImg.src='./Ressources/albums/' +titleSerie+'-'+numeroVolume+'-'+titleVolume+'.jpg';
+                
+                //on change le nom de la balise titre
+                newTitle.textContent = titleVolume;
+                newSerieTitle.textContent = titleSerie;
 
-            div.appendChild(newDiv);
-            newDiv.appendChild(newSerieTitle);
-            newDiv.appendChild(newTitle);
-            newDiv.appendChild(newImg);
+                div.appendChild(newDiv);
+                newDiv.appendChild(newSerieTitle);
+                newDiv.appendChild(newTitle);
+                newDiv.appendChild(newImg); 
+            } 
         }
         
     }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/serie.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/writer.css">
+    <link rel="stylesheet" href="./Liste_BD/CSS/bdGallery.css">
     <link rel="stylesheet" href="./CSS_GLOBAL/mediaqueries/header_media_queries.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/mediaqueries/index_media_queries.css">
     <title>BDTK</title>
@@ -31,10 +32,10 @@
     </header>
 
     <main>
-            <section id="searchNavigation">
+            <div id="searchNavigation">
                 <div id="serieSearch">
                     <p id="serieHeader">LES SERIES<i id="serieArrow" class="fa-solid fa-angle-right"></i></p>
-                    <form action="" id="serieForm">
+                    <form action="" id="serieForm" class="hidden">
                         
                     </form>
                 </div>
@@ -46,19 +47,21 @@
                     </form>
                 </div>
 
-            </section>
+            </div>
 
             <section id="mainContent">
                 <div id="titleSearch">
                     <form action="" id="titleForm">
-                        <input type="text" placeholder="Titre">
-                        <input type="submit" value="Rechercher" id="titleButton">
+                        <input type="text" placeholder="Rechercher Titre..." id="titleFilter">
                     </form>
                 </div>
 
-                <div id="bdGallery">
-                
+                <div>
+                    <h1>Liste des BD</h1>
+                    <div id="bdGallery">
                     
+                        
+                    </div>
                 </div>
         </section>
     </main>
@@ -69,7 +72,9 @@
     <script src="./Liste_BD/JS/tliste_bd.js"></script>
     <script src="./Recherche_BD/JS/recherche_bd.js"></script>
     <script src="./Liste_BD/JS/liste_BD.js"></script>
-    <script src="./Liste_BD/JS/filtre_BD.js"></script>
+    <script src="./Liste_BD/JS/filtre_serie.js"></script>
+    <script src="./Liste_BD/JS/filtre_writer.js"></script>
+    <script src="./Liste_BD/JS/filtre_titre.js"></script>
     <script src="./Liste_BD/JS/toggleForm.js"></script>
     <script src="https://kit.fontawesome.com/029a61a09e.js" crossorigin="anonymous"></script>
     
