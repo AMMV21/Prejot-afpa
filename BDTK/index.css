@@ -24,14 +24,18 @@ i
     margin-right: 3%;
     font-size: 1.2em;
 }
+h1
+{
+    text-align: center;
+}
 
 
 
 
-/*--------sRecherche--------------*/
+/*--------Recherche--------------*/
 #searchNavigation
 {
-    width:20%;
+    width:15%;
     text-align: center;
 }
 
@@ -39,6 +43,7 @@ i
 #titleSearch
 {
     text-align: center;
+    margin-top: auto;
     border-right: 1px solid #31AFA0;
     border-bottom: 1px solid #31AFA0;
 }
@@ -49,57 +54,19 @@ i
     justify-content: center;
 }
 
-#titleButton
+
+#titleFilter
 {
-    background-color: #AD033A;
-    color: white;
-    padding-left: 2%;
-    padding-right: 2%;
+    margin: 1%;
 }
 
 /*--------------contenu principal-----------*/
 #mainContent
 {
-    width: 80%;
+    width: 85%;
     border-left:1px solid #31AFA0;
 }
 
-/*-------------Contenu div----------------*/
-#bdGallery
-{
-    display: flex;
-    margin-top: 2%;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
 
-.bdDiv
-{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding: 1%;
-    margin-bottom: 2%;
-    width: 20%;
-}
 
-.bdDiv>h1
-{
-    display: inline-block;
-    height: 3%;
-    font-size: 1.4em;
-}
 
-.bdDiv>img
-{
-    margin: auto;
-    width: 80%;
-    height: 70%;
-}
-
-.bdDiv:hover
-{
-    background-color: rgba(128, 128, 128, 0.537);
-    cursor: pointer;
-    transform: scale(1.1);
-}

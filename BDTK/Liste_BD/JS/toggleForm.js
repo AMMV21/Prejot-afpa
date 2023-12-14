@@ -25,10 +25,20 @@ function toggleForm(event,form)
         //si la balice "i" ne contiens pas la classe "fa-angle-down", on la change
         element.lastChild.classList.replace('fa-angle-right','fa-angle-down');
     }
+    form.classList.toggle('hidden');
 
     for(let i = 0; i < form.children.length; i++)
     {
         //on cache tout les "enfants" du formulaire
         form.children[i].classList.toggle('hidden');
+
+        if(form.style.height != '300px')
+        {
+            form.style.height = '300px';
+        }
+        else
+        {
+            form.style.height = '40%';
+        }
     }
 }

@@ -1,85 +1,33 @@
 //initialisation des formulaires
-let serieForm = document.getElementById('serieForm');
 let writerForm= document.getElementById('writerForm');
 
 //initialisation des tableaux utilitaires
-let tVerifSerieTab =[]; //verification doublons
 let tVerifWriterTab=[]; //verification doublons
-let tSerieChecked =[]; //verification checbox
 let tWriterChecked =[]; //verification checbox
 
-window.addEventListener('load',()=>{addSerieFilter(serieForm)});
-window.addEventListener('load',()=>{addWriterFilter(writerForm)});
+window.addEventListener('load',()=>{createWriterFilter(writerForm)});
 
-/**
- * boucle qui lance la création du fomulaire qui filtre les series 
- * @param {div} la division receptif 
- */
-function addSerieFilter(div)
-{
-
-    for(let i = 0; i<tliste_bd.length;i++)
-    {
-        createSerieFilter(div,i);
-    }
-
-}
 
 /**
  * boucle qui lance la création du formulaire qui filtre les auteurs
  * @param {div} la div receptif
  */
-function addWriterFilter(div)
+function createWriterFilter(div)
 {
 
     for(let i = 0; i<tliste_bd.length;i++)
     {
-        createWriterFilter(div,i);
+        addWriterFilter(div,i);
     }
 }
 
-/**
- * permet de créer dynamiquement le formulaire qui filtre les séries
- * @param {div} la div receptif
- * @param {integer} indice d'itération
- */
-function createSerieFilter(div,indice)
-{
-    let newDiv=document.createElement('div');
-    newDiv.setAttribute('class','divSerieItem');
-    let checkItem = document.createElement('input');
-    let labelItem = document.createElement('label');
-    let valSerie = tliste_bd[indice][1].idSerie;
-    let serieTitle = series.get(valSerie).nom;
-
-    //on verifie si il n'y a pas de doublons
-    if(!tVerifSerieTab.includes(serieTitle))
-    {
-        //on ajoute la serie dans le tableau des vérifications de doublons
-        tVerifSerieTab.push(serieTitle);
-        div.appendChild(newDiv);
-        //on inclus les valeurs dans la checkbox
-        checkItem.type = 'checkbox';
-        checkItem.id=serieTitle;
-        checkItem.value=serieTitle;
-        // on inclus les valeurs dans le label
-        labelItem.htmlFor =serieTitle;
-        labelItem.textContent=serieTitle;
-        newDiv.appendChild(checkItem);
-        newDiv.appendChild(labelItem);
-        newDiv.classList.add('hidden');
-
-        //on ajoute la fonction à l'élément actuel
-        checkItem.addEventListener('click', (e)=>{addEventCheckSerie(e)})
-        }  
-}
 
 /**
  * permet de créer dynamiquement le formulaire qui filtre les séries
  * @param {div} la div receptif 
  * @param {integer} l'indice d'itération 
  */
-function createWriterFilter(div,indice)
+function addWriterFilter(div,indice)
 {
     let newDiv=document.createElement('div');
     newDiv.setAttribute('class','divSerieItem');
@@ -113,28 +61,6 @@ function createWriterFilter(div,indice)
         }
 }
 
-/**
- * permet de récupérer les valeurs des checkbox et d'actualisé le tableau des filtres Serie
- * @param {event} l'event en cours 
- */
-function addEventCheckSerie(event)
-{
-    let item = event.srcElement;
-
-    if(item.checked)
-    {
-        tSerieChecked.push(item.value);
-        removeAllChild(gallery);
-        showBD(gallery);
-    }
-    else
-    {
-        tSerieChecked = arrayRemove(tSerieChecked, item.value);
-        
-        removeAllChild(gallery);
-        showBD(gallery);
-    }
-}
 
 /**
  * permet de récupérer les valeurs des checkbox et d'actualisé le tableau des filtres Serie
@@ -172,4 +98,19 @@ function arrayRemove(arr, value)
     return arr.filter(function(ele){ 
         return ele != value; 
     });
+}
+
+/**
+ * Permet de vérifié le filtre Auteur
+ * @param {string} Nom de l'auteur à filtré 
+ * @returns Boolean true or false
+ */
+function checkWriterFilter(name)
+{
+    if(tWriterChecked.length === 0 || tWriterChecked.includes(name))
+    {
+        //si aucun filtre auteur OU si l'auteur actuel correspond au filtre
+        return true;
+    }
+    return false;
 }
