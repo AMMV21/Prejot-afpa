@@ -72,7 +72,7 @@ function checkExactTitleFilter(bookTitle,searchTitle)
  * @param {integer} itération de la BD 
  * @returns 
  */
-function checkTitleFilter(div,bookTitle,searchTitle,indice)
+function checkTitleFilter(div,bookTitle,searchTitle)
 {
     if(searchTitle.length === 0 || (normalizeText(bookTitle.toLowerCase()).includes(normalizeText(searchTitle))))
     {
