@@ -74,7 +74,7 @@ function checkExactTitleFilter(bookTitle,searchTitle)
  */
 function checkTitleFilter(div,bookTitle,searchTitle,indice)
 {
-    if(searchTitle.length === 0 || (normalizeText(bookTitle.toLowerCase()).includes(normalizeText(searchTitle)))
+    if(searchTitle.length === 0 || (normalizeText(bookTitle.toLowerCase()).includes(normalizeText(searchTitle))))
     {
         //si aucun filtre Titre OU si le livre actuelle comporte la chaine saisie sans accents ET qu'il n'y a eu aucun livre avec l'intitulé exact de la recherche
         return true;
