@@ -1,29 +1,38 @@
+// Récupére le numéro d'adhérent de l'URL
+var params = new URLSearchParams(window.location.search);
 
-var nomAdherent = adherent.get("1").nom;
-var zoneNom = document.getElementById("zoneNom");
-zoneNom.innerText = nomAdherent;
+console.log(params);
 
+var numeroAdherent = params.get('numeroAdherent');
+if (numeroAdherent) {
+    // Utiliser le numéroAdherent pour récupérer les détails de l'adhérent
+    var detailsAdherent = adherent.get(numeroAdherent);
 
-var prenomAdherent = adherent.get("1").prenom;
-var zonePrenom = document.getElementById("zonePrenom");
-zonePrenom.innerText = prenomAdherent;
+    // Afficher les détails dans les zones correspondantes
+    if (detailsAdherent) {
+        var zoneNom = document.getElementById("zoneNom");
+        zoneNom.innerText = detailsAdherent.nom;
 
-var adresseAdherent = adherent.get("1").adresse;
-var zoneAdresse = document.getElementById("zoneAdresse");
-zoneAdresse.innerText = adresseAdherent;
+        var zonePrenom = document.getElementById("zonePrenom");
+        zonePrenom.innerText = detailsAdherent.prenom;
 
-var villeAdherent = adherent.get("1").codePostal;
-var zoneVille = document.getElementById("zoneVille");
-zoneVille.innerText = villeAdherent;
+        var zoneAdresse = document.getElementById("zoneAdresse");
+        zoneAdresse.innerText = detailsAdherent.adresse;
 
-var mailAdherent = adherent.get("1").mail;
-var zoneMail = document.getElementById("zoneMail");
-zoneMail.innerText = mailAdherent;
+        var zoneVille = document.getElementById("zoneVille");
+        zoneVille.innerText = detailsAdherent.codePostal;
 
-var cotisationAdherent = adherent.get("1").cotisation;
-var cotisationStatut = document.getElementById("cotisationStatut");
-cotisationStatut.innerText = cotisationAdherent
+        var zoneMail = document.getElementById("zoneMail");
+        zoneMail.innerText = detailsAdherent.mail;
 
-var amamdeAdherent = adherent.get("1").amende;
-var soldeEnEuro = document.getElementById("soldeEnEuro");
-soldeEnEuro.innerText = amamdeAdherent;
+        var cotisationStatut = document.getElementById("cotisationStatut");
+        cotisationStatut.innerText = detailsAdherent.cotisation;
+
+        var soldeEnEuro = document.getElementById("soldeEnEuro");
+        soldeEnEuro.innerText = detailsAdherent.amende;
+    } else {
+        console.error("Détails de l'adhérent non trouvés pour le numéro: " + numeroAdherent);
+    }
+} else {
+    console.error("Numéro d'adhérent non spécifié dans les paramètres de l'URL.");
+}
