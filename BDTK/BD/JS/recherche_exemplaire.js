@@ -73,7 +73,7 @@ function rechercheEx() {
         icon: "error",
         title: "Code exemplaire introuvable !",
         text: "Veuillez saisir le code à nouveau",
-      });
+    });  
     return false;
 }
 
@@ -92,19 +92,19 @@ function rechercheAdh() {
             zoneNom.innerText = adherent.get(key).nom;
             zonePrenom.innerText = adherent.get(key).prenom;
             
-            if (adherent.get(key).cotisation === "A jour" || adherent.get(key).emprunt >= 3){
+            if ((adherent.get(key).cotisation === "A jour" || adherent.get(key).emprunt >= 3 ) && codeTrouvee === true){
                 validerPret.classList.remove("invisible");
-            if (adherent.get(key).cotisation === "A jour" && adherent.get(key).emprunt  <=3){
+            if (adherent.get(key).cotisation === "A jour" && adherent.get(key).emprunt <=3){
                 rechercheInfos.classList.add('invisible');
             }
-             
-            } else {
-                Swal.fire({
-                    icon: "error",
-                    title: "Prêt impossible !",
-                    text: "Consulter le profil adhérant pour régulariser la situation",
-                    footer: '<a href="./profilAdherents.html">Consulter le profil</a>'
-                  });
+            
+        } else if (codeTrouvee === true){
+            Swal.fire({
+                icon: "error",
+                title: "Prêt impossible !",
+                text: "Consulter le profil adhérant pour régulariser la situation",
+                footer: '<a href="./profilAdherents.html">Consulter le profil</a>'
+            });
             }
             return true
         } 
