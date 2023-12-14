@@ -9,7 +9,12 @@ titleInput.addEventListener('keyup',()=>{createTitleFilter(gallery)});
  */
 function createTitleFilter(div)
 {
-    let exactTitle= checkExactTitle(titleInput.value);
+    let exactTitle= false;
+    if(titleInput.value !== normalizeText(titleInput.value))
+    {
+         exactTitle = checkExactTitle(titleInput.value);
+    }
+    
     removeAllChild(div);
     showBD(div,(titleInput.value).trimStart(),exactTitle);
     
