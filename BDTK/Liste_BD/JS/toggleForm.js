@@ -37,6 +37,8 @@ function toggleForm(event,form)
             element.lastChild.classList.replace('fa-angle-right','fa-angle-down');
         }
         form.classList.toggle('hidden');
+        form.style.overflowX= 'hidden'
+        form.style.overflowY= 'scroll';
 
         for(let i = 0; i < form.children.length; i++)
         {
@@ -70,12 +72,15 @@ function toggleFormIcon(event,form)
         //si la balice "i" ne contiens pas la classe "fa-angle-down", on la change
         element.classList.replace('fa-angle-right','fa-angle-down');
     }
-    form.classList.toggle('hidden');
+    form.classList.toggle('hidden'); 
+    form.style.overflowX= 'hidden';
+    form.style.overflowY= 'scroll';
 
     for(let i = 0; i < form.children.length; i++)
     {
         //on cache tout les "enfants" du formulaire
         form.children[i].classList.toggle('hidden');
+       
 
         if(form.style.height != '350px')
         {
