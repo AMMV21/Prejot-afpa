@@ -16,7 +16,7 @@ function createTitleFilter(div)
     }
     
     removeAllChild(div);
-    showBD(div,(titleInput.value).trimStart(),exactTitle);
+    showBD(div,(titleInput.value.toLowerCase()).trimStart(),exactTitle);
     
 }
 
