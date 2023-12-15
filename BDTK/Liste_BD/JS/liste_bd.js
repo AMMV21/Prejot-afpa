@@ -22,7 +22,7 @@ function showBD(div,title='',exact)
     {
         let noneBd = document.createElement('span');
         div.appendChild(noneBd);
-        noneBd.textContent = "Aucune BD n'a était trouvée";
+        noneBd.textContent = "Aucune BD n'a été trouvée...";
         noneBd.setAttribute('class','error');
     }
 }
@@ -97,7 +97,7 @@ function createBD(div,indice,title,exact)
                 //on change le nom de la balise titre
                 newTitle.textContent = titleVolume;
                 newSerieTitle.textContent = titleSerie;
-                newWriter.textContent = nameAuthor;
+                newWriter.textContent = nameAuthor.replaceAll(',',' ');
 
                 div.appendChild(newDiv);
                 

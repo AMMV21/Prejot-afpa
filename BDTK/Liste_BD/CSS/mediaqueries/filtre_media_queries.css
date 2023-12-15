@@ -1,0 +1,7 @@
+@media screen  and (max-width: 1400px) {
+    
+    .divSerieItem, .divWriterItem
+    {
+        margin-top: 10%;
+    }
+}
