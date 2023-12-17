@@ -29,3 +29,9 @@ adherent.set("27",{numeroAdherent:"27", nom: "Perret", prenom:"Elodie", mail: "E
 adherent.set("28",{numeroAdherent:"28", nom: "Marechal", prenom:"Charlotte", mail: "Chacha59@outlook.fr", codePostal: "59155 Faches-Thumesnil",adresse: "13 Rue des Cerfs-Volants", emprunt: "", cotisation:"Non à jour", amende:"5"})
 adherent.set("29",{numeroAdherent:"29", nom: "Brunet", prenom:"Giles", mail: "Giles1951@hotmail.fr", codePostal: "59195 Hérin",adresse: "", emprunt: "14 Rue des Nuages", cotisation:"A jour", amende:"0"})
 adherent.set("30",{numeroAdherent:"30", nom: "Lacroix", prenom:"Jean-Philippe", mail: "JeanJeanDu59@orange.fr", codePostal: "59115 Leers",adresse: "27 Rue du Vent", emprunt: "", cotisation:"Non à jour", amende:"2"})
+
+// *******************  Vérifie si le locale storage à déja été créée dans la session 
+if (!adherent){ localStorage.setItem("adherent", JSON.stringify(Array.from(adherent.entries()))); } 
+
+// Je décommente la ligne suivant pour réinitialiser le storage avec le tableau de base.
+let adherentStorage = localStorage.setItem("adherent", JSON.stringify(Array.from(adherent.entries())));

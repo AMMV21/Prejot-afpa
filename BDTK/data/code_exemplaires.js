@@ -68,13 +68,9 @@
 
 //                         ******************* PROGRAMME PRINCIPALE **************
 creerMapExemplaires(); 
-let exemplaireStorage = remplirNew();   
-console.log(exemplaireStorage)
+let tExemplaires = remplirNew();   
 
 // *******************  Vérifie si le locale storage à déja été créée dans la session 
-if (!exemplaireStorage){ localStorage.setItem("exemplaires", JSON.stringify(Array.from(exemplaireStorage))); } 
-
+if (!localStorage.exemplaires){ localStorage.setItem("exemplaires", JSON.stringify(Array.from(tExemplaires))); } 
 // Je décommente la ligne suivant pour réinitialiser le storage avec le tableau de base.
-//localStorage.setItem("exemplaires", JSON.stringify(Array.from(exemplaireStorage))); 
-
-   
+//localStorage.setItem("exemplaires", JSON.stringify(Array.from(tExemplaires))); 
