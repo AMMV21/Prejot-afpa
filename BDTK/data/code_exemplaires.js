@@ -1,13 +1,11 @@
 // DECLARATION DES VARIABLES
 // Les valeurs seront utilisées pour créer un exemplaire
     var Exemplaire = new Map();
-    let tabLocal = [];
+    let tExemplaires = [];
     var valeurCle = "";
     var valAuteur = "";
     var valSerie = "";
 
-
-//                          *****************    MES FONCTIONS     **************
     /**
      * La fonction crée 3 exemplaires de chaque BD et leur assigne un CODE EXEMPLAIRE unique
      * et une disponibilité true ou false
@@ -57,20 +55,21 @@
    // cela facilite la l'accés au données du tableau
    const remplirNew = function () {
 
-    Exemplaire.forEach(element => {  // Parcouri chaque élément du tableau "Exemplaire".
-      if (typeof element === 'object' && element !== null) { // Vérifier si l'élément est un objet et non null.
-            tabLocal.push(element); // ajout de l'élément au tableau 
-      }
-    });
-    return tabLocal; 
+        Exemplaire.forEach(element => {  // Parcouri chaque élément du tableau "Exemplaire".
+        if (typeof element === 'object' && element !== null) { // Vérifier si l'élément est un objet et non null.
+                tExemplaires.push(element); // ajout de l'élément au tableau 
+        }
+        });
    };
 
 
-//                         ******************* PROGRAMME PRINCIPALE **************
-creerMapExemplaires(); 
-let tExemplaires = remplirNew();   
+    creerMapExemplaires(); 
+    remplirNew();   
 
-// *******************  Vérifie si le locale storage à déja été créée dans la session 
-if (!localStorage.exemplaires){ localStorage.setItem("exemplaires", JSON.stringify(Array.from(tExemplaires))); } 
-// Je décommente la ligne suivant pour réinitialiser le storage avec le tableau de base.
-//localStorage.setItem("exemplaires", JSON.stringify(Array.from(tExemplaires))); 
+    // *******************  Vérifie si le locale storage à déja été créée dans la session 
+    if (!localStorage.exemplaires){ localStorage.setItem("exemplaires", JSON.stringify(Array.from(tExemplaires))); }
+
+    // Je décommente la ligne suivant pour réinitialiser le storage avec le tableau de base.
+    //localStorage.setItem("exemplaires", JSON.stringify(Array.from(tExemplaires))); 
+
+    
