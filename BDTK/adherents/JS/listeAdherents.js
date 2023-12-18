@@ -49,8 +49,8 @@ $(document).ready(function () {
             values.prenom,
             values.mail,
             values.codePostal,
-            values.cotisation,
-            values.amende
+            // values.cotisation,
+            // values.amende
         ];
         i++;
         // Ajouter la nouvelle ligne au tableau DataTable

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="./CSS_GLOBAL/header.css">
     <link rel="stylesheet" href="./CSS_GLOBAL/css_global.css">
     <link rel="stylesheet" href="./CSS_GLOBAL/mediaqueries/header_media_queries.css">
@@ -26,77 +27,94 @@
     </nav>
 </header>
 <body>
-    <div id="maDiv"> 
-        <div id="nomprenom">
-            <!-- Nom et prénom de l'adherent avec un bouton modifier afin de modifier son nom et prenom -->
-            <div id="nom">
-                <span id="zoneNom">Nom</span>
-            </div>
-            <div id="prenom">
-                <span id="zonePrenom">Prenom</span> 
-            </div>
-        </div> 
-        <div id="adresse"> 
-            <!-- Adresse de l'adhérent avec un bouton modifier afin de modifier l'adresse-->
-            <div id="titreAdresse">
-              <span>Adresse </span>
-            </div>  
-            <div id="adresseComplete">
-                <span id="zoneAdresse">10 Adresse fictive</span>
-                 <span id="zoneVille">99999 Ville fictive</span>      
-            </div>   
-        </div> 
-        <div>
-            <div id="mail"> 
-                <!-- Adresse de l'adhérent avec un bouton modifier afin de modifier l'adresse-->
-                <div id="titreMail">
-                  <span>Mail</span>
-                </div>  
-                <div id="adresseMail">
-                    <span id="zoneMail">UneAdresseMail@gmail.com</span>     
-                </div>   
-            </div>
-        </div>      
-            <div id="informations">
-                <!-- Information sur l'adhérent si sa cotisation est à jour et/ou s'il à une amande -->
-                <div id="cotisation">
-                    <span id="titreCotisation">
-                        Cotisation :
-                    </span>
-                    <span id="cotisationStatut">A jour</span>   
+    <div class="container_Rech_Ex">
+        <h1 id="titreAdherent">Profil Adhérent</h1> 
+        <div class="containerDeToutLeProfilAdherent">
+            <div class="container_Des_Infos">
+                <span class="titreInfo">Informations</span>
+                <div class="centreInfo visible">
+                    <div class="zoneInfo">
+                        <span class="titre">Numéro d'adhérent : </span>
+                        <span id="zoneNumeroAdherent"></span>
+                    </div>
+                    <div class="zoneInfo">
+                        <span class="titre">Nom :</span>
+                        <span id="zoneNom"></span>  
+                    </div>
+                    <div class="zoneInfo">
+                        <span class="titre">Prénom :</span>
+                        <span id="zonePrenom">Prenom</span>  
+                    </div>
+                    <div class="zoneInfo">
+                        <span class="titre"> Adresse :</span>
+                        <span id="zoneAdresse">10 Adresse fictive</span>
+                        <span id="zoneVille">99999 Ville fictive</span>
+                    </div>
+                    <div class="zoneInfo">
+                        <span class="titre">Email :</span>
+                        <span id="zoneMail">UneAdresseMail@gmail.com</span>    
+                    </div>
+                 <button id="boutonModifierAdherent">Modifier</button>   
                 </div>
-                <div id="solde">
-                    <span id="titreSolde">Amende :   </span>
-                    <span id="soldeEnEuro">0</span><span id="€">€</span>
+                <div class="centreInfo invisible">
+                    <div class="zoneInfo">
+                        <span class="titre">Numéro d'adhérent : Nouvelle div </span>
+                        <span id="zoneNumeroAdherent"></span>
+                    </div>
+                    <div class="zoneInfo">
+                        <span class="titre">Nom :</span>
+                        <span id="zoneNom"></span>  
+                    </div>
+                    <div class="zoneInfo">
+                        <span class="titre">Prénom :</span>
+                        <span id="zonePrenom">Prenom</span>  
+                    </div>
+                    <div class="zoneInfo">
+                        <span class="titre"> Adresse :</span>
+                        <span id="zoneAdresse">10 Adresse fictive</span>
+                        <span id="zoneVille">99999 Ville fictive</span>
+                    </div>
+                    <div class="zoneInfo">
+                        <span class="titre">Email :</span>
+                        <span id="zoneMail">UneAdresseMail@gmail.com</span>    
+                    </div>
+                 <button id="boutonModifierAdherent">Modifier</button>   
                 </div>
+                
             </div>
-            <div id="empruntEnCours">
-                <!-- Information des emprunt en cours de l'adhérent -->
-                <span id="enCours">Emprunt en cours :</span> 
-                <span id="nbEmpruntEnCours">2</span>   
+            <div class="container_Des_emprunts">
+                <span class="titreEmprunts">Les emprunts en cours</span>
+
+                <div>
+                    <span id="empruntNumeroUn">Coucou</span>
+                    <span id="empruntNumeroDeux"></span>
+                </div>
+                
             </div>
-            <div id="menuDeroulantListeBd">
-                <section>
-                    <select class="liste" name="listBd" id="listBdEmpruntEnCours">
-                        <option value="BD 1">BD 1</option>
-                        <option value="BD 2 ">BD 2</option>
-                        <option value="BD 3">BD 3</option>
-                    </select>
-                </section>
-            </div>
-            <div id="boutonsEmprunterEtRendre">
-                <div id="emprunterUneBd">
-                    <input type="button" value="Emprunter une BD" id="button">
-                </div>
-                <div id="rendreUneBd">
-                    <input type="button" value="Rendre une BD" id="button">
-                </div>
-                <div id="modifierInfos">
-                    <input type="button" value="Modifier les informations" id="button">
-                </div>
+            <div class="container_Des_gestions">
+                <span class="titreGestion">Gestion</span>
+                    <div class="zoneInfoCotisation">
+                        <span class="titre">Cotisations :</span>  
+                        <span id="cotisationStatut">A jour</span>
+                        <button id="boutonRenouvelerCotisation">Renouveler</button>
+                    </div>
+                    <div id="zoneInfoAmende">
+                        <span class="titre">Amende :</span>
+                        <div>
+                         <span id="soldeEnEuro"></span>  
+                         <span>€</span> 
+                        </div>
+                        <button>Nouvelle amende</button>
+                        <button id="boutonPayerAmende">Payer l'amende</button>
+                    </div>  
             </div>
         </div>
-
+        
+    </div>
+    <div class="buttonArchiveAdherent">
+            <button id="archiverAdherent">Archiver l'adhérent</button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="./data/adherents.js"></script>
         <script src="./adherents/JS/profilAdherents.js"></script>
 </body>

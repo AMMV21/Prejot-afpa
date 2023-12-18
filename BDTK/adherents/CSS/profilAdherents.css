@@ -1,4 +1,4 @@
-#maDiv{
+.container_Rech_Ex{
     margin: auto;
     margin-top: 10%;
     margin-bottom: 10%;
@@ -8,139 +8,124 @@
     align-items: center;
     flex-direction: column;
     border: solid 4px rgba(49, 175, 160, 1);
-    border-radius: 3px;
+    border-radius: 10px;
 }
-#button{
-    background-color: #AD033A;
-    color: white;
-    font-size: 22px;
-    font-family: 'roboto-regular';
-    width: 260px;
-    border: none;
+#archiverAdherent{
+   background-color:rgba(220, 130, 39, 1) 
 }
-#button:hover{
-    background-color:  #31AFA0;
-    transform: scale(1.05);
-    transition: transform 0.5s ease;
-  }
-#nomprenom{
-    margin-top: 10px;
-    display: flex;
-    width: 50%;
-    align-items: center;
-    justify-content: space-between; 
+#archiverAdherent:hover{
+    background-color: rgba(49, 175, 160, 1)
 }
-#nom{
-    font-family: "baloo-regular";
-    color: #AD033A;
-    font-size: 2.188rem;
-}
-#prenom{
-    font-family: "baloo-regular";
-    color: #AD033A;
-    font-size: 2.188rem;
-}
-#adresse{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-#titreAdresse {
-    display: flex;
-    justify-content: center;
-    font-family: "baloo-regular";
-    color: #AD033A;
-    font-size: 2.188rem;
-}
-#adresseComplete{
-    font-family: "roboto-regular";
-    font-size: 19px;
-}
-#mail{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-#titreMail {
-    display: flex;
-    justify-content: center;
-    font-family: "baloo-regular";
-    color: #AD033A;
-    font-size: 2.188rem;
-}
-#adresseMail{
-    font-family: "roboto-regular";
-    font-size: 19px;
-}
-#empruntEnCours{
-    font-family: "roboto-regular";
-    display: flex;
 
-    margin-bottom: 10px;
-    align-items: center;
+.containerDeToutLeProfilAdherent{
+    width: 100%;
+    display:flex ;
 }
-#enCours{
-    font-family: "roboto-medium";
-    font-size: 21px;
-    color: #AD033A;
-}
-#nbEmpruntEnCours{
-    margin-left: 5px;
-    font-size: 19px;
-}
-.liste{
-    border: solid 3px #31AFA0;
-    width: 200px;
-    border-radius: 3px;
-}
-#menuDeroulantListeBd{
-    margin-bottom: 50px;
-
-}
-#informations{
-    margin-bottom: 10px;
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    justify-content: space-between;
-}
-#cotisation{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10%;
-    margin-bottom: 10%;
+.container_Des_Infos{
+    width: 33%;
+    border: solid 4px rgba(49, 175, 160, 1);
+    border-left: none;
+    border-bottom: none;
     
 }
-#titreCotisation{
-   font-family: "roboto-medium";
-    font-size: 21px;
-    color: #AD033A; 
+.titreInfo{
+    font-family: "roboto-medium";
+    font-size: 22px;
+    background-color: rgba(220, 130, 39, 1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    
 }
-#cotisationStatut{
-    font-family: "roboto-regular";
-    font-size: 19px;
-    margin-left: 5px;
-}
-#solde{
-    display:flex;
-    justify-content: space-between;
+.centreInfo{
+    display: flex;
     align-items: center;
+    flex-direction: column;
+    padding-top: 5%;
+    
 }
-#titreSolde{
+.container_Des_emprunts{
+    width: 34%;
+    border: solid 4px rgba(49, 175, 160, 1);
+    border-left: none;
+    border-bottom: none;
+    border-right: none;
+}
+.titreEmprunts{
+    font-family: "roboto-medium";
+    font-size: 22px;
+    background-color:rgba(49, 175, 160, 1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.container_Des_gestions{
+    width: 33%;
+    border: solid 4px rgba(49, 175, 160, 1);
+    border-bottom: none;
+    border-right: none;
+}
+
+.titreGestion{
+    font-family: "roboto-medium";
+    font-size: 22px;
+    background-color:rgba(220, 130, 39, 1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.titre{
     font-family: "roboto-medium";
     font-size: 21px;
     color: #AD033A;
 }
-#soldeEnEuro{
-    font-family: "roboto-regular";
-    font-size: 19px;
-    margin-left: 5px;
-}
-#€{
-    font-family:"roboto-regular";
-}
-#boutonsEmprunterEtRendre{
-    width: 90%;
+.zoneInfo{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
+.zoneInfoCotisation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 25%;
+    padding-bottom: 100px;
+    border: solid 4px rgba(49, 175, 160, 1);
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    
+}
+#zoneInfoAmende{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    border: solid 4px rgba(49, 175, 160, 1);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+}
+#boutonModifierAdherent{
+   margin-top: 15%;
+}
+
+
+span{
+    font-family: "roboto-medium";
+}
+.invisible{
+    display: none;
+}
+
+
 
