@@ -27,7 +27,6 @@
     
     // Récupére les tableaux stocké en LocalStorage 
     let exemplaireLocalStorage = JSON.parse(localStorage.getItem('exemplaires'));
-    let adherentStorage = JSON.parse(localStorage.getItem('adherent'));
 
     //*************  PROGRAMME PRINCIPALE ************************
 
