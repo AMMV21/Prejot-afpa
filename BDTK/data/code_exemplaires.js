@@ -24,30 +24,17 @@
 
                 codeExemplaire = (k < 10) ? "A00" + k : "A0" + k;
                 // Création d'un exemplaire avec l'attribution de son code
-                // Initialise la disponibilité à disponible si k est impair
-                if (k % 2 !== 0) {
-                    Exemplaire.set(cle, {
-                        codeExemplaire: codeExemplaire,
-                        titre: albums.get(valeurCle).titre,
-                        Auteur: auteurs.get(valAuteur).nom,
-                        Serie: series.get(valSerie).nom,
-                        Emprunteur: "Numéro adhérent : " + k + " ",
-                        disponibilite: true ,
-                    });
-                } else {
-                    // Initialise la disponibilité à disponible si k est pair
                     Exemplaire.set(cle, {
                         codeExemplaire: codeExemplaire,
                         titre: albums.get(valeurCle).titre,
                         Auteur: auteurs.get(valAuteur).nom,
                         Serie: series.get(valSerie).nom,
                         Emprunteur: "",
-                        disponibilite: false
+                        disponibilite: true ,
                     });
-                }
+                } 
                 k++;
                 cle++;
-            }
         }
     }   
  

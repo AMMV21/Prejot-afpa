@@ -121,7 +121,7 @@
             if (result.isConfirmed) {
               swalWithBootstrapButtons.fire({
                 title: "Prêt confirmé",
-                text: "Le prêt à était enregistrer avec succès ! ",
+                text: "Le prêt a été enregistré avec succès !",
                 icon: "success"
               });
               majExemplaire();
