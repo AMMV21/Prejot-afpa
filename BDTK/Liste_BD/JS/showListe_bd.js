@@ -93,7 +93,7 @@ function createBD(div,indice,title,exact)
             {
                 //initialisation image
                 newImg.src='./Ressources/albums/' +titleSerie+'-'+numeroVolume+'-'+titleVolume+'.jpg';
-                newImg.alt=`'couverture '+ titleVolume;
+                newImg.alt='couverture '+ titleVolume;
                 
                 //on change le nom de la balise titre
                 newTitle.textContent = titleVolume;
