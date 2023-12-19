@@ -1,3 +1,4 @@
+
 // -------Mes fonction-------
 function generateSalt() {
     let salt = '';
@@ -113,3 +114,14 @@ document.getElementById('logoutButton').addEventListener('click', function(){
         console.log('Une erreur s\'est produite lors de la déconnexion :', err.message);
     }
 });
+
+        if(utilisateur.password === motdepasse){
+            return 'Connexion réussie !';
+        }else{
+            return 'Mot de passe incorrect.';
+        }
+
+    }else{
+        return 'Nom d\'utilisateur introuvable.';
+    }
+}

@@ -1,64 +1,71 @@
-    // DECLARATION DES VARIABLES 
-        // Les valeurs seront utilisé pour créer un exemplaire
-        var Exemplaire = new Map (); 
-        var  valeurCle = "";
-        var  valAuteur = "";
-        var  valSerie = "";
-        var exemplaireBd = "";
-        let tNewAlbums = [];
-
-    // ******* PROGRAMME PRINCIPAL ******* 
-
-    // Remplir un tableau avec le contenu de la Map Album
-    let tAlbums = Array.from(albums);
-//console.log(tAlbums);
-
-    // Créer un nouveau tableau qui contient uniquement les 30 premiers Albums
-    // Appel de la fonction
-    let nouveauTableau = remplirNewTab();
-//console.log(nouveauTableau); // Contrôle de l'état du tableau
-    
-    let MapExemplaire = creerMapExemplaires();
-
-    // *********** MES FONCTIONS **************
-    
+// DECLARATION DES VARIABLES
+// Les valeurs seront utilisées pour créer un exemplaire
+    var Exemplaire = new Map();
+    let tExemplaires = [];
+    var valeurCle = "";
+    var valAuteur = "";
+    var valSerie = "";
+    var disponibiliteBD = new Map();
+    let tDisponibilite = [];
+    let nbr_dispo = 0;
     /**
-     * La fonction rempli un nouveau tableau uniquement avec 30 références
-     * @returns un tableau
-     */
-    function remplirNewTab() {
-        for (let i = 0; i <= 29; i++) {
-            tNewAlbums.push(tAlbums[i]);
-        }   return tNewAlbums;
-    }
-
-    /**
-     * Le programme me permet de créer un code exemplaire à chaque boucle et ainsi de créer et récuperer le titre, nom, série
-     * @returns 
-     */
-    function creerMapExemplaires(){   
-       for (let i=0 ; i<=29 ;i++){
-       valeurCle = nouveauTableau[i][0]; // NUMERO DE LA CLE ( reste à ajouter le titre)
-       valAuteur = nouveauTableau[i][1].idAuteur; // ID DE L'AUTEUR (reste à ajouter le nom)
-       valSerie = nouveauTableau[i][1].idSerie; // ID DE LA SERIE (reste à ajouter le nom)
-
+     * La fonction crée 3 exemplaires de chaque BD et leur assigne un CODE EXEMPLAIRE unique
+     * et une disponibilité true ou false
+     * @returns Map
+    */
+   function creerMapExemplaires() {
+       let k = 0;
        let codeExemplaire = 0;
-       codeExemplaire = (i < 10) ? "A00" + i : "A0" + i;
+       let cle = 0;
+       
+       for (let i = 0; i <= 29; i++) {
+           for (let j = 1; j <= 3; j++) {
+               valeurCle = tliste_bd[i][0]; // NUMERO DE LA CLE (reste à ajouter le titre)
+               valAuteur = tliste_bd[i][1].idAuteur; // ID DE L'AUTEUR (reste à ajouter le nom)
+               valSerie = tliste_bd[i][1].idSerie; // ID DE LA SERIE (reste à ajouter le nom)
+               
+               codeExemplaire = (k < 10) ? "A00" + k : "A0" + k;
+               // Création d'un exemplaire avec l'attribution de son code
+               Exemplaire.set(cle, {
+                   codeExemplaire: codeExemplaire,
+                   titre: albums.get(valeurCle).titre,
+                   Auteur: auteurs.get(valAuteur).nom,
+                   Serie: series.get(valSerie).nom,
+                   Emprunteur: "",
+                   disponibilite: true ,
+                });
+                nbr_dispo = j;
+            
+            }
+               
+                k++;
+                cle++;
+            }
+    }   
+ 
+   // A partir de ma map je rempli un nouveau tableau qui contient des uniquement les objet 
+   // cela facilite la l'accés au données du tableau
+   const remplirNew = function () {
 
-       // Création d'un exemplaire avec l'attribution de son code
-       exemplaireBd = Exemplaire.set(valeurCle,{codeExemplaire: codeExemplaire , titre: albums.get(valeurCle).titre, Auteur: auteurs.get(valAuteur).nom, Serie: series.get(valSerie).nom});
-
-    } return exemplaireBd;
-   }
-
- console.log(Exemplaire);
-console.log(Exemplaire.get("1").codeExemplaire) // Je controle est affiche un code exemplaire
-// console.log(Exemplaire.get("1").titre) // Je controle est affiche le nom
-// console.log(Exemplaire.get("1").Auteur) // Je controle est affiche l'auteur
-
-// console.log(Exemplaire);
-// console.log(Exemplaire.get("6").codeExemplaire) // Je controle est affiche un code exemplaire
-// console.log(Exemplaire.get("6").titre) // Je controle est affiche le nom
-// console.log(Exemplaire.get("6").Auteur) // Je controle est affiche l'auteur
+        Exemplaire.forEach(element => {  // Parcouri chaque élément du tableau "Exemplaire".
+        if (typeof element === 'object' && element !== null) { // Vérifier si l'élément est un objet et non null.
+                tExemplaires.push(element); // ajout de l'élément au tableau 
+        }
+        });
+   };
 
 
+    creerMapExemplaires(); 
+    remplirNew();   
+console.log(tDisponibilite);
+    // *******************  Vérifie si le locale storage à déja été créée dans la session 
+    if (!localStorage.exemplaires){ localStorage.setItem("exemplaires", JSON.stringify(Array.from(tExemplaires))); }
+    if (!localStorage.disponibilite){ localStorage.setItem("disponibilite", JSON.stringify((Array.from(disponibiliteBD)))); }
+   let exemplaireLocalStorage = JSON.parse(localStorage.getItem('exemplaires'));
+   let disponibiliteBDStorage = JSON.parse(localStorage.getItem('disponibilite'));
+   
+   // Je décommente la ligne suivant pour réinitialiser le storage avec le tableau de base.
+   //localStorage.setItem("exemplaires", JSON.stringify(Array.from(tExemplaires))); 
+   //localStorage.setItem("disponibilite", JSON.stringify(Array.from(tDisponibilite))); 
+    console.log(exemplaireLocalStorage);
+    

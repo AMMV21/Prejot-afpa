@@ -1,0 +1,98 @@
+#bdPopup
+{
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    padding: 1%;
+    width: auto;
+    height: auto;
+    background-color: white;
+    border: 3px solid black;
+    z-index: 100;
+}
+#bdPopup>h2
+{
+    margin-top: 0;
+}
+
+#popupBdContent
+{
+    display: flex;
+    width: 80%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#popupBdContent>img
+{
+    text-align: center;
+    width: 40%;
+    height: 90%;
+}
+
+#popupBdInfos
+{
+    display: flex;
+    height: 100%;
+    margin-left: 10%;
+    flex-direction: column;
+}
+
+#summaryContent
+{
+    width: 100%;
+    overflow-y: scroll;
+}
+#commentaryContent
+{
+    width: 100%;
+    overflow-y: scroll;
+}
+.popupBdSmallContent>h3,#popupBdInfos>h3
+{
+    color: #AD033A;
+    margin-right: 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.popupBdSmallContent
+{
+    display: flex;
+    font-size: 1.1rem;
+    align-items: center;
+}
+.popupBdSmallContent
+{
+    display: flex;
+    align-items: center;
+}
+#removeIcon
+{
+    position: absolute;
+    font-size: 40px;
+    margin: 0;
+    top:0;
+    right: 10px;
+}
+
+#removeIcon:hover
+{
+    cursor: pointer;
+}
+
+.blur
+{
+    filter: blur(15px);
+}
+
+

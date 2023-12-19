@@ -1,0 +1,61 @@
+@media screen and (max-width: 1300px) {
+    #mainContent
+    {
+        width: 80%;
+    }
+    #searchNavigation
+    {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #mainContent
+    {
+        width: 75%;
+    }
+    #searchNavigation
+    {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #mainContent
+    {
+        width:65%;
+    }
+    #searchNavigation
+    {
+        width:35%;
+    }
+    
+}
+
+@media screen and (max-width: 400px) {
+    #mainContent
+    {
+        width: 60%;
+    }
+    #searchNavigation
+    {
+        width: 40%;
+    }
+    #titleFilter
+    {
+        width:80%;
+    }
+    
+}
+
+@media screen and (min-height: 1000px)
+{
+    #bdGallery
+    {
+        height:850px;
+    }
+    .bdDiv
+    {
+        height: 40%;
+    }
+}

@@ -1,0 +1,203 @@
+.container_Rech_Ex{
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    background-color: white;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: solid 4px rgba(49, 175, 160, 1);
+    border-radius: 10px;
+}
+#archiverAdherent{
+   background-color:rgba(220, 130, 39, 1) 
+}
+#archiverAdherent:hover{
+    background-color: rgba(49, 175, 160, 1)
+}
+
+.containerDeToutLeProfilAdherent{
+    width: 100%;
+    display:flex ;
+}
+.container_Des_Infos{
+    width: 33%;
+    border: solid 4px rgba(49, 175, 160, 1);
+    border-left: none;
+    border-bottom: none;
+    
+}
+.titreInfo{
+    font-family: "roboto-medium";
+    font-size: 22px;
+    background-color: rgba(220, 130, 39, 1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    
+}
+#centreInfoVisible{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 5%;
+    
+}
+#centreInfoInvisible{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 5%;
+    display: none;
+    
+}
+.container_Des_emprunts{
+    width: 34%;
+    border: solid 4px rgba(49, 175, 160, 1);
+    border-left: none;
+    border-bottom: none;
+    border-right: none;
+}
+.titreEmprunts{
+    font-family: "roboto-medium";
+    font-size: 22px;
+    background-color:rgba(49, 175, 160, 1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.container_Des_gestions{
+    width: 33%;
+    border: solid 4px rgba(49, 175, 160, 1);
+    border-bottom: none;
+    border-right: none;
+}
+
+.titreGestion{
+    font-family: "roboto-medium";
+    font-size: 22px;
+    background-color:rgba(220, 130, 39, 1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.titre{
+    font-family: "roboto-medium";
+    font-size: 21px;
+    color: #AD033A;
+}
+#zoneNom{
+    margin: 2px;
+}
+#zonePrenom{
+    margin: 2px;
+}
+#zoneAdresse{
+    margin: 2px;
+}
+#zoneVille{
+    margin: 2px;
+}
+#zoneMail{
+    margin: 2px;
+}
+.zoneInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.zoneInfoCotisation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30%;
+    padding-bottom: 100px;
+    border: solid 4px rgba(49, 175, 160, 1);
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    
+}
+#zoneInfoAmende{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20%;
+    padding-bottom: 10%;
+    border: solid 4px rgba(49, 175, 160, 1);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+}
+#boutonModifierAdherent{
+   margin-top: 15%;
+   margin-bottom: 19%;
+   
+}
+#boutonValiderAdherent{
+    
+    background-color: #AD033A;
+    color: white;
+    font-size: 22px;
+    font-family: 'roboto-regular';
+    width: 250px;
+    border: none;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+#boutonValiderAdherent:hover{
+    background-color:  #31AFA0;
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+#boutonAnnulerAdherent{
+   
+    background-color: rgba(220, 130, 39, 1);
+    color: white;
+    font-size: 22px;
+    font-family: 'roboto-regular';
+    width: 250px;
+    border: none;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 22%;
+}
+#boutonAnnulerAdherent:hover{
+    background-color:  #31AFA0;
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+.inputDivValider{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+span{
+    font-family: "roboto-medium";
+    font-size: 17px;
+}
+.inputText{
+    margin: 1px;
+    padding: 1px;
+    height: 15px;
+    width: 300px;
+}
+
+

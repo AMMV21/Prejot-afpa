@@ -9,16 +9,60 @@
     font-size: 0.8em;
 }
 
-/*Navigation*/
-#navigation>ul
-{
-    display: flex;
-    height: 10%;
-    border: 2px solid black;
+header {
+    position: sticky;
+    top: 0;
 }
 
+/*Navigation*/
+#navigation
+{   
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #31AFA0 ;
+    background-color: white;
+    height: 80px;
+}
+#navList
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    width: 50%;
+}
+
+/*on regle la taille de l'image/link*/
+#logoLink
+{
+    width: 80px; 
+    margin-left: 5%;
+}
 #navLogo
 {
-    width: 20%;
-    height: 100%;
+    width: 100%;
 }
+
+/*on regle les links*/
+#navList>li>a
+{
+    font-size: 1.1em;
+    text-decoration: none;
+    color: black;
+    font-family: 'roboto-medium', 'sans-serif';
+}
+
+/*animation des links*/
+#navList>li>a:hover
+{
+    font-weight: bold;
+    text-decoration-line: underline;
+    text-underline-offset: 100%;
+    text-decoration-thickness: 3px;
+}
+
+
+
+
+
+

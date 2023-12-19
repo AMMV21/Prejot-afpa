@@ -1,0 +1,73 @@
+/* Ajustement de tout le tableau */
+#tableauComplet{
+    background-color: white;
+    width: 75%;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+/* Modification du titre */
+#titreListeAdherents{
+    font-family: "baloo-regular";
+    font-size: 2.188rem;
+    color:#AD033A;
+    background-color: white;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 5px;
+    
+}
+/* Modification de la div "voir par .. Adhérents */
+#myTable_length{
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+/* Modification de la div recherche */
+#myTable_filter{
+    margin-right: 15px;
+    
+}
+/* Modification des titre collone */
+#fontPourLesTh{
+    color:#AD033A;
+}
+
+
+#myTable {
+    width: 100%; /* Ajustez la largeur totale de la table selon vos besoins */
+}
+
+#myTable tbody tr:hover{
+    color: white;
+    background-color: rgba(49, 175, 160, 1);
+}
+#myTable td:hover{
+    cursor: pointer;
+    
+}
+#myTable th, #myTable td {
+    font-family: 'roboto-regular';
+    width: 20%; /* Ajustez le pourcentage de largeur pour les cellules */
+    box-sizing: border-box; /* Inclut la bordure et le padding dans la largeur */
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: rgba(220, 130, 39, 1);
+    border: none;
+    
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background-color: rgba(220, 130, 39, 1);
+    border: none;   
+    color: white; 
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border: none;
+    background: rgba(220, 130, 39, 1);
+    color: white !important;
+}
+

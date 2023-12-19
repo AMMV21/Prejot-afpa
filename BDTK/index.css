@@ -1,4 +1,76 @@
+/*-------------body-----------------*/
 body
 {
     background: none;   
 }
+main
+{
+    display: flex;
+    border-bottom:1px solid #31AFA0;
+}
+
+p
+{
+    font-family: 'roboto-regular','sans-serif';
+}
+label:hover
+{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+i
+{
+    float: right;
+    margin-right: 3%;
+    font-size: 1.2em;
+}
+h1
+{
+    text-align: center;
+}
+
+
+
+
+
+
+/*--------Recherche--------------*/
+#searchNavigation
+{
+    width:15%;
+    text-align: center;
+}
+
+/*Titre*/
+#titleSearch
+{
+    text-align: center;
+    margin-top: auto;
+    border-right: 1px solid #31AFA0;
+    border-bottom: 1px solid #31AFA0;
+}
+
+#titleForm
+{
+    display: flex;
+    justify-content: center;
+}
+
+
+#titleFilter
+{
+    margin: 1%;
+}
+
+/*--------------contenu principal-----------*/
+#mainContent
+{
+    width: 85%;
+    border-left:1px solid #31AFA0;
+}
+
+
+
+
+
