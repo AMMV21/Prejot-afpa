@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS_GLOBAL/css_global.css">
     <link rel="stylesheet" href="./CSS_GLOBAL/header.css">
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/filtre.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/bdGallery.css">
+    <link rel="stylesheet" href="./Liste_BD/CSS/bdPopup.css">
     <link rel="stylesheet" href="./CSS_GLOBAL/mediaqueries/header_media_queries.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/mediaqueries/bdGallery_media_queries.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/mediaqueries/filtre_media_queries.css">
@@ -15,7 +17,7 @@
     <title>BDTK</title>
 </head>
 <body>
-    <header>
+    <header class="toBlur">
         <div id="topBar">
             <p><span class="mobileHidden">Votre bédéthéque vous accueil</span> Du lundi au samedi de 9h à 19h</p>
             <p>20 place du théatre 59056 Marmusote</p>
@@ -32,51 +34,78 @@
         </nav>
     </header>
 
-    <main>
-            <div id="searchNavigation">
-                <div id="serieSearch">
-                    <p id="serieHeader">LES SERIES<i id="serieArrow" class="fa-solid fa-angle-right"></i></p>
-                    <form action="" id="serieForm" class="hidden">
+    <main class="toBlur">
+        <div id="searchNavigation">
+            <div id="serieSearch">
+                <p id="serieHeader">LES SERIES<i id="serieArrow" class="fa-solid fa-angle-right"></i></p>
+                <form action="" id="serieForm" class="hidden">
                         
-                    </form>
-                </div>
-
-                <div id="writerSearch">
-                    <p id="writerHeader">LES AUTEURS <i id="writerArrow" class="fa-solid fa-angle-right"></i></p>
-                    <form action="" id="writerForm">
-                        
-                    </form>
-                </div>
-
+                </form>
             </div>
 
-            <section id="mainContent">
-                <div id="titleSearch">
-                    <form action="" id="titleForm">
-                        <input type="text" placeholder="Rechercher Titre..." id="titleFilter">
-                    </form>
-                </div>
+            <div id="writerSearch">
+                <p id="writerHeader">LES AUTEURS <i id="writerArrow" class="fa-solid fa-angle-right"></i></p>
+                <form action="" id="writerForm">
+                        
+                </form>
+            </div>
+        </div>
 
-                <div>
-                    <h1>Liste des BD</h1>
-                    <div id="bdGallery">
-                    
+        <section id="mainContent">
+            <div id="titleSearch">
+                <form action="" id="titleForm">
+                    <input type="text" placeholder="Rechercher Titre..." id="titleFilter">
+                </form>
+            </div>
+
+            <div>
+                <h1>Liste des BD</h1>
+                <div id="bdGallery">
                         
                     </div>
                 </div>
+            </div>
         </section>
+        
     </main>
+
+    <div id="bdPopup">
+        <h2>Fiche Descriptive</h2>
+        <i class="fa-solid fa-xmark" id="removeIcon"></i>
+        <div id="popupBdContent">
+            <img src="" alt="" id="imgContent">
+                <div id="popupBdInfos">
+                    <div class="popupBdSmallContent">
+                        <h3>Titre: </h3> <span id="titreContent"></span>
+                    </div> 
+                    <div class="popupBdSmallContent">
+                        <h3>Série: </h3> <span id="serieContent"></span>
+                    </div>
+                    <div class="popupBdSmallContent">
+                       <h3>Auteur: </h3> <span id="writerContent"></span>
+                    </div>
+                    <h3>Résumé: </h3> <span id="summaryContent"></span>
+                    <h3>Commentaire: </h3> <span id="commentaryContent"></span>
+                    <div class="popupBdSmallContent">
+                        <h3>Exemplaire Restant: </h3><span id="availableContent"></span>
+                    </div>
+                </div>   
+        </div>
+        <button>Emprunter</button>
+    </div>
+
+    
 
     <script src="./data/albums.js"></script>
     <script src="./data/series.js"></script>
     <script src="./data/auteurs.js"></script>
     <script src="./Liste_BD/JS/tliste_bd.js"></script>
-    <script src="./Recherche_BD/JS/recherche_bd.js"></script>
-    <script src="./Liste_BD/JS/liste_BD.js"></script>
+    <script src="./Liste_BD/JS/showListe_BD.js"></script>
     <script src="./Liste_BD/JS/filtre_serie.js"></script>
     <script src="./Liste_BD/JS/filtre_writer.js"></script>
     <script src="./Liste_BD/JS/filtre_titre.js"></script>
     <script src="./Liste_BD/JS/toggleForm.js"></script>
+    <script src="./Liste_BD/JS/bdDetails.js"></script>
     <script src="https://kit.fontawesome.com/029a61a09e.js" crossorigin="anonymous"></script>
     
 </body>
