@@ -53,6 +53,7 @@
         
     }); 
 
+    
     btn_annuler.addEventListener('click',function(){
         validerPret.classList.add("invisible");
         rechercheInfos.classList.remove('invisible');
