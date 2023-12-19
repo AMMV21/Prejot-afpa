@@ -21,6 +21,7 @@
     let indiceEx = 0;
     let indiceAd = 0;
     let pageUrl = "";
+    let titreBD = "";
 
     // Expressions régulières  
     let conditionSaisiCodeEx = /^[A-Za-z]\d{3}$/ ; // Ma regexp demande une lettre suivi de 3 chiffres; 
@@ -64,12 +65,12 @@
     
         for (let i=0 ; i < exemplaireLocalStorage.length ; i++) {
             if (codeSaisi.toUpperCase() === exemplaireLocalStorage[i].codeExemplaire) { 
-                
+                titreBD = exemplaireLocalStorage[i].titre;
                 zoneCodeExemplaire.innerText = exemplaireLocalStorage[i].codeExemplaire;
                 zoneTitre.innerText = exemplaireLocalStorage[i].titre;
                 zoneAuteur.innerText = exemplaireLocalStorage[i].Auteur;
-                zoneSerie.innerText = exemplaireLocalStorage[i].Serie;
-
+                zoneSerie.innerText = exemplaireLocalStorage[i].Serie; 
+                
                 // Si la BD est indisponible ALERT
                 if (exemplaireLocalStorage[i].disponibilite === false) {
                     Swal.fire({
@@ -125,6 +126,7 @@
               });
               majExemplaire();
               majProfilAdh();
+              majStock();
             } else if (
               /* Read more about handling dismissals below */
               result.dismiss === Swal.DismissReason.cancel
@@ -217,6 +219,14 @@
         exemplaireLocalStorage[indiceEx].disponibilite = false;
         exemplaireLocalStorage[indiceEx].Emprunteur =  indiceAd + 1;
         localStorage.setItem('exemplaires', JSON.stringify(exemplaireLocalStorage));
-        localStorage.setItem('disponibilite',JSON.stringify(disponibiliteBD));
-    }
+    } 
 
+   function majStock(){
+    // Met à jour le stock
+    for (let i=0 ; i< disponibiliteBDStorage.length; i++){
+        if(disponibiliteBDStorage[i][0] === titreBD ){
+            disponibiliteBDStorage[i][1].disponibilite --;
+        }
+    }
+    localStorage.setItem('disponibilite',JSON.stringify(disponibiliteBDStorage));
+   }
