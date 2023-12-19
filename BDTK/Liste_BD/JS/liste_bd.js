@@ -92,8 +92,8 @@ function createBD(div,indice,title,exact)
             else if(checkTitleFilter(div,titleVolume,title))
             {
                 //initialisation image
-                newImg.src=`./Ressources/albums/${titleSerie}-${numeroVolume}-${titleVolume}.jpg`;
-                newImg.alt=`${titleVolume}_cover`;
+                newImg.src='./Ressources/albums/' +titleSerie+'-'+numeroVolume+'-'+titleVolume+'.jpg';
+                newImg.alt=`'couverture '+ titleVolume;
                 
                 //on change le nom de la balise titre
                 newTitle.textContent = titleVolume;
