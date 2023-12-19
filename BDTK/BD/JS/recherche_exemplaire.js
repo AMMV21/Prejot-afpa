@@ -20,13 +20,12 @@
 
     let indiceEx = 0;
     let indiceAd = 0;
+    let pageUrl = "";
 
     // Expressions régulières  
     let conditionSaisiCodeEx = /^[A-Za-z]\d{3}$/ ; // Ma regexp demande une lettre suivi de 3 chiffres; 
-    let conditionSaisiNumAdh = /^\d+$/ ; // Ma regexp demande uniquement 1 ou plusieurs chiffres;
+    let conditionSaisiNumAdh = /^\d{2}$/ ; // Ma regexp demande uniquement 1 ou plusieurs chiffres;
     
-    // Récupére les tableaux stocké en LocalStorage 
-    let exemplaireLocalStorage = JSON.parse(localStorage.getItem('exemplaires'));
 
     //*************  PROGRAMME PRINCIPALE ************************
 
@@ -49,11 +48,12 @@
             zoneErrCodeEx.innerText = "Commence par une lettre et suivi 3 chiffres";
         }
         if(!conditionSaisiNumAdh.test(numAdh.value)){
-                zoneErrNumAdh.innerText= "Uniquement des chiffres !" 
+                zoneErrNumAdh.innerText= "Le numéro adhérent doit comporter 2 chiffres !" 
         }               
         
     }); 
 
+    
     btn_annuler.addEventListener('click',function(){
         validerPret.classList.add("invisible");
         rechercheInfos.classList.remove('invisible');
@@ -143,10 +143,11 @@
      */
     function rechercheAdh() {
         let numAdhSaisi = numAdh.value;
-        numAdhSaisi = (numAdhSaisi < 10) ? "0" + numAdhSaisi : numAdhSaisi;
         console.log(numAdhSaisi);
 
         for (let i=0 ; i < adherentStorage.length ; i++) {
+            let url = './profilAdherents.html?numeroAdherent=' + (i + 1);
+            pageUrl = "<a href='" + url + "'>Consulter le profil</a>";
             if (numAdhSaisi === adherentStorage[i].numeroAdherent) {
                 if ((adherentStorage[i].cotisation === "A jour" && adherentStorage[i].nbr_emprunt < 3 && adherentStorage[i].amende == 0 )){
                     zoneNom.innerText = adherentStorage[i].nom;
@@ -159,7 +160,7 @@
                         icon: "error",
                         title: "Prêt impossible !",
                         text: "L'adhérent doit régler ses amendes en cours !",
-                        footer: '<a href="./profilAdherents.html">Consulter le profil</a>'
+                        footer: pageUrl,
                     });
                     return false;
                 } else if (adherentStorage[i].cotisation === "A jour"){
@@ -167,7 +168,7 @@
                         icon: "error",
                         title: "Prêt impossible !",
                         text: "L'adhérent à déja 3 prêt en cours",
-                        footer: '<a href="./profilAdherents.html">Consulter le profil</a>'
+                        footer: pageUrl,
                     });
                     return false;
                 } else {
@@ -175,7 +176,7 @@
                         icon: "error",
                         title: "Prêt impossible !",
                         text: "L'adhérent doit remettre à jour sa cotisation",
-                        footer: '<a href="./profilAdherents.html">Consulter le profil</a>'
+                        footer: pageUrl,
                     });
                     return false;
                 } 
@@ -216,6 +217,6 @@
         exemplaireLocalStorage[indiceEx].disponibilite = false;
         exemplaireLocalStorage[indiceEx].Emprunteur =  indiceAd + 1;
         localStorage.setItem('exemplaires', JSON.stringify(exemplaireLocalStorage));
+        localStorage.setItem('disponibilite',JSON.stringify(disponibiliteBD));
     }
-           
-   
+
