@@ -22,7 +22,7 @@ function showBD(div,title='',exact)
     {
         let noneBd = document.createElement('span');
         div.appendChild(noneBd);
-        noneBd.textContent = "Aucune BD n'a était trouvée";
+        noneBd.textContent = "Aucune BD n'a été trouvée...";
         noneBd.setAttribute('class','error');
     }
 }
@@ -73,7 +73,7 @@ function createBD(div,indice,title,exact)
                 if(checkExactTitleFilter(titleVolume,title))
                 {
                     //initialisation image
-                    newImg.src='./Ressources/albums/' +titleSerie+'-'+numeroVolume+'-'+titleVolume+'.jpg';
+                    newImg.src=`./Ressources/albums/${titleSerie}-${numeroVolume}-${titleVolume}.jpg`;
                     
                     //on change le nom de la balise titre
                     newTitle.textContent = titleVolume;
@@ -92,12 +92,13 @@ function createBD(div,indice,title,exact)
             else if(checkTitleFilter(div,titleVolume,title))
             {
                 //initialisation image
-                newImg.src='./Ressources/albums/' +titleSerie+'-'+numeroVolume+'-'+titleVolume+'.jpg';
+                newImg.src=`./Ressources/albums/${titleSerie}-${numeroVolume}-${titleVolume}.jpg`;
+                newImg.alt=`couverture ${titleVolume}`;
                 
                 //on change le nom de la balise titre
                 newTitle.textContent = titleVolume;
                 newSerieTitle.textContent = titleSerie;
-                newWriter.textContent = nameAuthor;
+                newWriter.textContent = nameAuthor.replaceAll(',',' ');
 
                 div.appendChild(newDiv);
                 
@@ -105,6 +106,10 @@ function createBD(div,indice,title,exact)
                 newDiv.appendChild(newSerieTitle);
                 newDiv.appendChild(newWriter);
                 newDiv.appendChild(newImg); 
+                newDiv.addEventListener('click',()=>{
+                    bdPopup.style.display = 'flex';
+                    blurAll();
+                    showDetails(bdPopup,titleVolume,titleSerie,nameAuthor,newImg)})
             } 
         }
         

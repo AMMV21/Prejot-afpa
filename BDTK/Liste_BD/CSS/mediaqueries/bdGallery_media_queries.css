@@ -1,0 +1,42 @@
+@media screen and (max-width: 1500px)
+{
+    .bdDiv
+    {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 1300px ) {
+    
+    .bdDiv
+    {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 800px)
+{
+    .bdDiv
+    {
+        width: 40%;
+    }
+}
+
+@media  screen and (max-width: 700px) {
+    .bdDiv
+    {
+        width: 70%;
+    }
+    .bdDiv
+    {
+        margin-bottom: 15%;
+    }
+    
+}
+
+@media screen and (max-width: 400px) {
+    .bdDiv
+    {
+        width: 80%;
+    }
+}
