@@ -32,7 +32,7 @@
         <div class="containerDeToutLeProfilAdherent">
             <div class="container_Des_Infos">
                 <span class="titreInfo">Informations</span>
-                <div class="centreInfo visible">
+                <div id="centreInfoVisible">
                     <div class="zoneInfo">
                         <span class="titre">Numéro d'adhérent : </span>
                         <span id="zoneNumeroAdherent"></span>
@@ -54,31 +54,48 @@
                         <span class="titre">Email :</span>
                         <span id="zoneMail">UneAdresseMail@gmail.com</span>    
                     </div>
-                 <button id="boutonModifierAdherent">Modifier</button>   
+                 <button id="boutonModifierAdherent">Modifier</button> 
                 </div>
-                <div class="centreInfo invisible">
-                    <div class="zoneInfo">
-                        <span class="titre">Numéro d'adhérent : Nouvelle div </span>
-                        <span id="zoneNumeroAdherent"></span>
-                    </div>
-                    <div class="zoneInfo">
-                        <span class="titre">Nom :</span>
-                        <span id="zoneNom"></span>  
-                    </div>
-                    <div class="zoneInfo">
-                        <span class="titre">Prénom :</span>
-                        <span id="zonePrenom">Prenom</span>  
-                    </div>
-                    <div class="zoneInfo">
-                        <span class="titre"> Adresse :</span>
-                        <span id="zoneAdresse">10 Adresse fictive</span>
-                        <span id="zoneVille">99999 Ville fictive</span>
-                    </div>
-                    <div class="zoneInfo">
-                        <span class="titre">Email :</span>
-                        <span id="zoneMail">UneAdresseMail@gmail.com</span>    
-                    </div>
-                 <button id="boutonModifierAdherent">Modifier</button>   
+
+
+                <div id="centreInfoInvisible">
+                    <form action="" method="get" id="formModif">
+                        <div class="zoneInfo">
+                            <span class="titre">Numéro d'adhérent :</span>
+                            <span id="zoneNumeroAdherentDeux"></span>
+                        </div>
+                        <div class="zoneInfo">
+                            <span class="titre">Nom  :</span>
+                            <label for="nom">
+                                <input class="inputText" type="text" id="inputNom">
+                            </label>
+                        </div>
+                        <div class="zoneInfo">
+                            <span class="titre">Prénom :</span>
+                            <label for="prenom">
+                                <input class="inputText" type="text" id="inputPrenom">
+                            </label>
+                        </div>
+                        <div class="zoneInfo">
+                            <span class="titre"> Adresse :</span>
+                            <label for="adresse">
+                                <input class="inputText" type="text" id="inputAdresse">
+                            </label>
+                            <label for="ville">
+                                <input class="inputText" type="text" id="inputVille">
+                            </label>
+                        </div>
+                        <div class="zoneInfo">
+                            <span class="titre">Email :</span>
+                            <label for="mail">
+                                <input class="inputText" type="text" id="inputMail">
+                            </label>   
+                        </div>
+                        <div class="inputDivValider">
+                            <input type="submit" value="Valider" id="boutonValiderAdherent"> 
+                            <input type="reset" value="Annuler" id="boutonAnnulerAdherent">  
+                        </div>
+                    </form>
                 </div>
                 
             </div>
@@ -86,8 +103,12 @@
                 <span class="titreEmprunts">Les emprunts en cours</span>
 
                 <div>
-                    <span id="empruntNumeroUn">Coucou</span>
+                    <span id="empruntNumeroUn"></span>
+                        <img src="" alt="">
+                    
                     <span id="empruntNumeroDeux"></span>
+
+                    <span id="empruntNumeroTrois"></span>
                 </div>
                 
             </div>
@@ -104,7 +125,6 @@
                          <span id="soldeEnEuro"></span>  
                          <span>€</span> 
                         </div>
-                        <button>Nouvelle amende</button>
                         <button id="boutonPayerAmende">Payer l'amende</button>
                     </div>  
             </div>

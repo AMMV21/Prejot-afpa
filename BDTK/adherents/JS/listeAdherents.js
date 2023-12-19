@@ -33,6 +33,7 @@ $(document).ready(function () {
 
         // Construire l'URL avec l'identifiant unique (numéro d'adhérent)
         var pageUrl = "profilAdherents.html?numeroAdherent=" + rowData[0];
+         
 
         // Rediriger l'utilisateur vers la page profilAdherents.html avec les informations de l'adhérent
         window.location.href = pageUrl;
@@ -40,7 +41,7 @@ $(document).ready(function () {
 
     let i = 1;
     // Ajouter les colonnes à DataTable en utilisant les clés de la carte
-    adherent.forEach(function (values) {
+    adherentStorage.forEach(function (values) {
         // Ajouter une nouvelle ligne dans le tableau
         var rowData = [
             i,
@@ -57,6 +58,6 @@ $(document).ready(function () {
         table.row.add(rowData);
     });
 
-    // Redessiner le tableau pour appliquer les modifications
+    // Redessine le tableau pour appliquer les modifications
     table.draw();
 });
