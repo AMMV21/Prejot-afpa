@@ -1,0 +1,92 @@
+@media screen and (max-width: 1300px) 
+{
+    #popupBdContent>img
+    {
+        width: 50%;
+        height: 90%;
+    }
+}
+
+@media screen and (max-width: 1300px) 
+{
+    #bdPopup
+    {
+        align-items: space-around;
+        top: 5%;
+        left: 15%;
+        right: 15%;
+        bottom: 5%;
+    }
+    #popupBdContent
+    {
+        height: 85%;
+        flex-direction: column;
+    }
+
+    #popupBdContent>img
+    {
+        width: 50%;
+        height: 50%;
+    }
+    #popupBdInfos
+    {
+        height: 50%;
+        flex-direction: column;
+        margin-top: 1%;
+        
+    }
+    .popupBdSmallContent
+    {
+        font-size: 1.0rem;
+        margin: 0;
+        height: 10%;
+    }
+    #summaryContent
+    {
+        height: 100%;
+    }
+    #commentaryContent
+    {
+        height: 100%;
+    }
+    #popupBdInfos>h3
+    {
+        margin-top: 5px;
+    }
+}
+
+@media screen and (max-width: 1000px)
+{
+    #popupBdContent>img
+    {
+        width: 60%;
+        height: 50%;
+    }
+} 
+@media screen and (max-width: 800px)
+{
+    #bdPopup
+    {
+        align-items: space-around;
+        top: 3%;
+        left: 5%;
+        right: 5%;
+        bottom: 3%;
+    }
+
+    #popupBdContent
+    {
+        width: 95%;
+
+    }
+} 
+
+@media screen and (max-width: 600px)
+{
+
+    #popupBdContent>img
+    {
+        width: 80%;
+        height: 50%;
+    }
+} 
