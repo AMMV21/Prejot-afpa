@@ -50,7 +50,10 @@ let tAdherent = []; // Tableau qui contiendra les objets de la map
 
     // *******************  Vérifie si le locale storage à déja été créée dans la session 
    if (!localStorage.adherent){ localStorage.setItem("adherent", JSON.stringify(Array.from(tAdherent))); } 
-   let adherentStorage = JSON.parse(localStorage.getItem('adherent'));
+
+   let adherentStorage = JSON.parse(localStorage.getItem("adherent"));
 
     // Je décommente la ligne suivant pour réinitialiser le storage avec le tableau de base.
-    //localStorage.setItem("adherent", JSON.stringify(Array.from(tAdherent)));
+    // localStorage.setItem("adherent", JSON.stringify(Array.from(tAdherent)));
+
+
