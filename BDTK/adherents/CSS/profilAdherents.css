@@ -3,7 +3,7 @@
     margin-top: 10%;
     margin-bottom: 10%;
     background-color: white;
-    width: 50%;
+    width: 70%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -22,19 +22,21 @@
     display:flex ;
 }
 .container_Des_Infos{
-    width: 33%;
+    width: 34%;
     border: solid 4px rgba(49, 175, 160, 1);
     border-left: none;
     border-bottom: none;
     
 }
 .titreInfo{
+    height: 10%;
     font-family: "roboto-medium";
     font-size: 22px;
     background-color: rgba(220, 130, 39, 1);
     color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding-top: 5%;
     padding-bottom: 5%;
     
@@ -56,19 +58,21 @@
     
 }
 .container_Des_emprunts{
-    width: 34%;
+    width: 33%;
     border: solid 4px rgba(49, 175, 160, 1);
     border-left: none;
     border-bottom: none;
     border-right: none;
 }
 .titreEmprunts{
+    height: 10%;
     font-family: "roboto-medium";
     font-size: 22px;
     background-color:rgba(49, 175, 160, 1);
     color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding-top: 5%;
     padding-bottom: 5%;
 }
@@ -80,12 +84,14 @@
 }
 
 .titreGestion{
+    height: 10%;
     font-family: "roboto-medium";
     font-size: 22px;
-    background-color:rgba(220, 130, 39, 1);
+    background-color: rgba(220, 130, 39, 1);
     color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding-top: 5%;
     padding-bottom: 5%;
 }
@@ -200,4 +206,24 @@ span{
     width: 300px;
 }
 
+#listeDesEmpruntEnCours{
+    display: flex;
+}
+.divEmprunt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.divEmprunt:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+}
+.divEmprunt>img{
+    width: 70%;
+}
 
+.divEmprunt h2,h3,h4 {
+    margin-bottom: 5px;
+}
