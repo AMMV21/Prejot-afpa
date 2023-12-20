@@ -8,7 +8,7 @@ let summary = document.getElementById('summaryContent');
 let commentary = document.getElementById('commentaryContent');
 let available = document.getElementById('availableContent');
 let img = document.getElementById('imgContent');
-let tCopyTab= [];
+
 
 //ajut d'une incone pour recacher la bd
 let removeIcon = document.getElementById('removeIcon');
@@ -42,6 +42,7 @@ function showDetails(div,bookTitle,serieTitle,writerName,bdImg)
     summary.textContent = 'Eu ullamco mollit adipisicing quis id ut incididunt tempor magna occaecat. Et nostrud aliquip sunt est occaecat excepteur exercitation elit ullamco. Ipsum adipisicing duis adipisicing fugiat et veniam ut culpa nisi enim proident ex. Eu labore irure pariatur enim ad consequat amet aliquip cupidatat anim exercitation velit mollit sit. Aliquip adipisicing fugiat excepteur deserunt cillum velit officia. Ea est nisi officia et sint nostrud dolor sunt nostrud.';
     commentary.textContent = 'Pariatur ullamco pariatur excepteur est aliqua voluptate aliqua mollit ullamco reprehenderit sunt tempor ullamco. Velit aliquip eiusmod minim nulla. Veniam quis nostrud quis consectetur consequat consequat occaecat consequat qui elit laborum velit. Minim adipisicing cillum sit cupidatat non enim cillum ipsum. Nisi id non enim reprehenderit nulla sit. Ex incididunt aliqua esse eu minim aute irure irure id. Cupidatat ex tempor culpa Lorem cupidatat sit laboris cillum quis.';
     
+    //je parcours le locale storage pour voir le nombre d'exemplaire de la BD disponible
     for (let [key, value] of copyList.entries()) {
 
         if (value.titre === bookTitle && value.disponibilite === true){
@@ -49,6 +50,8 @@ function showDetails(div,bookTitle,serieTitle,writerName,bdImg)
         }
         
     }
+
+    //si il n'y a aucun exemplaire disponible
     if(copyCount === 0)
     {
         pinchBtn.style.display = 'none';
@@ -56,9 +59,13 @@ function showDetails(div,bookTitle,serieTitle,writerName,bdImg)
         available.style.color = 'red';
         available.style.fontWeight = 'bold';
     }
+    //si au moins un exemplaire est disponible
     else
     {
+        pinchBtn.style.display = 'inline-block';
         available.textContent = copyCount;
+        available.style.color = 'black';
+        available.style.fontWeight = 'none';
         pinchBtn.onclick = ()=>{recupIdCopy(bookTitle,tCopyTab)};
 }
     }

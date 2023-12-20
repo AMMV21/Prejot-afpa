@@ -106,14 +106,20 @@ function createBD(div,indice,title,exact)
                 newDiv.appendChild(newSerieTitle);
                 newDiv.appendChild(newWriter);
                 newDiv.appendChild(newImg); 
+
+                //lors du clique on cache la popup qui contiens le form si elle est affiché
+                //on affiche ensuite la popup des détails de la BD 
+                //on affiche les détails de la BD
+                //on floute la page en dehors des popup
                 newDiv.addEventListener('click',()=>{
                     if(copyItemPopup.style.display !== 'none')
                     {
                         copyItemPopup.style.display = 'none';
                     }                    
                     bdPopup.style.display = 'flex';
+                    showDetails(bdPopupContent,titleVolume,titleSerie,nameAuthor,newImg);
                     blurAll();
-                    showDetails(bdPopupContent,titleVolume,titleSerie,nameAuthor,newImg)})
+                })
             } 
         }
         
