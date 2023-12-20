@@ -25,35 +25,41 @@ document.getElementById('logoutButton').addEventListener('click', function(){
     }
 });
 
-let editUserButton = document.getElementById('editUserButton').addEventListener('click', function(event){
-    try{
-        event.preventDefault();
-        let email = document.getElementById('currentEmailAdherant').value;
-        let nouveauEmail = document.getElementById('editEmailAdherant').value;
-        let nouveauMotdepasse = document.getElementById('editPasswordAdherant').value;
-        if(email === "" || nouveauEmail === "" || nouveauMotdepasse === ""){
-            swal("Erreur", "Veuillez remplir tous les champs", "error");
-        }else{
-            let resultat = modifierUtilisateur(email, nouveauEmail, nouveauMotdepasse);
-            switch(resultat){
-                case 'Utilisateur modifié avec succès !':
-                    swal("Succès", "Utilisateur modifié avec succès !", "success").then(() => {
-                        setTimeout(function(){
-                            window.location.href = 'user_management.html';
-                        }, 1000);
-                    });
-                    break;
+let editUserButton = document.getElementById('editUserButton');
+editUserButton.addEventListener('click', function(event){
+    event.preventDefault();
+    let email = document.getElementById('currentEmailAdherant').value;
+    let nouveauEmail = document.getElementById('editEmailAdherant').value;
+    let nouveauMotdepasse = document.getElementById('editPasswordAdherant').value;
+    if(email === "" || nouveauEmail === "" || nouveauMotdepasse === ""){
+        swal("Erreur", "Veuillez remplir tous les champs", "error");
+    }else{
+        swal({
+            title: "Êtes-vous sûr?",
+            text: "Êtes-vous sûr de vouloir modifier cet utilisateur?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willEdit) => {
+            if (willEdit) {
+                let resultat = modifierUtilisateur(email, nouveauEmail, nouveauMotdepasse);
+                switch(resultat){
+                    case 'Utilisateur modifié avec succès !':
+                        swal("Succès", "Utilisateur modifié avec succès !", "success").then(() => {
+                            setTimeout(function(){
+                                window.location.href = 'user_management.html';
+                            }, 1000);
+                        });
+                        break;
                     case 'Utilisateur introuvable.':
                         swal("Erreur", "Utilisateur introuvable", "error");
                         break;
-                        default:
-                            swal("Erreur", "Erreur inconnue.", "error");
+                    default:
+                        swal("Erreur", "Erreur inconnue.", "error");
+                }
             }
-        }
-
-    }catch(err){
-        console.log('Une erreur s\'est produite lors de la modification de l\'utlisateur :', err.message);
-        swal("Erreur", "Une erreur s'est produite lors de la modification de l'utilisateur.", "error");
+        });
     }
 });
 

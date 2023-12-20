@@ -32,15 +32,26 @@ deleteUserButton.addEventListener('click', function(event){
     if(email === ""){
         swal("Erreur", "Veuillez remplir tous les champs.", "error");
     }else{
-        try{
-            deleteUser(email);
-            swal("Succès", "Utilisateur supprimé avec succès !", "success").then(() => {
-                window.location.href = 'user_management.html';
-            });
-        }catch(err){
-            console.log('Une erreur s\'est produite lors de la suppression de l\'utilisateur :', err.message);
-            swal("Erreur", "Une erreur s'est produite lors de la suppression de l'utilisateur.", "error");
-        }
+        swal({
+            title: "Êtes-vous sûr?",
+            text: "Êtes-vous sûr de vouloir supprimer cet utilisateur?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                try{
+                    deleteUser(email);
+                    swal("Succès", "Utilisateur supprimé avec succès !", "success").then(() => {
+                        window.location.href = 'user_management.html';
+                    });
+                }catch(err){
+                    console.log('Une erreur s\'est produite lors de la suppression de l\'utilisateur :', err.message);
+                    swal("Erreur", "Une erreur s'est produite lors de la suppression de l'utilisateur.", "error");
+                }
+            }
+        });
     }
 });
 
