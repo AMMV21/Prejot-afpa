@@ -1,5 +1,8 @@
 window.addEventListener('load',()=>{checkCopyUrl()});
 
+/*
+*Permet de rechercher une information "numeroId" dans l'url
+*/
 function checkCopyUrl()
 {
    
