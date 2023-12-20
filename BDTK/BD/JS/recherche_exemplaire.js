@@ -127,6 +127,7 @@
               majExemplaire();
               majProfilAdh();
               majStock();
+              addEmpruntList();
             } else if (
               /* Read more about handling dismissals below */
               result.dismiss === Swal.DismissReason.cancel
@@ -223,10 +224,43 @@
 
    function majStock(){
     // Met à jour le stock
-    for (let i=0 ; i< disponibiliteBDStorage.length; i++){
-        if(disponibiliteBDStorage[i][0] === titreBD ){
-            disponibiliteBDStorage[i][1].disponibilite --;
+        for (let i=0 ; i< disponibiliteBDStorage.length; i++){
+            if(disponibiliteBDStorage[i][0] === titreBD ){
+                disponibiliteBDStorage[i][1].disponibilite --;
+                }
         }
+        localStorage.setItem('disponibilite',JSON.stringify(disponibiliteBDStorage));
     }
-    localStorage.setItem('disponibilite',JSON.stringify(disponibiliteBDStorage));
-   }
+   
+    let newEmprunt = {};
+ 
+   function addEmpruntList(){
+        // Récupérer la date actuelle
+        let dateActuelle = new Date();
+
+        // Ajouter 15 jours
+        let dateDeRetour = new Date(dateActuelle);
+        dateDeRetour.setDate(dateActuelle.getDate() + 15); 
+
+        // L'option permet de mettre l'heure au bon format
+        const option = { day: '2-digit', month: '2-digit', year: 'numeric' }; 
+        let datePret =  dateActuelle.toLocaleDateString('fr-FR', option);
+        let dateRetour = dateDeRetour.toLocaleDateString('fr-FR', option);
+
+        newEmprunt = {
+        nomEmprunteur: adherentStorage[indiceAd].nom,
+        prenomEmprunteur: adherentStorage[indiceAd].prenom,
+        numeroAdherent : adherentStorage[indiceAd].numeroAdherent,
+        codeExemplaire: exemplaireLocalStorage[indiceEx].codeExemplaire,
+        dateEmprunt: datePret,
+        dateRetour: dateRetour,
+        };
+
+        listEmpruntsStorage.push(newEmprunt);
+        localStorage.setItem('listEmprunts', JSON.stringify(listEmpruntsStorage));
+    }
+
+
+
+
+
