@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="./Liste_BD/CSS/filtre.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/bdGallery.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/bdPopup.css">
+    <link rel="stylesheet" href="./Liste_BD/CSS/copyItemPopup.css">
     <link rel="stylesheet" href="./CSS_GLOBAL/mediaqueries/header_media_queries.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/mediaqueries/bdGallery_media_queries.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/mediaqueries/filtre_media_queries.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/mediaqueries/bdPopup_media_queries.css">
+    <link rel="stylesheet" href="./Liste_BD/CSS/mediaqueries/copyItemPopup_media_queries.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/mediaqueries/index_media_queries.css">
     <title>BDTK</title>
     <link rel="icon" type="image/x-icon" href="./Ressources/icone-BDTK.png">
@@ -96,8 +98,16 @@
             <button id="pinchBtn">Emprunter</button>
     </div>
 
-    <div id="numeroIdPopup">
-        
+    <div id="copyItemPopup">
+        <form action="./recherche_pret.html" method="GET">
+        <label for="copyItem">Choissisez l'exemplaire désiré</label>
+        <select name="copyItem" id="copyItem">
+            <optgroup id="availableCopyList">
+            </optgroup>
+        </select>
+            <input type="submit" value="Envoyer">
+            <input type="reset" value="Annuler" id="resetCopyItem">
+    </form>
     </div>
 
     
@@ -113,6 +123,7 @@
     <script src="./Liste_BD/JS/filtre_titre.js"></script>
     <script src="./Liste_BD/JS/toggleForm.js"></script>
     <script src="./Liste_BD/JS/bdDetails.js"></script>
+    <script src="./Liste_BD/JS/copyPopup.js"></script>
     <script src="https://kit.fontawesome.com/029a61a09e.js" crossorigin="anonymous"></script>
     
 </body>

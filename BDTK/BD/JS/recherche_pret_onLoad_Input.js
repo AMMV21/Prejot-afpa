@@ -5,12 +5,16 @@ window.addEventListener('load',()=>{checkCopyUrl()});
 */
 function checkCopyUrl()
 {
-   let url = window.location.href;
-   let searchParams = new URLSearchParams(url);
+   
+   let params = new URL(document.location).searchParams;
+   let idExemplaire = params.get("copyItem");
 
-   //si l'url comporte une donnée "numeId" alors l'input "codeEx" prend la valeur de la donnée
-   if(searchParams.has('numeroId'))
+   if(idExemplaire !== null)
    {
-        codeEx.value = searchParams.get('numeroId');
+        codeEx.value = idExemplaire;
+   }
+   else
+   {
+      console.log(idExemplaire);
    }
 }

@@ -107,6 +107,10 @@ function createBD(div,indice,title,exact)
                 newDiv.appendChild(newWriter);
                 newDiv.appendChild(newImg); 
                 newDiv.addEventListener('click',()=>{
+                    if(copyItemPopup.style.display !== 'none')
+                    {
+                        copyItemPopup.style.display = 'none';
+                    }                    
                     bdPopup.style.display = 'flex';
                     blurAll();
                     showDetails(bdPopupContent,titleVolume,titleSerie,nameAuthor,newImg)})
