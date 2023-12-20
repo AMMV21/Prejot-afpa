@@ -109,7 +109,7 @@ function createBD(div,indice,title,exact)
                 newDiv.addEventListener('click',()=>{
                     bdPopup.style.display = 'flex';
                     blurAll();
-                    showDetails(bdPopup,titleVolume,titleSerie,nameAuthor,newImg)})
+                    showDetails(bdPopupContent,titleVolume,titleSerie,nameAuthor,newImg)})
             } 
         }
         
