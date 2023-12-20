@@ -13,8 +13,4 @@ function checkCopyUrl()
    {
         codeEx.value = idExemplaire;
    }
-   else
-   {
-      console.log(idExemplaire);
-   }
 }
