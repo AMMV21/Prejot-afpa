@@ -7,6 +7,7 @@ if (numeroAdherent) {
 
 
     // Fonction pour mettre à jour les détails de l'adhérent sur la page
+   
 function updateDetails() {
     var zoneNumeroAdherent = document.getElementById("zoneNumeroAdherent");
     zoneNumeroAdherent.innerText = adherentStorage[numeroAdherent-1].numeroAdherent; // -1
@@ -34,15 +35,19 @@ function updateDetails() {
 
     var soldeEnEuro = document.getElementById("soldeEnEuro");
     soldeEnEuro.innerText = adherentStorage[numeroAdherent-1].amende;
-    
-    var empruntNumeroUn = document.getElementById("empruntNumeroUn");
-    empruntNumeroUn.innerText = adherentStorage[numeroAdherent-1].emprunt1;
 
-    var empruntNumeroDeux = document.getElementById("empruntNumeroDeux");
-    empruntNumeroDeux.innerText = adherentStorage[numeroAdherent-1].emprunt2;
+    var nombreEmpruntsEnCours = document.getElementById("nombreEmpruntsEnCours");
+    nombreEmpruntsEnCours.innerText = adherentStorage[numeroAdherent-1].nbr_emprunt;
 
-    var empruntNumeroTrois = document.getElementById("empruntNumeroTrois");
-    empruntNumeroTrois.innerText = adherentStorage[numeroAdherent-1].emprunt3;
+//Permet d'emprunter une nouvelle BD si surpérieure ou = à 3 le bouton disparait
+var boutonEmprunterNouvelleBd = document.getElementById("boutonEmprunterNouvelleBd")
+
+    if (adherentStorage[numeroAdherent-1].nbr_emprunt >= 3)
+    boutonEmprunterNouvelleBd.style.display = "none";
+
+
+
+
 
 //Permet de mettre à jours la cotisation
 
@@ -219,6 +224,13 @@ function verifierFormulaire() {
     verifierChamp("inputVille", /^\d{5}\s[A-Za-z0-9\s]+$/, 'Veuillez saisir une ville valide.');
     verifierChamp("inputMail", /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/, 'Veuillez saisir une adresse e-mail valide.');
     
+    // Vérification de l'e-mail déjà existant
+    var inputMail = document.getElementById("inputMail");
+    var nouveauMail = inputMail.value.trim();
+    if (emailExists(nouveauMail)) {
+        erreurs.push('L\'adresse e-mail existe déjà. Veuillez saisir une adresse e-mail différente.');
+    }
+
 //Si il y'a une erreur, d'où vient l'erreur
     if (erreurs.length > 0) {
         Swal.fire({
@@ -238,6 +250,15 @@ function verifierFormulaire() {
     });
 
     return true;
+}
+//Recherche les email déjà utilisées dans le localStorage
+function emailExists(newEmail) {
+    for (var i = 0; i < adherentStorage.length; i++) {
+        if (i !== numeroAdherent - 1 && adherentStorage[i].mail.trim().toLowerCase() === newEmail.toLowerCase()) {
+            return true; // E-mail trouvé dans un autre adhérent
+        }
+    }
+    return false; // E-mail non trouvé
 }
 
 //Fonction pour mon formulaire
@@ -279,3 +300,59 @@ formModif.addEventListener("submit", function (e) {
         centreInfoVisible.style.display = "flex";
     }
 });
+function rechercheTitreExemplaire(valeurChercher){
+    let exemplaireLocalStorage2 = JSON.parse(localStorage.getItem('exemplaires'));
+    for (let [key, value] of exemplaireLocalStorage2.entries()) {
+
+        if (value.codeExemplaire === valeurChercher){
+            rechercheBD(value.titre);
+            break;
+        }
+        
+    }
+
+}
+function rechercheBD(titre){
+    for(let i = 0; i < tliste_bd.length; i++ ){
+        if(tliste_bd[i][1].titre === titre){
+            empruntBD(listeDesEmpruntEnCours,tliste_bd[i][1]);
+        }
+
+    }
+}
+
+var listeDesEmpruntEnCours = document.getElementById("listeDesEmpruntEnCours");
+  function empruntBD(div,bdTableau)
+{
+    //initialisation des div à créer
+    let nouvelleDiv = document.createElement('div');
+    nouvelleDiv.setAttribute('class','divEmprunt');
+    let nouvelleImage = document.createElement('img');
+    let nouveauTitreSerie = document.createElement('h3');
+    let newTitle = document.createElement('h2');
+    let nouvelAuteur = document.createElement('h4');
+
+    newTitle.textContent = bdTableau.titre;
+    let numeroSerie = bdTableau.idSerie;
+    nouveauTitreSerie.textContent = series.get(numeroSerie).nom;
+    let numeroAuteur = bdTableau.idAuteur;
+    nouvelAuteur.textContent = auteurs.get(numeroAuteur).nom.replaceAll(',',' ');
+    let numeroVolume = bdTableau.numero;
+    nouvelleImage.src=`./Ressources/albums/${series.get(numeroSerie).nom}-${numeroVolume}-${bdTableau.titre}.jpg`;
+
+    div.appendChild(nouvelleDiv);
+    nouvelleDiv.appendChild(newTitle);
+    nouvelleDiv.appendChild(nouveauTitreSerie);
+    nouvelleDiv.appendChild(nouvelAuteur);
+    nouvelleDiv.appendChild(nouvelleImage); 
+}
+
+if (adherentStorage[numeroAdherent-1].emprunt1 !== "" ){
+    rechercheTitreExemplaire(adherentStorage[numeroAdherent-1].emprunt1);
+}
+if (adherentStorage[numeroAdherent-1].emprunt2 !== "" ){
+    rechercheTitreExemplaire(adherentStorage[numeroAdherent-1].emprunt2);
+}
+if (adherentStorage[numeroAdherent-1].emprunt3 !== "" ){
+    rechercheTitreExemplaire(adherentStorage[numeroAdherent-1].emprunt3);
+}
