@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil</title>
+    <link rel="icon" type="image/x-icon" href="./Ressources/icone-BDTK.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="./CSS_GLOBAL/header.css">
     <link rel="stylesheet" href="./CSS_GLOBAL/css_global.css">
@@ -100,15 +101,21 @@
                 
             </div>
             <div class="container_Des_emprunts">
+                
                 <span class="titreEmprunts">Les emprunts en cours</span>
 
                 <div>
-                    <span id="empruntNumeroUn"></span>
-                        <img src="" alt="">
+                    <div class="zoneInfo">
+                        <span class="titre">Nombre d'emprunts en cours : </span>
+                        <span id="nombreEmpruntsEnCours"></span>
+                        <div id="listeDesEmpruntEnCours">
                     
-                    <span id="empruntNumeroDeux"></span>
+                         </div>   
 
-                    <span id="empruntNumeroTrois"></span>
+
+
+                        <button id="boutonEmprunterNouvelleBd">Emprunter une BD</button>
+                    </div>  
                 </div>
                 
             </div>
@@ -135,7 +142,12 @@
             <button id="archiverAdherent">Archiver l'adhérent</button>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="./data/albums.js"></script>
+        <script src="./data/series.js"></script>
+        <script src="./data/auteurs.js"></script>
+        <script src="./Liste_BD/JS/tliste_bd.js"></script>
         <script src="./data/adherents.js"></script>
+        <script src="./adherents/JS/emprunterNouvelleBDd.js"></script>
         <script src="./adherents/JS/profilAdherents.js"></script>
 </body>
 </html>
