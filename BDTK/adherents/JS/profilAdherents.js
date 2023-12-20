@@ -40,7 +40,7 @@ function updateDetails() {
     nombreEmpruntsEnCours.innerText = adherentStorage[numeroAdherent-1].nbr_emprunt;
 
 //Permet d'emprunter une nouvelle BD si surpérieure ou = à 3 le bouton disparait
-var boutonEmprunterNouvelleBd = document.getElementById("boutonEmprunterNouvelleBd")
+var boutonEmprunterNouvelleBd = document.getElementById("boutonEmprunterNouvelleBd");
 
     if (adherentStorage[numeroAdherent-1].nbr_emprunt >= 3)
     boutonEmprunterNouvelleBd.style.display = "none";
