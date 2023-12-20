@@ -301,8 +301,8 @@ formModif.addEventListener("submit", function (e) {
     }
 });
 function rechercheTitreExemplaire(valeurChercher){
-    let exemplaireLocalStorage2 = JSON.parse(localStorage.getItem('exemplaires'));
-    for (let [key, value] of exemplaireLocalStorage2.entries()) {
+    let exemplaireLocalStorage = JSON.parse(localStorage.getItem('exemplaires'));
+    for (let [key, value] of exemplaireLocalStorage.entries()) {
 
         if (value.codeExemplaire === valeurChercher){
             rechercheBD(value.titre);
