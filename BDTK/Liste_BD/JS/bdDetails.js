@@ -50,9 +50,21 @@ function showDetails(div,bookTitle,serieTitle,writerName,bdImg)
         
     }
 
-    available.textContent = copyCount;
-    pinchBtn.onclick = (e)=>{recupIdCopy(e,bookTitle,tCopyTab)};
+    if(copyCount === 0)
+    {
+        pinchBtn.style.display = 'none';
+        available.textContent = 'Non Dispobible';
+        available.style.color = 'red';
+        available.style.fontWeight = 'bold';
+    }
+
+    else
+    {
+        available.textContent = copyCount;
+        pinchBtn.onclick = ()=>{recupIdCopy(bookTitle,tCopyTab)};
 }
+    }
+    
 
 /**
  * Permet de cacher la div
@@ -64,6 +76,9 @@ function closePopup(div)
     unblurAll();
 }
 
+/**
+ * Permet de flouter tout les elements lors d el'ouverture de la Popup
+ */
 function blurAll()
 {
     if(!blur[0].classList.contains('blur'))
@@ -76,6 +91,9 @@ function blurAll()
     
 }
 
+/**
+ * permet de retiré le flou de tout les élements flouté
+ */
 function unblurAll()
 {
     if(blur[0].classList.contains('blur'))
@@ -87,7 +105,7 @@ function unblurAll()
     }
 }
 
-function recupIdCopy(event,title,tab)
+function recupIdCopy(title,tab)
 {
     let copyList = JSON.parse(localStorage.getItem('exemplaires'));
     tab = [];
@@ -99,6 +117,15 @@ function recupIdCopy(event,title,tab)
         }
         
     }
-    console.log(tab);
-    console.log(event.form);
+    if(tab.length > 0)
+    {
+        // Construire l'URL avec l'id exemplaire disponible
+     var pageUrl = `recherche_pret.html?&numeroId=${tab[0]}`;
+     // Rediriger l'utilisateur vers la page recherchePret.html avec les informations de l'exemplaire
+     window.location.href = pageUrl;
+    }
+    else
+   {alert('erreur');}
+     
+
 }
