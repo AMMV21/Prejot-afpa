@@ -50,14 +50,18 @@ document.getElementById('btnRechercher').addEventListener('click', function(even
         // Récupérez les valeurs des champs de saisie de l'email et du mot de passe
         let email = document.getElementById('emailAdherant').value;
         let motdepasse = document.getElementById('passwordAdherant').value;
-        
+        let passwordFormat = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+        if(!passwordFormat.test(motdepasse)){
+            swal("Erreur", "Le mot de passe doit contenir au moins un chiffre, une lettre majuscule, une lettre minuscule et au moins 8 caractères ou plus.", "error");
+            return;
+        }       
         // Verifier si les champs ne sont pas vides
         if(email === "" || motdepasse === ""){
             swal("Erreur", "Veuillez remplir tous les champs.", "error");
         }else{
            // Appelez la fonction seConnecter avec ces valeurs
            let resultat = seConnecter(email, motdepasse);
-        
+
         // Switch alert
         switch(resultat){
             case 'Connexion réussie !':

@@ -27,13 +27,17 @@ document.getElementById('logoutButton').addEventListener('click', function(){
 
 
 let addUserButton = document.getElementById('addUserButton');
-
 addUserButton.addEventListener('click', function(event){
     event.preventDefault();
 
     let email = document.getElementById('newEmailAdherant').value;
     let password = document.getElementById('newPasswordAdherant').value;
-
+    // Verification format mot de passe
+    let passwordFormat = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    if(!passwordFormat.test(password)){
+        swal("Erreur", "Le mot de passe doit contenir au moin un chiffre, une lettre majuscule, une lettre minuscule et au moins 8 caractères ou plus.", "error");
+        return;
+    }
     if(email === "" || password === ""){
         swal("Erreur", "Veuillez remplir tous les champs.", "error");
     }else{

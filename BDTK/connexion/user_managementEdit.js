@@ -31,6 +31,11 @@ editUserButton.addEventListener('click', function(event){
     let email = document.getElementById('currentEmailAdherant').value;
     let nouveauEmail = document.getElementById('editEmailAdherant').value;
     let nouveauMotdepasse = document.getElementById('editPasswordAdherant').value;
+    let passwordFormat = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    if(!passwordFormat.test(nouveauMotdepasse)){
+        swal("Erreur", "Le mot de passe doit contenir au moins un chiffre, une lettre majuscule, une lettre minuscule et au moins 8 caractères ou plus.", "error");
+        return;
+    }
     if(email === "" || nouveauEmail === "" || nouveauMotdepasse === ""){
         swal("Erreur", "Veuillez remplir tous les champs", "error");
     }else{
