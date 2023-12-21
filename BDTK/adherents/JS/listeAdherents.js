@@ -1,5 +1,6 @@
 $(document).ready(function () {
     var table = $('#myTable').DataTable({
+        responsive: true,
         //Permet de changer la langue de la barre de recherche
         "oLanguage": {
             "sSearch": "Recherche"
@@ -40,7 +41,7 @@ $(document).ready(function () {
     });
 
     let i = 1;
-    // Ajouter les colonnes à DataTable en utilisant les clés de la carte
+    // Ajouter les colonnes à DataTable en utilisant les clés de la map
     adherentStorage.forEach(function (values) {
         // Ajouter une nouvelle ligne dans le tableau
         var rowData = [
@@ -54,10 +55,21 @@ $(document).ready(function () {
             // values.amende
         ];
         i++;
-        // Ajouter la nouvelle ligne au tableau DataTable
-        table.row.add(rowData);
+
+        if(values.nom !== "Supprimé"){
+           // Ajouter la nouvelle ligne au tableau DataTable
+            table.row.add(rowData); 
+        }
+        
     });
 
     // Redessine le tableau pour appliquer les modifications
     table.draw();
 });
+
+//Abonne le bouton "Inscription d'un nouvel adhérent" pour rediriger vers la page inscription adhérent
+var boutonInscriptionNouvelAdherent = document.getElementById("boutonInscriptionNouvelAdherent");
+
+boutonInscriptionNouvelAdherent.addEventListener('click', function(){
+    window.location.href = 'inscriptionAdherent.html';
+})
