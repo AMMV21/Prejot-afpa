@@ -3,6 +3,7 @@ let bdPopup = document.getElementById('bdPopup');
 let bdPopupContent = document.getElementById('popupBdContent');
 let title = document.getElementById('titreContent');
 let serie = document.getElementById('serieContent');
+let volume = document.getElementById('volumeContent')
 let writer= document.getElementById('writerContent');
 let summary = document.getElementById('summaryContent');
 let commentary = document.getElementById('commentaryContent');
@@ -24,8 +25,9 @@ let blur = document.getElementsByClassName('toBlur');
  * @param {string} Titre de la serie 
  * @param {string} Nom de l'auteur 
  * @param {img} balise image de la bd 
+ * @param {integer} numéro du volume
  */
-function showDetails(div,bookTitle,serieTitle,writerName,bdImg)
+function showDetails(div,bookTitle,serieTitle,writerName,numVolume)
 {
     let pinchBtn = document.getElementById('pinchBtn');
     let copyList = JSON.parse(localStorage.getItem('exemplaires'));
@@ -34,10 +36,11 @@ function showDetails(div,bookTitle,serieTitle,writerName,bdImg)
     writerName = writerName.replaceAll(',','');
     
     //attribution ds valeurs BD dans les span correspondantes
-    img.src = bdImg.src;
+    img.src =`./Ressources/albums/${serieTitle}-${numVolume}-${bookTitle}.jpg`;;
     title.innerHTML = bookTitle;
     serie.textContent = serieTitle;
     writer.textContent = writerName;
+    volume.textContent = numVolume;
     
     summary.textContent = 'Eu ullamco mollit adipisicing quis id ut incididunt tempor magna occaecat. Et nostrud aliquip sunt est occaecat excepteur exercitation elit ullamco. Ipsum adipisicing duis adipisicing fugiat et veniam ut culpa nisi enim proident ex. Eu labore irure pariatur enim ad consequat amet aliquip cupidatat anim exercitation velit mollit sit. Aliquip adipisicing fugiat excepteur deserunt cillum velit officia. Ea est nisi officia et sint nostrud dolor sunt nostrud.';
     commentary.textContent = 'Pariatur ullamco pariatur excepteur est aliqua voluptate aliqua mollit ullamco reprehenderit sunt tempor ullamco. Velit aliquip eiusmod minim nulla. Veniam quis nostrud quis consectetur consequat consequat occaecat consequat qui elit laborum velit. Minim adipisicing cillum sit cupidatat non enim cillum ipsum. Nisi id non enim reprehenderit nulla sit. Ex incididunt aliqua esse eu minim aute irure irure id. Cupidatat ex tempor culpa Lorem cupidatat sit laboris cillum quis.';
