@@ -77,4 +77,12 @@ label {
   font-family: 'roboto-regular';
   color: #AD033A;
   font-size: 20px;
+} 
+
+.invisible {
+  display: none;
+}
+
+a {
+  color:white;
 }
