@@ -57,7 +57,7 @@ function createBD(div,indice,title,exact)
     
     //on récupere les infos des BD
     let titleVolume = tliste_bd[indice][1].titre;
-    let numeroVolume = tliste_bd[indice][1].numero;
+    let numberVolume = tliste_bd[indice][1].numero;
     let valSerie = tliste_bd[indice][1].idSerie;
     let titleSerie = series.get(valSerie).nom;
     let valAuthor = tliste_bd[indice][1].idAuteur;
@@ -73,7 +73,7 @@ function createBD(div,indice,title,exact)
                 if(checkExactTitleFilter(titleVolume,title))
                 {
                     //initialisation image
-                    newImg.src=`./Ressources/albums/${titleSerie}-${numeroVolume}-${titleVolume}.jpg`;
+                    newImg.src=`./Ressources/albumsMini/${titleSerie}-${numberVolume}-${titleVolume}.jpg`;
                     
                     //on change le nom de la balise titre
                     newTitle.textContent = titleVolume;
@@ -92,7 +92,7 @@ function createBD(div,indice,title,exact)
             else if(checkTitleFilter(div,titleVolume,title))
             {
                 //initialisation image
-                newImg.src=`./Ressources/albums/${titleSerie}-${numeroVolume}-${titleVolume}.jpg`;
+                newImg.src=`./Ressources/albumsMini/${titleSerie}-${numberVolume}-${titleVolume}.jpg`;
                 newImg.alt=`couverture ${titleVolume}`;
                 
                 //on change le nom de la balise titre
@@ -117,7 +117,7 @@ function createBD(div,indice,title,exact)
                         copyItemPopup.style.display = 'none';
                     }                    
                     bdPopup.style.display = 'flex';
-                    showDetails(bdPopupContent,titleVolume,titleSerie,nameAuthor,newImg);
+                    showDetails(bdPopupContent,titleVolume,titleSerie,nameAuthor,numberVolume);
                     blurAll();
                 })
             } 

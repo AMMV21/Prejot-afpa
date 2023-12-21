@@ -1,14 +1,5 @@
 @media screen and (max-width: 1300px) 
 {
-    #popupBdContent>img
-    {
-        width: 50%;
-        height: 90%;
-    }
-}
-
-@media screen and (max-width: 1300px) 
-{
     #bdPopup
     {
         align-items: space-around;
@@ -25,8 +16,7 @@
 
     #popupBdContent>img
     {
-        width: 50%;
-        height: 50%;
+        width: 40%;
     }
     #popupBdInfos
     {
@@ -59,8 +49,14 @@
 {
     #popupBdContent>img
     {
+        width: 50%;
+    }
+} 
+@media screen and (max-width: 900px)
+{
+    #popupBdContent>img
+    {
         width: 60%;
-        height: 50%;
     }
 } 
 @media screen and (max-width: 800px)
@@ -79,14 +75,43 @@
         width: 95%;
 
     }
+    #popupBdContent>img
+    {
+        width: 40%;
+    }
 } 
+@media screen and (max-width: 700px)
+{
+
+    #popupBdContent>img
+    {
+        width: 50%;
+    }
+} 
+
 
 @media screen and (max-width: 600px)
 {
 
     #popupBdContent>img
     {
+        width: 60%;
+    }
+} 
+
+@media screen and (max-width: 500px)
+{
+
+    #popupBdContent>img
+    {
+        width: 65%;
+    }
+} 
+@media screen and (max-width: 400px)
+{
+
+    #popupBdContent>img
+    {
         width: 80%;
-        height: 50%;
     }
 } 
