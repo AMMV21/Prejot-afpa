@@ -32,6 +32,12 @@ addUserButton.addEventListener('click', function(event){
 
     let email = document.getElementById('newEmailAdherant').value;
     let password = document.getElementById('newPasswordAdherant').value;
+        // Vérification de format d'email
+        let emailFormat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if(!emailFormat.test(email)){
+            swal("Erreur", "Veuillez entrer un email valide.", "error");
+            return;
+        }
     // Verification format mot de passe
     let passwordFormat = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
     if(!passwordFormat.test(password)){

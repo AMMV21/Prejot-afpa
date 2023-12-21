@@ -29,6 +29,12 @@ let deleteUserButton = document.getElementById('deleteUserButton');
 deleteUserButton.addEventListener('click', function(event){
     event.preventDefault();
     let email = document.getElementById('deleteEmailAdherant').value;
+    // Vérification de format d'email
+    let emailFormat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if(!emailFormat.test(email)){
+        swal("Erreur", "Veuillez entrer un email valide.", "error");
+        return;
+    }
     if(email === ""){
         swal("Erreur", "Veuillez remplir tous les champs.", "error");
     }else{

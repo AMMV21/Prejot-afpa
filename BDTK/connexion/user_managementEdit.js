@@ -31,11 +31,26 @@ editUserButton.addEventListener('click', function(event){
     let email = document.getElementById('currentEmailAdherant').value;
     let nouveauEmail = document.getElementById('editEmailAdherant').value;
     let nouveauMotdepasse = document.getElementById('editPasswordAdherant').value;
+
+    // Vérification de format d'email
+    let emailFormat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if(!emailFormat.test(email) || !emailFormat.test(nouveauEmail)){
+        swal("Erreur", "Veuillez entrer un email valide.", "error");
+        return;
+    }
+
+    // Vérification de doublon
+    if(verifierEmailExistant(nouveauEmail) && email !== nouveauEmail){
+        swal("Erreur", "Cet email est déjà utilisé.", "error");
+        return;
+    }
+
     let passwordFormat = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
     if(!passwordFormat.test(nouveauMotdepasse)){
         swal("Erreur", "Le mot de passe doit contenir au moins un chiffre, une lettre majuscule, une lettre minuscule et au moins 8 caractères ou plus.", "error");
         return;
     }
+
     if(email === "" || nouveauEmail === "" || nouveauMotdepasse === ""){
         swal("Erreur", "Veuillez remplir tous les champs", "error");
     }else{
@@ -47,7 +62,7 @@ editUserButton.addEventListener('click', function(event){
             dangerMode: true,
         })
         .then((willEdit) => {
-            if (willEdit) {
+            if (willEdit && !verifierEmailExistant(nouveauEmail)) {
                 let resultat = modifierUtilisateur(email, nouveauEmail, nouveauMotdepasse);
                 switch(resultat){
                     case 'Utilisateur modifié avec succès !':
@@ -60,9 +75,14 @@ editUserButton.addEventListener('click', function(event){
                     case 'Utilisateur introuvable.':
                         swal("Erreur", "Utilisateur introuvable", "error");
                         break;
+                    case 'Cet email est déjà utilisé.':
+                        swal("Erreur", "Cet email est déjà utilisé.", "error");
+                        break;
                     default:
                         swal("Erreur", "Erreur inconnue.", "error");
                 }
+            } else if (willEdit && verifierEmailExistant(nouveauEmail)) {
+                swal("Erreur", "Cet email est déjà utilisé.", "error");
             }
         });
     }
@@ -127,6 +147,11 @@ function modifierUtilisateur(email, nouveauEmail, nouveauMotdepasse){
     let users = JSON.parse(localStorage.getItem('users')) || [];
     let user = users.find(user => user.email === email);
     if(user){
+        // Vérification si le nouveauEmail est déjà utilisé par un autre utilisateur
+        let autreUtilisateur = users.find(user => user.email === nouveauEmail);
+        if(autreUtilisateur && email !== nouveauEmail){
+            return 'Cet email est déjà utilisé.';
+        }
         user.email = nouveauEmail;
         user.password = hashPassword(nouveauMotdepasse, user.salt);
         // console.log('hashPassword output:', user.password);// Ajouté pour le débogage
@@ -136,4 +161,21 @@ function modifierUtilisateur(email, nouveauEmail, nouveauMotdepasse){
         return 'Utilisateur introuvable.';
     }
 }
+function verifierEmailExistant(email) {
+    // Récupérez les utilisateurs du localStorage
+    let utilisateurs = JSON.parse(localStorage.getItem('users')) || [];
+    // console.log('Utilisateurs:', utilisateurs); // Ajouté pour le débogage
 
+    // Vérifiez si l'email donné existe déjà parmi les utilisateurs
+    for(let i = 0; i < utilisateurs.length; i++) {
+        // console.log('Vérification de l\'email:', utilisateurs[i].email); // Ajouté pour le débogage
+        if(utilisateurs[i].email === email) {
+            // console.log('Email trouvé:', email); // Ajouté pour le débogage
+            return true;
+        }
+    }
+
+    // Si aucun utilisateur avec cet email n'a été trouvé, retournez false
+    // console.log('Email non trouvé:', email); // Ajouté pour le débogage
+    return false;
+}
