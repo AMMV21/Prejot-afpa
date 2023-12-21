@@ -1,32 +1,41 @@
+.touteLaPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .container_Rech_Ex{
     margin: auto;
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     background-color: white;
-    width: 70%;
+    width: 75%;
     display: flex;
     align-items: center;
     flex-direction: column;
     border: solid 4px rgba(49, 175, 160, 1);
     border-radius: 10px;
+    
 }
-#archiverAdherent{
-   background-color:rgba(220, 130, 39, 1) 
+#boutonArchiverAdherent{
+   background-color:rgba(220, 130, 39, 1);
+   margin-bottom: 5%;
+   
 }
-#archiverAdherent:hover{
+#boutonArchiverAdherent:hover{
     background-color: rgba(49, 175, 160, 1)
 }
 
 .containerDeToutLeProfilAdherent{
     width: 100%;
     display:flex ;
+    
 }
 .container_Des_Infos{
-    width: 34%;
+    width: 25%;
     border: solid 4px rgba(49, 175, 160, 1);
     border-left: none;
     border-bottom: none;
-    
 }
 .titreInfo{
     height: 10%;
@@ -37,9 +46,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    
 }
 #centreInfoVisible{
     display: flex;
@@ -58,7 +64,7 @@
     
 }
 .container_Des_emprunts{
-    width: 33%;
+    width: 50%;
     border: solid 4px rgba(49, 175, 160, 1);
     border-left: none;
     border-bottom: none;
@@ -73,11 +79,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    
 }
 .container_Des_gestions{
-    width: 33%;
+    width: 25%;
     border: solid 4px rgba(49, 175, 160, 1);
     border-bottom: none;
     border-right: none;
@@ -92,9 +97,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
 }
+
 .titre{
     font-family: "roboto-medium";
     font-size: 21px;

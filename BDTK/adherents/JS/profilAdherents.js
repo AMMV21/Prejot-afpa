@@ -205,7 +205,6 @@ function verifierFormulaire() {
     function verifierChamp(inputId, regex, errorMessage, obligatoire = false) {
         var inputElement = document.getElementById(inputId); // Grace a cela on récupere le nom du champs que l'on met en parametre
         var inputValue = inputElement.value.trim(); 
-        console.log(inputValue);
 // Crée une erreur si les conditions ne sont pas respectées
         if (obligatoire && (!inputValue || !regex.test(inputValue) || inputValue.length < 3)) {
             erreurs.push(errorMessage);
@@ -218,10 +217,10 @@ function verifierFormulaire() {
 
     
 //Mes RegEx
-    verifierChamp("inputNom", /^[A-Z][a-zÀ-ÖØ-öø-ÿ]*(?:-[A-Z][a-zÀ-ÖØ-öø-ÿ]*)?$/, 'Veuillez saisir un nom valide avec une majuscule au debut et au moins 3 lettres.');
-    verifierChamp("inputPrenom", /^[A-Z][a-zÀ-ÖØ-öø-ÿ]*(?:-[A-Z][a-zÀ-ÖØ-öø-ÿ]*)?$/, 'Veuillez saisir un prénom valide avec une majuscule au debut et au moins 3 lettres.');
-    verifierChamp("inputAdresse", /^\d{1,3}\s[A-Za-z0-9\s\-]+$/, 'Veuillez saisir une adresse valide.');
-    verifierChamp("inputVille", /^\d{5}\s[A-Za-z0-9\s]+$/, 'Veuillez saisir une ville valide.');
+    verifierChamp("inputNom", /^[A-Z][a-zÀ-ÖØ-öø-ÿ]{2,}(?:-[A-Z][a-zÀ-ÖØ-öø-ÿ]*)?$/, 'Veuillez saisir un nom valide pas de chiffre, avec une majuscule au début et au moins 3 lettres.');
+    verifierChamp("inputPrenom", /^[A-Z][a-zÀ-ÖØ-öø-ÿ]{2,}(?:-[A-Z][a-zÀ-ÖØ-öø-ÿ]*)?$/, 'Veuillez saisir un prénom valide pas de chiffre, avec une majuscule au début et au moins 3 lettres.');
+    verifierChamp("inputAdresse",/^\d{1,3}\s[\p{L}0-9\s\-'']+$/u, 'Veuillez saisir une adresse valide.');
+    verifierChamp("inputVille", /^\p{N}{5}\s[\p{L}0-9\s\-'']+$/u, 'Veuillez saisir un code postal valide.');
     verifierChamp("inputMail", /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/, 'Veuillez saisir une adresse e-mail valide.');
     
     // Vérification de l'e-mail déjà existant
@@ -229,6 +228,23 @@ function verifierFormulaire() {
     var nouveauMail = inputMail.value.trim();
     if (emailExists(nouveauMail)) {
         erreurs.push('L\'adresse e-mail existe déjà. Veuillez saisir une adresse e-mail différente.');
+    }
+
+    // Vérification supplémentaire pour s'assurer que quelque chose a été modifié
+    var inputNom = document.getElementById("inputNom").value.trim();
+    var inputPrenom = document.getElementById("inputPrenom").value.trim();
+    var inputAdresse = document.getElementById("inputAdresse").value.trim();
+    var inputVille = document.getElementById("inputVille").value.trim();
+    var inputMail = document.getElementById("inputMail").value.trim();
+
+    if (!inputNom && !inputPrenom && !inputAdresse && !inputVille && !inputMail) {
+        Swal.fire({
+            title: "Aucune modification n'a été effectuée.",
+            confirmButtonColor: "rgba(173, 3, 58, 1)",
+            text: "",
+            icon: "info"
+        });
+        return false;
     }
 
 //Si il y'a une erreur, d'où vient l'erreur
