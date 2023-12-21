@@ -48,10 +48,14 @@ deleteUserButton.addEventListener('click', function(event){
         .then((willDelete) => {
             if (willDelete) {
                 try{
-                    deleteUser(email);
-                    swal("Succès", "Utilisateur supprimé avec succès !", "success").then(() => {
-                        window.location.href = 'user_management.html';
-                    });
+                    let resultat = deleteUser(email);
+                    if(resultat === 'Impossible de supprimer l\'administrateur.'){
+                        swal("Erreur", resultat, "error");
+                    }else{
+                        swal("Succès", "Utilisateur supprimé avec succès !", "success").then(() => {
+                            window.location.href = 'user_management.html';
+                        });
+                    }
                 }catch(err){
                     console.log('Une erreur s\'est produite lors de la suppression de l\'utilisateur :', err.message);
                     swal("Erreur", "Une erreur s'est produite lors de la suppression de l'utilisateur.", "error");
@@ -102,6 +106,12 @@ function seDeconnecter(){
 // Supprimer un utilisateur
 function deleteUser(email){
     let users = JSON.parse(localStorage.getItem('users')) || [];
-    users = users.filter(user => user.email !== email);
-    localStorage.setItem('users', JSON.stringify(users));
+    let adminExists = users.some(user => user.role === 'admin' && user.email === email);
+    if(adminExists){
+        return 'Impossible de supprimer l\'administrateur.';
+    }else{
+        users = users.filter(user => user.email !== email);
+        localStorage.setItem('users', JSON.stringify(users));
+        return 'Utilisateur supprimé avec succès.';
+    }
 }
