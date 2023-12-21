@@ -29,18 +29,35 @@ let deleteUserButton = document.getElementById('deleteUserButton');
 deleteUserButton.addEventListener('click', function(event){
     event.preventDefault();
     let email = document.getElementById('deleteEmailAdherant').value;
+    // Vérification de format d'email
+    let emailFormat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if(!emailFormat.test(email)){
+        swal("Erreur", "Veuillez entrer un email valide.", "error");
+        return;
+    }
     if(email === ""){
         swal("Erreur", "Veuillez remplir tous les champs.", "error");
     }else{
-        try{
-            deleteUser(email);
-            swal("Succès", "Utilisateur supprimé avec succès !", "success").then(() => {
-                window.location.href = 'user_management.html';
-            });
-        }catch(err){
-            console.log('Une erreur s\'est produite lors de la suppression de l\'utilisateur :', err.message);
-            swal("Erreur", "Une erreur s'est produite lors de la suppression de l'utilisateur.", "error");
-        }
+        swal({
+            title: "Êtes-vous sûr?",
+            text: "Êtes-vous sûr de vouloir supprimer cet utilisateur?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                try{
+                    deleteUser(email);
+                    swal("Succès", "Utilisateur supprimé avec succès !", "success").then(() => {
+                        window.location.href = 'user_management.html';
+                    });
+                }catch(err){
+                    console.log('Une erreur s\'est produite lors de la suppression de l\'utilisateur :', err.message);
+                    swal("Erreur", "Une erreur s'est produite lors de la suppression de l'utilisateur.", "error");
+                }
+            }
+        });
     }
 });
 

@@ -24,6 +24,8 @@ function seConnecter(email, motdepasse){
             // Stocker le nom d'utilisateur dans le localStorage lors de la connexion réussie
             localStorage.setItem('nom', email);
             localStorage.setItem('role', user.role);
+            // Afficher bouton de déconnexion
+            // document.getElementById('logout').style.display = 'block';
             return 'Connexion réussie !';
         }
     }
@@ -36,6 +38,8 @@ function seDeconnecter(){
     if(localStorage.getItem('nom')){
         // Supprimer le nom d'utilisateur du localStorage
         localStorage.removeItem('nom');
+        // Cacher bouton de déconnexion
+        // document.getElementById('logout').style.display = 'none';
         return 'Déconnexion réussie !';
     }else{
         return 'Aucun utilisateur n\'est actuellement connecté.';
@@ -50,14 +54,23 @@ document.getElementById('btnRechercher').addEventListener('click', function(even
         // Récupérez les valeurs des champs de saisie de l'email et du mot de passe
         let email = document.getElementById('emailAdherant').value;
         let motdepasse = document.getElementById('passwordAdherant').value;
-        
+        let emailFormat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if(!emailFormat.test(email)){
+            swal("Erreur", "Veuillez entrer un email valide.", "error");
+            return;
+        }
+        let passwordFormat = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+        if(!passwordFormat.test(motdepasse)){
+            swal("Erreur", "Le mot de passe doit contenir au moins un chiffre, une lettre majuscule, une lettre minuscule et au moins 8 caractères ou plus.", "error");
+            return;
+        }       
         // Verifier si les champs ne sont pas vides
         if(email === "" || motdepasse === ""){
             swal("Erreur", "Veuillez remplir tous les champs.", "error");
         }else{
            // Appelez la fonction seConnecter avec ces valeurs
            let resultat = seConnecter(email, motdepasse);
-        
+
         // Switch alert
         switch(resultat){
             case 'Connexion réussie !':
@@ -114,14 +127,3 @@ document.getElementById('logoutButton').addEventListener('click', function(){
         console.log('Une erreur s\'est produite lors de la déconnexion :', err.message);
     }
 });
-
-        if(utilisateur.password === motdepasse){
-            return 'Connexion réussie !';
-        }else{
-            return 'Mot de passe incorrect.';
-        }
-
-    }else{
-        return 'Nom d\'utilisateur introuvable.';
-    }
-}
