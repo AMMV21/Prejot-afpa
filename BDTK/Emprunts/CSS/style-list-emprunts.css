@@ -1,0 +1,26 @@
+.container_emprunts {
+    background-color: white;
+    margin: 100px 10px;
+    border-radius: 10px;
+    border: solid 3px #31AFA0;
+    padding: 30px 20px;
+    text-align: center;
+} 
+
+#tableEmprunts {
+    text-align: start;
+}
+
+#tableEmprunts_paginate{
+    font-family: 'roboto-mono regular';
+    font-size: 15px;
+}
+
+#labelList{
+    color: #AD033A;
+    font-family: 'roboto-regular';
+}
+
+td {
+   font-family: 'roboto-mono regular';
+}
