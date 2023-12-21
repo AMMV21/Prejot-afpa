@@ -3,8 +3,7 @@ let gallery = document.getElementById('bdGallery');
 
 
 //on effectue l'action au chargement de la page
-//window.addEventListener('load',(()=>{showBD(gallery)}));
-showBD(gallery);
+window.addEventListener('load',(()=>{showBD(gallery)}));
 /**
  * la fonction permet d'afficher la liste des BD
  * @param {div}  la div dans laquelle ajouter les nouvelle balises 
