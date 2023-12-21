@@ -10,27 +10,30 @@
     <link rel="stylesheet" href="./Liste_BD/CSS/filtre.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/bdGallery.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/bdPopup.css">
+    <link rel="stylesheet" href="./Liste_BD/CSS/copyItemPopup.css">
     <link rel="stylesheet" href="./CSS_GLOBAL/mediaqueries/header_media_queries.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/mediaqueries/bdGallery_media_queries.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/mediaqueries/filtre_media_queries.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/mediaqueries/bdPopup_media_queries.css">
+    <link rel="stylesheet" href="./Liste_BD/CSS/mediaqueries/copyItemPopup_media_queries.css">
     <link rel="stylesheet" href="./Liste_BD/CSS/mediaqueries/index_media_queries.css">
     <title>BDTK</title>
+    <link rel="icon" type="image/x-icon" href="./Ressources/icone-BDTK.png">
 </head>
 <body>
     <header class="toBlur">
         <div id="topBar">
-            <p><span class="mobileHidden">Votre bédéthéque vous accueil</span> Du lundi au samedi de 9h à 19h</p>
+            <p><span class="mobileHidden">Votre bédéthéque vous accueille</span> Du lundi au samedi de 9h à 19h</p>
             <p>20 place du théatre 59056 Marmusote</p>
-            <p id="login">Se Connecter</p>
+            <a href="./formConnect.html"><strong><p>Se connecter</p></strong></a>
+            <button id="logout" onclick="location.href='formConnect.html'" class="invisible">Se déconnecter</button>
         </div>
         <nav id="navigation">
             <a href="./index.html" id="logoLink"><img id="navLogo" src="./Ressources/icone-BDTK.png" alt="logo"></a>
             <ul id="navList">
                 <li><a href="./index.html">Accueil</a></li>
-                <li><a href="">Emprunts</a></li>
-                <li><a href="">Adhérants</a></li>
-                <li><a href="">Ajouter BD</a></li>
+                <li><a href="./list_emprunts.html">Emprunts</a></li>
+                <li><a href="./profilAdherents.html">Adhérents</a></li>
             </ul>
         </nav>
     </header>
@@ -83,6 +86,9 @@
                         <h3>Série: </h3> <span id="serieContent"></span>
                     </div>
                     <div class="popupBdSmallContent">
+                        <h3>Volume: </h3> <span id="volumeContent"></span>
+                    </div>
+                    <div class="popupBdSmallContent">
                        <h3>Auteur: </h3> <span id="writerContent"></span>
                     </div>
                     <h3>Résumé: </h3> <span id="summaryContent"></span>
@@ -92,22 +98,35 @@
                     </div>
                 </div>   
         </div>
-        <button>Emprunter</button>
+            <button id="pinchBtn">Emprunter</button>
+    </div>
+
+    <div id="copyItemPopup">
+        <form action="./recherche_pret.html" method="GET">
+        <label for="copyItem">Choissisez l'exemplaire désiré</label>
+        <select name="copyItem" id="copyItem">
+            <optgroup id="availableCopyList">
+            </optgroup>
+        </select>
+            <input type="submit" value="Envoyer">
+            <input type="reset" value="Annuler" id="resetCopyItem">
+    </form>
     </div>
 
     
 
     <script src="./data/albums.js"></script>
     <script src="./data/series.js"></script>
-    <script src="./data/auteurs.js"></script>
+    <script src="./data/auteurs.js"></script> 
     <script src="./Liste_BD/JS/tliste_bd.js"></script>
+    <script src="./data/code_exemplaires.js"></script>
     <script src="./Liste_BD/JS/showListe_BD.js"></script>
     <script src="./Liste_BD/JS/filtre_serie.js"></script>
     <script src="./Liste_BD/JS/filtre_writer.js"></script>
     <script src="./Liste_BD/JS/filtre_titre.js"></script>
     <script src="./Liste_BD/JS/toggleForm.js"></script>
     <script src="./Liste_BD/JS/bdDetails.js"></script>
+    <script src="./Liste_BD/JS/copyPopup.js"></script>
     <script src="https://kit.fontawesome.com/029a61a09e.js" crossorigin="anonymous"></script>
-    
 </body>
 </html>

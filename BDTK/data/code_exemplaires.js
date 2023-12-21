@@ -69,8 +69,10 @@
     if (!localStorage.disponibilite){ localStorage.setItem("disponibilite", JSON.stringify(Array.from(DisponibiliteBD))); }
    
    // Je décommente la ligne suivant pour réinitialiser le storage avec le tableau de base.
-   //localStorage.setItem("exemplaires", JSON.stringify(Array.from(tExemplaires))); 
-  // localStorage.setItem("disponibilite", JSON.stringify(Array.from(DisponibiliteBD))); 
+
+    // localStorage.setItem("exemplaires", JSON.stringify(Array.from(tExemplaires))); 
+    // localStorage.setItem("disponibilite", JSON.stringify(Array.from(DisponibiliteBD))); 
+
 
    let exemplaireLocalStorage = JSON.parse(localStorage.getItem('exemplaires'));
    let disponibiliteBDStorage = JSON.parse(localStorage.getItem('disponibilite'));

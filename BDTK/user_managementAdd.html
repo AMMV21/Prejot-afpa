@@ -6,26 +6,26 @@
     <link rel="stylesheet" href="./CSS_GLOBAL/css_global.css">
     <link rel="stylesheet" href="./BD/CSS/recherch_pret.css">
 
-    <title>Gestion des utilisateurs</title>
+    <title>Gestion des employers</title>
 </head>
 <body>
     <div class="container_Rech_Ex">
-        <h1>Gestion des utilisateurs</h1>
+        <h1>Gestion des employers</h1>
         <form action="" method="post">
             <div class="infosEx_Ad">
-                <label for="newEmailAdherant">Saisissez l'adresse mail du nouvel utilisateur :</label>
+                <label for="newEmailAdherant">Saisissez l'adresse mail du nouvel employer :</label>
                 <input type="email" name="newEmailAdherant" id="newEmailAdherant" required="required">
             </div>
             <div class="infosEx_Ad">
-                <label for="newPasswordAdherant">Saisissez le mot de passe du nouvel utilisateur :</label>
-                <input type="password" name="newPasswordAdherant" id="newPasswordAdherant" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8}" title="Doit contenir au moins un chiffre, une lettre majuscule, une lettre minuscule et au moins 8 caractères ou plus">
+                <label for="newPasswordAdherant">Saisissez le mot de passe du nouvel employer :</label>
+                <input type="password" name="newPasswordAdherant" id="newPasswordAdherant" required="required">
             </div>
-            <button id="addUserButton" type="button">Ajouter un utilisateur</button>
+            <button id="addUserButton" type="button">Ajouter un employer</button>
             <button id="logoutButton" type="button">Se déconnecter</button>
         </form>
     </div>
     <div class="container_Rech_Ex">
-    <h1>Liste des utilisateurs</h1>
+    <h1>Liste des employers</h1>
     <div id ="userList"></div>
     </div>
 

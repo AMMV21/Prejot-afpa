@@ -1,0 +1,53 @@
+#copyItemPopup
+{
+    position: fixed;
+    display: none;
+    text-align: center;
+    top: 40%;
+    left: 40%;
+    right: 40%;
+    bottom: 38%;
+    padding: 1%;
+    width: auto;
+    height: auto;
+    background-color: white;
+    border: 2px solid black;
+    z-index: 200;
+}
+
+#copyItemPopup>form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#copyItemPopup>form>select
+{
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#copyItemPopup>form>select:hover
+{
+    cursor: pointer;
+}
+
+#copyItemPopup>form>input
+{
+    width: 40%;
+    font-size: 0.9rem;
+    background-color: #AD033A;
+    color: white;
+    margin: 5px;
+}
+
+#copyItemPopup>form>input:hover
+{
+    background-color:  #31AFA0;
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}

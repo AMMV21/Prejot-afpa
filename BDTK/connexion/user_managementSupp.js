@@ -29,18 +29,39 @@ let deleteUserButton = document.getElementById('deleteUserButton');
 deleteUserButton.addEventListener('click', function(event){
     event.preventDefault();
     let email = document.getElementById('deleteEmailAdherant').value;
+    // Vérification de format d'email
+    let emailFormat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if(!emailFormat.test(email)){
+        swal("Erreur", "Veuillez entrer un email valide.", "error");
+        return;
+    }
     if(email === ""){
         swal("Erreur", "Veuillez remplir tous les champs.", "error");
     }else{
-        try{
-            deleteUser(email);
-            swal("Succès", "Utilisateur supprimé avec succès !", "success").then(() => {
-                window.location.href = 'user_management.html';
-            });
-        }catch(err){
-            console.log('Une erreur s\'est produite lors de la suppression de l\'utilisateur :', err.message);
-            swal("Erreur", "Une erreur s'est produite lors de la suppression de l'utilisateur.", "error");
-        }
+        swal({
+            title: "Êtes-vous sûr?",
+            text: "Êtes-vous sûr de vouloir supprimer cet utilisateur?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                try{
+                    let resultat = deleteUser(email);
+                    if(resultat === 'Impossible de supprimer l\'administrateur.'){
+                        swal("Erreur", resultat, "error");
+                    }else{
+                        swal("Succès", "Utilisateur supprimé avec succès !", "success").then(() => {
+                            window.location.href = 'user_management.html';
+                        });
+                    }
+                }catch(err){
+                    console.log('Une erreur s\'est produite lors de la suppression de l\'utilisateur :', err.message);
+                    swal("Erreur", "Une erreur s'est produite lors de la suppression de l'utilisateur.", "error");
+                }
+            }
+        });
     }
 });
 
@@ -85,6 +106,12 @@ function seDeconnecter(){
 // Supprimer un utilisateur
 function deleteUser(email){
     let users = JSON.parse(localStorage.getItem('users')) || [];
-    users = users.filter(user => user.email !== email);
-    localStorage.setItem('users', JSON.stringify(users));
+    let adminExists = users.some(user => user.role === 'admin' && user.email === email);
+    if(adminExists){
+        return 'Impossible de supprimer l\'administrateur.';
+    }else{
+        users = users.filter(user => user.email !== email);
+        localStorage.setItem('users', JSON.stringify(users));
+        return 'Utilisateur supprimé avec succès.';
+    }
 }
