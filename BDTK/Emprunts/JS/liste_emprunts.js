@@ -1,5 +1,6 @@
 $(document).ready(function () {
     var tableEmprunt = $('#tableEmprunts').DataTable({
+        responsive: true,
         //Permet de changer la langue de la barre de recherche
         "oLanguage": {
             "sSearch": "Recherche"
