@@ -1,3 +1,8 @@
+// Recuperer les elements html
+let btn_new_pret = document.getElementById('btn_new_pret');
+// abbonenement 
+btn_new_pret.addEventListener('click', ()=> { window.location.href = "./recherche_pret.html";} );
+
 $(document).ready(function () {
     var tableEmprunt = $('#tableEmprunts').DataTable({
         responsive: true,
@@ -26,7 +31,20 @@ $(document).ready(function () {
         "columnDefs": [
             { "targets": 0, "visible": false }
         ]
+    }); 
+    
+    //Ajoute un evenement click sur les tr qui permet de se rendre sur la page profilAdherents
+    $('#tableEmprunts tbody').on('click', 'tr', function () {
+        // Récupérer les données de la ligne
+        var rowData = table.row(this).data();
+
+        // Construire l'URL avec l'identifiant unique (numéro d'adhérent)
+        var pageUrl = "profilAdherents.html?numeroAdherent=" + rowData[0];
+         
+        // Rediriger l'utilisateur vers la page profilAdherents.html avec les informations de l'adhérent
+        window.location.href = pageUrl;
     });
+
     let i = 0;
     // Ajouter les colonnes à DataTable en utilisant les clés de la carte
     listEmpruntsStorage.forEach(function (values) {
@@ -39,7 +57,7 @@ $(document).ready(function () {
             values.codeExemplaire,
             values.dateEmprunt,
             values.dateRetour,
-        ];
+        ]; 
         i++;
         // Ajouter la nouvelle ligne au tableau DataTable
         tableEmprunt.row.add(rowData);
