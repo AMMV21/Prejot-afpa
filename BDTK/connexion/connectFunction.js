@@ -1,4 +1,17 @@
-
+window.onload = function() {
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    let adminExists = users.some(user => user.role === 'admin');
+    if(!adminExists){
+        let admin = {
+            email: 'admin@gmail.com',
+            password: hashPassword('Admin123', 'randomSalt'),
+            role: 'admin',
+            salt: 'randomSalt'
+        };
+        users.push(admin);
+        localStorage.setItem('users', JSON.stringify(users));
+    }
+}
 // -------Mes fonction-------
 function generateSalt() {
     let salt = '';
