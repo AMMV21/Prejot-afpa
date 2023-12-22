@@ -75,10 +75,15 @@
     background: rgba(220, 130, 39, 1);
     color: white !important;
 }
+
+
 #boutonInscriptionNouvelAdherent{
     background-color:rgba(220, 130, 39, 1) ;
     margin-bottom: 50px;
     margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #boutonInscriptionNouvelAdherent:hover{
     background-color: rgba(49, 175, 160, 1);
@@ -86,4 +91,12 @@
 #boutonListeAdherentsArchiver{
     margin-bottom: 50px;
     margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttonListeAdhérents{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
