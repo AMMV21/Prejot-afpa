@@ -157,7 +157,7 @@
                     zonePrenom.innerText = adherentStorage[i].prenom;
                     indiceAd = i ;
                     return true;
-                } else if (adherentStorage[i].prenom === "supprimé"){
+                } else if (adherentStorage[i].prenom === "Supprimé"){
                     Swal.fire({
                         icon: "error",
                         title: "Adhérent introuvable !",
