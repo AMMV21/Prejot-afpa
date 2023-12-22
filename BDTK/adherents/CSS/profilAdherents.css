@@ -1,32 +1,41 @@
+.touteLaPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .container_Rech_Ex{
     margin: auto;
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     background-color: white;
-    width: 70%;
+    width: 75%;
     display: flex;
     align-items: center;
     flex-direction: column;
     border: solid 4px rgba(49, 175, 160, 1);
     border-radius: 10px;
+    
 }
-#archiverAdherent{
-   background-color:rgba(220, 130, 39, 1) 
+#boutonArchiverAdherent{
+   background-color:rgba(220, 130, 39, 1);
+   margin-bottom: 5%;
+   
 }
-#archiverAdherent:hover{
+#boutonArchiverAdherent:hover{
     background-color: rgba(49, 175, 160, 1)
 }
 
 .containerDeToutLeProfilAdherent{
     width: 100%;
     display:flex ;
+    
 }
 .container_Des_Infos{
-    width: 34%;
+    width: 25%;
     border: solid 4px rgba(49, 175, 160, 1);
     border-left: none;
     border-bottom: none;
-    
 }
 .titreInfo{
     height: 10%;
@@ -37,9 +46,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    
 }
 #centreInfoVisible{
     display: flex;
@@ -58,7 +64,7 @@
     
 }
 .container_Des_emprunts{
-    width: 33%;
+    width: 50%;
     border: solid 4px rgba(49, 175, 160, 1);
     border-left: none;
     border-bottom: none;
@@ -73,11 +79,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    
 }
 .container_Des_gestions{
-    width: 33%;
+    width: 25%;
     border: solid 4px rgba(49, 175, 160, 1);
     border-bottom: none;
     border-right: none;
@@ -92,9 +97,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
 }
+
 .titre{
     font-family: "roboto-medium";
     font-size: 21px;
@@ -203,11 +207,13 @@ span{
     margin: 1px;
     padding: 1px;
     height: 15px;
-    width: 300px;
+    width: 100%;
 }
 
 #listeDesEmpruntEnCours{
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .divEmprunt{
     display: flex;
@@ -227,3 +233,179 @@ span{
 .divEmprunt h2,h3,h4 {
     margin-bottom: 5px;
 }
+@media screen and (max-width: 1535px) {
+    .divEmprunt{
+       width: 30%;
+    }
+    .divEmprunt h4{
+        font-size: 10px;
+    }
+    .divEmprunt h3{
+        font-size: 15px;
+    }
+    .divEmprunt h2{
+        font-size: 17px;
+    }
+  }
+  @media screen and (max-width: 1390px) {
+    #boutonRenouvelerCotisation{
+        width: 70%;
+    }
+    #boutonModifierAdherent{
+        width: 70%;
+    }
+    #boutonArchiverAdherent{
+        width: 15%;
+    }
+    #boutonValiderAdherent{
+        width: 70%;
+    }
+    #boutonAnnulerAdherent{
+        width: 70%;
+    }
+  }
+  @media screen and (max-width: 1274px) {
+    .zoneInfo{
+        margin-bottom: 5%;
+    }
+    .container_Des_Infos{
+        width: 30%;
+        
+    }
+    .container_Des_emprunts{
+        width: 40%;
+    }
+    .container_Des_gestions{
+        width: 30%;
+    }
+    #listeDesEmpruntEnCours {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around
+
+    }
+    .divEmprunt{
+        width: 49%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .divEmprunt h3{
+        font-size: 12px;
+    }
+    .divEmprunt h2{
+        font-size: 15px;
+    }
+    #boutonRenouvelerCotisation{
+        width: 50%;
+        font-size: 15px;
+    }
+    #boutonModifierAdherent{
+        width: 50%;
+        font-size: 15px;
+    }
+    #boutonArchiverAdherent{
+        width: 10%;
+        font-size: 15px;
+    }
+    #boutonAnnulerAdherent{
+        width: 50%;
+        font-size: 15px;
+    }
+    #boutonValiderAdherent{
+        width: 50%;
+        font-size: 15px;
+    }
+
+  }
+  @media screen and (max-width: 1105px) {
+    .titre{
+        font-size: 15px;
+    }
+    span{
+        font-size: 13px;
+    }
+    .divEmprunt h3{
+        font-size: 12px;
+    }
+    .divEmprunt h2{
+        font-size: 13px;
+    }
+
+  }
+  @media screen and (max-width: 874px) {
+    .divEmprunt h4{
+        font-size: 8px;
+    }.container_Des_Infos{
+        width: 29%;
+        
+    }
+    .container_Des_emprunts{
+        width: 42%;
+    }
+    .container_Des_gestions{
+        width: 29%;
+    }
+    span{
+        font-size: 10px;
+    }
+    .titre{
+        font-size: 13px;
+    }
+
+  }
+  @media screen and (max-width: 786px) {
+    .titre{
+        font-size: 13px;
+    }
+
+  }
+  @media screen and (max-width: 773px) {
+    .containerDeToutLeProfilAdherent{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .container_Des_Infos{
+        width: 80%;
+        border: solid 4px rgba(49, 175, 160, 1);
+        
+    }
+    .container_Des_emprunts{
+        width: 80%;
+        border: solid 4px rgba(49, 175, 160, 1);
+    }
+    .container_Des_gestions{
+        width: 80%;
+        border: solid 4px rgba(49, 175, 160, 1);
+    }
+    span{
+        font-size: 15px;
+    }
+    .titre{
+        font-size: 18px;
+    }
+   #listeDesEmpruntEnCours {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        align-content: center;
+   }
+   .divEmprunt{
+    width: 70%;
+   }
+   #zoneInfoAmende{
+    padding-bottom: 25%;
+   }
+    #boutonArchiverAdherent{
+        width: 40%;
+        font-size: 15px;
+    }
+
+  }
+
+  

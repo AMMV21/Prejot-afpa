@@ -13,7 +13,7 @@
 </head>
 <header>
     <div id="topBar">
-        <p><span class="mobileHidden">Votre bédéthéque vous accueil</span> Du lundi au samedi de 9h à 19h</p>
+        <p><span class="mobileHidden">Votre bédéthéque vous accueille</span> Du lundi au samedi de 9h à 19h</p>
         <p>20 place du théatre 59056 Marmusote</p>
         <p id="login">Se Connecter</p>
     </div>
@@ -21,125 +21,115 @@
         <a href="./index.html" id="logoLink"><img id="navLogo" src="./Ressources/icone-BDTK.png" alt="logo"></a>
         <ul id="navList">
             <li><a href="./index.html">Accueil</a></li>
-            <li><a href="">Emprunts</a></li>
-            <li><a href="">Adhérants</a></li>
+            <li><a href="./list_emprunts.html">Emprunts</a></li>
+            <li><a href="./listeAdherents.html">Adhérents</a></li>
+
         </ul>
     </nav>
 </header>
 <body>
-    <div class="container_Rech_Ex">
-        <h1 id="titreAdherent">Profil Adhérent</h1> 
-        <div class="containerDeToutLeProfilAdherent">
-            <div class="container_Des_Infos">
-                <span class="titreInfo">Informations</span>
-                <div id="centreInfoVisible">
-                    <div class="zoneInfo">
-                        <span class="titre">Numéro d'adhérent : </span>
-                        <span id="zoneNumeroAdherent"></span>
-                    </div>
-                    <div class="zoneInfo">
-                        <span class="titre">Nom :</span>
-                        <span id="zoneNom"></span>  
-                    </div>
-                    <div class="zoneInfo">
-                        <span class="titre">Prénom :</span>
-                        <span id="zonePrenom">Prenom</span>  
-                    </div>
-                    <div class="zoneInfo">
-                        <span class="titre"> Adresse :</span>
-                        <span id="zoneAdresse">10 Adresse fictive</span>
-                        <span id="zoneVille">99999 Ville fictive</span>
-                    </div>
-                    <div class="zoneInfo">
-                        <span class="titre">Email :</span>
-                        <span id="zoneMail">UneAdresseMail@gmail.com</span>    
-                    </div>
-                 <button id="boutonModifierAdherent">Modifier</button> 
-                </div>
-
-
-                <div id="centreInfoInvisible">
-                    <form action="" method="get" id="formModif">
+    <div class="touteLaPage">
+        <div class="container_Rech_Ex">
+            <h1 id="titreAdherent">Profil Adhérent</h1> 
+            <div class="containerDeToutLeProfilAdherent">
+                <div class="container_Des_Infos">
+                    <div class="titreInfo">Informations</div>
+                    <div id="centreInfoVisible">
                         <div class="zoneInfo">
-                            <span class="titre">Numéro d'adhérent :</span>
-                            <span id="zoneNumeroAdherentDeux"></span>
+                            <span class="titre">Numéro d'adhérent : </span>
+                            <span id="zoneNumeroAdherent"></span>
                         </div>
                         <div class="zoneInfo">
-                            <span class="titre">Nom  :</span>
-                            <label for="nom">
-                                <input class="inputText" type="text" id="inputNom">
-                            </label>
+                            <span class="titre">Nom :</span>
+                            <span id="zoneNom"></span>  
                         </div>
                         <div class="zoneInfo">
                             <span class="titre">Prénom :</span>
-                            <label for="prenom">
-                                <input class="inputText" type="text" id="inputPrenom">
-                            </label>
+                            <span id="zonePrenom">Prenom</span>  
                         </div>
                         <div class="zoneInfo">
                             <span class="titre"> Adresse :</span>
-                            <label for="adresse">
-                                <input class="inputText" type="text" id="inputAdresse">
-                            </label>
-                            <label for="ville">
-                                <input class="inputText" type="text" id="inputVille">
-                            </label>
+                            <span id="zoneAdresse">10 Adresse fictive</span>
+                            <span id="zoneVille">99999 Ville fictive</span>
                         </div>
                         <div class="zoneInfo">
                             <span class="titre">Email :</span>
-                            <label for="mail">
-                                <input class="inputText" type="text" id="inputMail">
-                            </label>   
+                            <span id="zoneMail">UneAdresseMail@gmail.com</span>    
                         </div>
-                        <div class="inputDivValider">
-                            <input type="submit" value="Valider" id="boutonValiderAdherent"> 
-                            <input type="reset" value="Annuler" id="boutonAnnulerAdherent">  
-                        </div>
-                    </form>
-                </div>
-                
-            </div>
-            <div class="container_Des_emprunts">
-                
-                <span class="titreEmprunts">Les emprunts en cours</span>
-
-                <div>
-                    <div class="zoneInfo">
-                        <span class="titre">Nombre d'emprunts en cours : </span>
-                        <span id="nombreEmpruntsEnCours"></span>
-                        <div id="listeDesEmpruntEnCours">
-                    
-                         </div>   
-
-
-
-                        <button id="boutonEmprunterNouvelleBd">Emprunter une BD</button>
-                    </div>  
-                </div>
-                
-            </div>
-            <div class="container_Des_gestions">
-                <span class="titreGestion">Gestion</span>
-                    <div class="zoneInfoCotisation">
-                        <span class="titre">Cotisations :</span>  
-                        <span id="cotisationStatut">A jour</span>
-                        <button id="boutonRenouvelerCotisation">Renouveler</button>
+                    <button id="boutonModifierAdherent">Modifier</button> 
                     </div>
-                    <div id="zoneInfoAmende">
-                        <span class="titre">Amende :</span>
-                        <div>
-                         <span id="soldeEnEuro"></span>  
-                         <span>€</span> 
+                    <div id="centreInfoInvisible">
+                        <form action="" method="get" id="formModif">
+                            <div class="zoneInfo">
+                                <span class="titre">Numéro d'adhérent :</span>
+                                <span id="zoneNumeroAdherentDeux"></span>
+                            </div>
+                            <div class="zoneInfo">
+                                <span class="titre">Nom  :</span>
+                                <label for="nom">
+                                    <input class="inputText" type="text" id="inputNom">
+                                </label>
+                            </div>
+                            <div class="zoneInfo">
+                                <span class="titre">Prénom :</span>
+                                <label for="prenom">
+                                    <input class="inputText" type="text" id="inputPrenom">
+                                </label>
+                            </div>
+                            <div class="zoneInfo">
+                                <span class="titre"> Adresse :</span>
+                                <label for="adresse">
+                                    <input class="inputText" type="text" id="inputAdresse">
+                                </label>
+                                <label for="ville">
+                                    <input class="inputText" type="text" id="inputVille">
+                                </label>
+                            </div>
+                            <div class="zoneInfo">
+                                <span class="titre">Email :</span>
+                                <label for="mail">
+                                    <input class="inputText" type="text" id="inputMail">
+                                </label>   
+                            </div>
+                            <div class="inputDivValider">
+                                <input type="submit" value="Valider" id="boutonValiderAdherent"> 
+                                <input type="reset" value="Annuler" id="boutonAnnulerAdherent">  
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="container_Des_emprunts">
+                    <div class="titreEmprunts">Les emprunts en cours</div>
+                    <div>
+                        <div class="zoneInfo">
+                            <span class="titre">Nombre d'emprunts en cours : </span>
+                            <span id="nombreEmpruntsEnCours"></span>
+                            <div id="listeDesEmpruntEnCours">
+                            </div>   
+                            <button id="boutonEmprunterNouvelleBd">Emprunter une BD</button>
+                        </div>  
+                    </div>
+                </div>
+                <div class="container_Des_gestions">
+                    <div class="titreGestion">Gestion</div>
+                        <div class="zoneInfoCotisation">
+                            <span class="titre">Cotisations :</span>  
+                            <span id="cotisationStatut">A jour</span>
+                            <button id="boutonRenouvelerCotisation">Renouveler</button>
                         </div>
-                        <button id="boutonPayerAmende">Payer l'amende</button>
-                    </div>  
+                        <div id="zoneInfoAmende">
+                            <span class="titre">Amende :</span>
+                            <div>
+                            <span id="soldeEnEuro"></span>  
+                            <span>€</span> 
+                            </div>
+                            <button id="boutonPayerAmende">Payer l'amende</button>
+                        </div>  
+                </div>
             </div>
         </div>
-        
-    </div>
-    <div class="buttonArchiveAdherent">
-            <button id="archiverAdherent">Archiver l'adhérent</button>
-        </div>
+            <button id="boutonArchiverAdherent">Archiver l'adhérent</button>
+            
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="./data/albums.js"></script>
         <script src="./data/series.js"></script>
@@ -148,5 +138,7 @@
         <script src="./data/adherents.js"></script>
         <script src="./adherents/JS/emprunterNouvelleBDd.js"></script>
         <script src="./adherents/JS/profilAdherents.js"></script>
+        <script src="./adherents/JS/archiveAdherents.js"></script>
+        <script src="./data/adherentsArchiver.js"></script>
 </body>
 </html>

@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
     <link rel="stylesheet" href="./CSS_GLOBAL/header.css">
     <link rel="stylesheet" href="./CSS_GLOBAL/css_global.css">
+    <link rel="stylesheet" href="./CSS_GLOBAL/mediaqueries/header_media_queries.css">
     <link rel="stylesheet" href="./adherents/CSS/listeAdherents.css">
-    <link rel="stylesheet" href="./BD/CSS/recherch_pret.css">
     
 </head>
 <body>
     <header>
         <div id="topBar">
-            <p><span class="mobileHidden">Votre bédéthéque vous accueil</span> Du lundi au samedi de 9h à 19h</p>
+            <p><span class="mobileHidden">Votre bédéthéque vous accueille</span> Du lundi au samedi de 9h à 19h</p>
             <p>20 place du théatre 59056 Marmusote</p>
             <p id="login">Se Connecter</p>
         </div>
@@ -26,33 +28,36 @@
                 <li><a href="./index.html">Accueil</a></li>
                 <li><a href="./list_emprunts.html">Emprunts</a></li>
                 <li><a href="./listeAdherents.html">Adhérents</a></li>
-                <li><a href="">Ajouter BD</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div>
-        <div>
-            <span id="titreListeAdherents">Listes des adhérents</span>
-        </div>
-        <div id="tableauComplet">
-            <table id="myTable" class="display">
-                <thead id="fontPourLesTh">
-                    <tr>
-                        <th>Clé Valeurs</th>
-                        <th>Numéro adhérent</th>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Mail</th>
-                        <th>Code postal</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody">
-                
-                   
-                </tbody>
-            </table>
-        </div>
+        <div class="toutLeTableau">
+            <div>
+                <h1 id="titreListeAdherents">Liste des adhérents </h1>
+            </div>
+            <div id="tableauComplet">
+                <table id="myTable" class="display responsive nowrap" style="width: 100%;">
+                    <thead id="fontPourLesTh">
+                        <tr>
+                            <th>Clé Valeurs</th>
+                            <th>Numéro adhérent</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Mail</th>
+                            <th>Code postal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    
+                    
+                    </tbody>
+                </table>
+            </div>
+            <div>
+            <button id="boutonInscriptionNouvelAdherent">Inscription d'un nouvel adhérent</button>
+            <button id="boutonListeAdherentsArchiver">Liste des adhérents archivés</button>
+            </div>
         </div>
     </main>
     <script src="./data/adherents.js"></script>

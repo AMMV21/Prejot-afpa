@@ -12,7 +12,7 @@
     margin-bottom: 100px;
 }
 
-#tableauComplet{
+#tableauCompletArchiver{
     background-color: white;
     width: 100%;
     margin: auto;
@@ -20,7 +20,7 @@
     margin-bottom: 50px;
     border-radius: 5px;
 }
-#titreListeAdherents{
+#titreListeAdherentsArchiver{
     font-family: "baloo-regular";
     font-size: 2.188rem;
     color:#AD033A;
@@ -41,21 +41,18 @@
     margin-right: 15px;
     
 }
-#fontPourLesTh{
+#fontPourLesThArchiver{
     color:#AD033A;
 }
-#myTable {
+#myTableArchiver {
     width: 100%;
 }
-#myTable tbody tr:hover{
+#myTableArchiver tbody tr:hover{
     color: white;
     background-color: rgba(49, 175, 160, 1);
 }
-#myTable td:hover{
-    cursor: pointer;
-    
-}
-#myTable th, #myTable td {
+
+#myTableArchiver th, #myTable td {
     font-family: 'roboto-regular';
     width: 20%; 
     box-sizing: border-box;
@@ -74,16 +71,4 @@
     border: none;
     background: rgba(220, 130, 39, 1);
     color: white !important;
-}
-#boutonInscriptionNouvelAdherent{
-    background-color:rgba(220, 130, 39, 1) ;
-    margin-bottom: 50px;
-    margin-right: 5px;
-}
-#boutonInscriptionNouvelAdherent:hover{
-    background-color: rgba(49, 175, 160, 1);
-}
-#boutonListeAdherentsArchiver{
-    margin-bottom: 50px;
-    margin-left: 5px;
 }

@@ -54,7 +54,8 @@ let tAdherent = []; // Tableau qui contiendra les objets de la map
    let adherentStorage = JSON.parse(localStorage.getItem('adherent'));
    console.log(adherentStorage)
    
-   //Je décommente la ligne suivant pour réinitialiser le storage avec le tableau de base.
-   //localStorage.setItem("adherent", JSON.stringify(Array.from(tAdherent)));
+   // Je décommente la ligne suivant pour réinitialiser le storage avec le tableau de base.
+   // localStorage.setItem("adherent", JSON.stringify(Array.from(tAdherent)));
+
 
 
