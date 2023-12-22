@@ -1,5 +1,6 @@
+//DataTable
 $(document).ready(function () {
-    var table = $('#myTable').DataTable({
+    var table = $('#myTableArchiver').DataTable({
         responsive: true,
         //Permet de changer la langue de la barre de recherche
         "oLanguage": {
@@ -28,21 +29,9 @@ $(document).ready(function () {
         ]
     });
     //Ajoute un evenement click sur les tr qui permet de se rendre sur la page profilAdherents
-    $('#myTable tbody').on('click', 'tr', function () {
-        // Récupérer les données de la ligne
-        var rowData = table.row(this).data();
-
-        // Construire l'URL avec l'identifiant unique (numéro d'adhérent)
-        var pageUrl = "profilAdherents.html?numeroAdherent=" + rowData[0];
-         
-
-        // Rediriger l'utilisateur vers la page profilAdherents.html avec les informations de l'adhérent
-        window.location.href = pageUrl;
-    });
-
     let i = 1;
     // Ajouter les colonnes à DataTable en utilisant les clés de la map
-    adherentStorage.forEach(function (values) {
+    adherentArchiverStorage.forEach(function (values) {
         // Ajouter une nouvelle ligne dans le tableau
         var rowData = [
             i,
@@ -65,15 +54,3 @@ $(document).ready(function () {
     table.draw();
 });
 
-//Abonne le bouton "Inscription d'un nouvel adhérent" pour rediriger vers la page inscription adhérent
-var boutonInscriptionNouvelAdherent = document.getElementById("boutonInscriptionNouvelAdherent");
-
-boutonInscriptionNouvelAdherent.addEventListener('click', function(){
-    window.location.href = 'inscriptionAdherent.html';
-});
-//Abonne le bouton "liste des adhérents archivés" pour rediriger vers la page liste des adhérents archivés
-var boutonListeAdherentsArchiver = document.getElementById("boutonListeAdherentsArchiver");
-
-boutonListeAdherentsArchiver.addEventListener("click", function(){
-    window.location.href = "archiveAdherents.html";
-});

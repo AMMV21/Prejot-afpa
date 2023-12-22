@@ -3,7 +3,7 @@
     text-align: center;
     flex-direction: column;
     align-items: center;
-    width: 800px;
+    width: 50%;
     margin: auto;
     background-color: white;
     margin-top: 100px;
@@ -45,11 +45,11 @@ form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 96%;
 }
 
 .diviMail input {
-    width: 58%;
+    width: 460px;
 }
 #validerInscription{
     background-color: #AD033A;
@@ -86,4 +86,16 @@ form{
     transform: scale(1.05);
     transition: transform 0.5s ease;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .infosInscription{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .diviMail input {
+    width: 230px;
+  }
 }

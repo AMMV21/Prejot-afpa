@@ -3,14 +3,12 @@ var params = new URLSearchParams(window.location.search);
 var numeroAdherent = params.get('numeroAdherent');
 if (numeroAdherent) {
     numeroAdherent = parseInt(numeroAdherent);
-    // Utilise le numéroAdherent pour récupérer les détails de l'adhérent
-
 
     // Fonction pour mettre à jour les détails de l'adhérent sur la page
    
 function updateDetails() {
     var zoneNumeroAdherent = document.getElementById("zoneNumeroAdherent");
-    zoneNumeroAdherent.innerText = adherentStorage[numeroAdherent-1].numeroAdherent; // -1
+    zoneNumeroAdherent.innerText = adherentStorage[numeroAdherent-1].numeroAdherent;
 
     var zoneNumeroAdherent = document.getElementById("zoneNumeroAdherentDeux");
     zoneNumeroAdherent.innerText = adherentStorage[numeroAdherent-1].numeroAdherent;
@@ -64,7 +62,6 @@ var boutonEmprunterNouvelleBd = document.getElementById("boutonEmprunterNouvelle
         cancelButtonText: "Annuler",
         confirmButtonText: "Renouveler"
         //Si click sur renouveler, le statut pas à jour deviens à jour
-        //Si j'ai le temps modifier à jour avec les expiration dans ou à expiré avec des dates
         }).then((result) => {
             if (result.isConfirmed) {
                 cotisationStatut.innerText = "A jour";

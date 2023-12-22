@@ -1,0 +1,74 @@
+.toutLeTableau{
+    margin: auto;
+    background-color: white;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 3px #31AFA0;
+    border-radius: 10px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#tableauCompletArchiver{
+    background-color: white;
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+}
+#titreListeAdherentsArchiver{
+    font-family: "baloo-regular";
+    font-size: 2.188rem;
+    color:#AD033A;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 5px;
+    
+}
+#myTable_length{
+    margin-top: 10px;
+    margin-left: 15px;
+}
+#myTable_filter{
+    margin-right: 15px;
+    
+}
+#fontPourLesThArchiver{
+    color:#AD033A;
+}
+#myTableArchiver {
+    width: 100%;
+}
+#myTableArchiver tbody tr:hover{
+    color: white;
+    background-color: rgba(49, 175, 160, 1);
+}
+
+#myTableArchiver th, #myTable td {
+    font-family: 'roboto-regular';
+    width: 20%; 
+    box-sizing: border-box;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: rgba(220, 130, 39, 1);
+    border: none;
+    
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background-color: rgba(220, 130, 39, 1);
+    border: none;   
+    color: white; 
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border: none;
+    background: rgba(220, 130, 39, 1);
+    color: white !important;
+}
