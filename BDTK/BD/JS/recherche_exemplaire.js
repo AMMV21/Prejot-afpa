@@ -152,7 +152,7 @@
             let url = './profilAdherents.html?numeroAdherent=' + (i + 1);
             pageUrl = "<a href='" + url + "'>Consulter le profil</a>";
             if (numAdhSaisi === adherentStorage[i].numeroAdherent) {
-                if ((adherentStorage[i].prenom !== "supprimé" && adherentStorage[i].cotisation === "A jour" && adherentStorage[i].nbr_emprunt < 3 && adherentStorage[i].amende == 0 )){
+                if ((adherentStorage[i].prenom !== "Supprimé" && adherentStorage[i].cotisation === "A jour" && adherentStorage[i].nbr_emprunt < 3 && adherentStorage[i].amende == 0 )){
                     zoneNom.innerText = adherentStorage[i].nom;
                     zonePrenom.innerText = adherentStorage[i].prenom;
                     indiceAd = i ;
