@@ -16,7 +16,7 @@
 
     #popupBdContent>img
     {
-        width: 30%;
+        width: 35%;
     }
     #popupBdInfos
     {
@@ -77,7 +77,7 @@
     }
     #popupBdContent>img
     {
-        width: 30%;
+        width: 35%;
     }
 } 
 @media screen and (max-width: 700px)
