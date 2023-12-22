@@ -214,8 +214,10 @@ span{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 .divEmprunt{
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
