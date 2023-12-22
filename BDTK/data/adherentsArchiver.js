@@ -2,7 +2,6 @@ var adherentArchiver = new Map();
 let tAdherentArchiver = []; // Tableau qui contient les objets de la map
 
     function creerMapAdherentsArchiver() {
-        adherentArchiver.set("1",{numeroAdherent:"50", nom: "Gilbert", prenom:"Guillaume", mail: "Guiguidu59@hotmail.fr", codePostal: "59155 Faches-Thumesnil",adresse: "38 Rue des parasol",})
         
     }
     const remplirNewAdhArchiver = function () {

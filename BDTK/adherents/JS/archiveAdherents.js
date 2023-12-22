@@ -7,7 +7,7 @@ boutonArchiverAdherent.addEventListener("click", function () {
     // Affiche la SweetAlert de confirmation
     Swal.fire({
         title: 'Attention!',
-        text: 'Êtes-vous sûr de vouloir archiver cet adhérent?',
+        html:'Êtes-vous sûr de vouloir archiver cet adhérent ? <br> Cette action est irréversible',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: "rgba(173, 3, 58, 1)",
@@ -20,9 +20,12 @@ boutonArchiverAdherent.addEventListener("click", function () {
             archiverAdherent(numeroAdherent);
             Swal.fire({
                 title: 'Adhérent archivé!',
-                text: 'L\'adhérent a été archivé avec succès.',
+                text: "L'adhérent a été archivé avec succès.",
                 icon: 'success',
                 confirmButtonColor: "rgba(173, 3, 58, 1)",
+            }).then(() => {
+                // Redirection vers la page archiveAdherents.html
+                window.location.href = 'archiveAdherents.html';
             });
         }
     });
@@ -86,3 +89,5 @@ function getAdherentByNumero(numeroAdherent) {
 
     return adherentActif;
 }
+
+

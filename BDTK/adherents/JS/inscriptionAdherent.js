@@ -65,11 +65,6 @@ function inscription(e) {
         cotisation: "A jour",
         amende: "0"
     };
-//     function genererNouveauNumeroAdherent() {
-//   // Utilisez le nombre total d'adhérents (actifs et archivés) plutôt que le dernier numéro actif
-//     var totalAdherents = ( adherentStorage.length + 2 ) +  adherentArchiverStorage.length;
-//     return totalAdherents.toString();
-// }
 
     // Ajoute le nouvel adhérent au tableau d'adhérents existant
     adherentStorage.push(nouvelAdherent);
