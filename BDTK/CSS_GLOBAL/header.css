@@ -12,6 +12,10 @@
 header {
     position: sticky;
     top: 0;
+} 
+
+header a{
+    color: white;
 }
 
 /*Navigation*/

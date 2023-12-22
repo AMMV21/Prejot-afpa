@@ -368,4 +368,8 @@ if (adherentStorage[numeroAdherent-1].emprunt2 !== "" ){
 }
 if (adherentStorage[numeroAdherent-1].emprunt3 !== "" ){
     rechercheTitreExemplaire(adherentStorage[numeroAdherent-1].emprunt3);
-}
+} 
+
+window.addEventListener('popstate', function() {
+    window.location.reload();
+});

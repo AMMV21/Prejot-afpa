@@ -152,12 +152,19 @@
             let url = './profilAdherents.html?numeroAdherent=' + (i + 1);
             pageUrl = "<a href='" + url + "'>Consulter le profil</a>";
             if (numAdhSaisi === adherentStorage[i].numeroAdherent) {
-                if ((adherentStorage[i].cotisation === "A jour" && adherentStorage[i].nbr_emprunt < 3 && adherentStorage[i].amende == 0 )){
+                if ((adherentStorage[i].prenom !== "supprimé" && adherentStorage[i].cotisation === "A jour" && adherentStorage[i].nbr_emprunt < 3 && adherentStorage[i].amende == 0 )){
                     zoneNom.innerText = adherentStorage[i].nom;
                     zonePrenom.innerText = adherentStorage[i].prenom;
                     indiceAd = i ;
-                    return true
-                
+                    return true;
+                } else if (adherentStorage[i].prenom === "supprimé"){
+                    Swal.fire({
+                        icon: "error",
+                        title: "Adhérent introuvable !",
+                        text: "L'adhérent a été supprimé, il ne figure plus dans la liste!",
+                        footer: pageUrl,
+                    });
+                    return false;
                 } else if (adherentStorage[i].cotisation === "A jour" && adherentStorage[i].nbr_emprunt < 3){
                     Swal.fire({
                         icon: "error",
