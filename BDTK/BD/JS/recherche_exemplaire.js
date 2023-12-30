@@ -54,12 +54,18 @@
         
     }); 
 
-    
+    // Au clique sur le bouton annuler,  la div valider un prêt est remplacé par la div recherche.
     btn_annuler.addEventListener('click',function(){
         validerPret.classList.add("invisible");
         rechercheInfos.classList.remove('invisible');
     })
+    
 
+    /**
+     * La fonction permet de parcourir les infos présente dans le locale storage et compare avec le code saisi par l'utilisateur,
+     * si le code correspond à un code exemplaire présent alors la fonction vérifie la disponibilitée et renvoi True , sinon False.
+     * @returns True ou false
+     */
     function rechercheEx() {
         let codeSaisi = codeEx.value;
     
@@ -140,8 +146,9 @@
             }
           });
     });
+    
     /**
-     * Compare le numéro saisi dans l'input et vérifie sa présence dans le Map adhérent.
+     * Compare le numéro saisi dans l'input et vérifie sa présence dans le locale storage adhérent.
      *  
      */
     function rechercheAdh() {
@@ -162,7 +169,6 @@
                         icon: "error",
                         title: "Adhérent introuvable !",
                         text: "L'adhérent a été supprimé, il ne figure plus dans la liste!",
-                        footer: pageUrl,
                     });
                     return false;
                 } else if (adherentStorage[i].cotisation === "A jour" && adherentStorage[i].nbr_emprunt < 3){
@@ -201,7 +207,10 @@
         });
         return false ;
     }
-
+    
+    /**
+     * La fonction initialise les zones de messages d'erreurs.
+     */
     function initText(){
         zoneCodeExemplaire.innerText = "";
         zoneTitre.innerText = "";
@@ -210,19 +219,25 @@
         zoneErrCodeEx.innerText= "";  // Utile pour réinitialiser à zéro les spans erreur.
         zoneErrNumAdh.innerText= "";  // Utile pour réinitialiser à zéro les spans erreur.
     } 
-
+    
+    /**
+     * Permet de mettre à jour de profil de l'adhérent en lui ajouter le code exemplaire de la BD qu'il vient d'emprunter.
+     */
     function majProfilAdh(){
-        if (adherentStorage[indiceAd].nbr_emprunt == 0){
+        if (adherentStorage[indiceAd].nbr_emprunt == 0){ // L'adhérent n'a pas de prêt, l'exemplaire est stocké à cette emplacement.
             adherentStorage[indiceAd].emprunt1 = exemplaireLocalStorage[indiceEx].codeExemplaire; 
-        } else if (adherentStorage[indiceAd].nbr_emprunt == 1) {
+        } else if (adherentStorage[indiceAd].nbr_emprunt == 1) { 
             adherentStorage[indiceAd].emprunt2 = exemplaireLocalStorage[indiceEx].codeExemplaire; 
         } else {
             adherentStorage[indiceAd].emprunt3 = exemplaireLocalStorage[indiceEx].codeExemplaire;
         }
         adherentStorage[indiceAd].nbr_emprunt ++ ;
-        localStorage.setItem('adherent', JSON.stringify(adherentStorage)); 
+        localStorage.setItem('adherent', JSON.stringify(adherentStorage)); // Met à jour de locale storage.
     }
 
+    /**
+     * Permet de mettre a jour la disponibilité d'un exemplaire et indique l'Id de l'emprunteur.
+     */
     function majExemplaire() {
         exemplaireLocalStorage[indiceEx].disponibilite = false;
         exemplaireLocalStorage[indiceEx].Emprunteur =  indiceAd + 1;
@@ -240,7 +255,10 @@
     }
    
     let newEmprunt = {};
- 
+   
+   /**
+    * Permet de 
+    */
    function addEmpruntList(){
         // Récupérer la date actuelle
         let dateActuelle = new Date();
