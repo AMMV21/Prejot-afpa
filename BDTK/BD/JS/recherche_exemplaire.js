@@ -244,17 +244,17 @@
         localStorage.setItem('exemplaires', JSON.stringify(exemplaireLocalStorage));
     } 
 
-//    function majStock(){
-//     // Met à jour le stock
-//         for (let i=0 ; i< disponibiliteBDStorage.length; i++){
-//             if(disponibiliteBDStorage[i][0] === titreBD ){
-//                 disponibiliteBDStorage[i][1].disponibilite --;
-//                 }
-//         }
-//         localStorage.setItem('disponibilite',JSON.stringify(disponibiliteBDStorage));
-//     }
+   function majStock(){
+    // Met à jour le stock
+        for (let i=0 ; i< disponibiliteBDStorage.length; i++){
+            if(disponibiliteBDStorage[i][0] === titreBD ){
+                disponibiliteBDStorage[i][1].disponibilite --;
+                }
+        }
+        localStorage.setItem('disponibilite',JSON.stringify(disponibiliteBDStorage));
+    }
    
-//     let newEmprunt = {};
+    let newEmprunt = {};
    
    /**
     * Permet de 
